@@ -1,4 +1,5 @@
 enableDebugConsole = 1;
+allowFunctionsRecompile = 1; // REMOVE THIS FOR A REAL MISSION
 
 class CfgFunctions {
 	#include "SHGT\SHGT_functions.hpp"

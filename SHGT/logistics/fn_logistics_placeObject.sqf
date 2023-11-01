@@ -9,7 +9,7 @@ objCategory = _objListCost select 2;
 //if ((objclassName isEqualTo SHGT_persist_FobObjectName) and (count ((getPosATL player) nearObjects [SHGT_persist_HqObjectName, SHGT_persist_radiusToSaveHq]) >0)) exitWith {systemChat "Too close to existing HQ"};
 //if ((objclassName isEqualTo SHGT_persist_HqObjectName) and (count ((getPosATL player) nearObjects [SHGT_persist_HqObjectName, SHGT_persist_radiusToSaveHq]) >0)) exitWith {systemChat "Too close to existing HQ"};
 //if ((objclassName isEqualTo SHGT_persist_HqObjectName) and (count ((getPosATL player) nearObjects [SHGT_persist_FobObjectName, SHGT_persist_radiusToSaveFob]) >0)) exitWith {systemChat "Too close to existing HQ"};
-if ((objclassName isEqualTo SHGT_persist_HqObjectName) and !((admin clientOwner isEqualTo 2) or (player getVariable [SHGT_persist_adminTag,false]))) exitWith {systemChat "Only admins can build HQ"};
+if ((objclassName isEqualTo SHGT_persist_HqObjectName) and !(((call BIS_fnc_admin) isEqualTo 2) or (player getVariable [SHGT_persist_adminTag,false]))) exitWith {systemChat "Only admins can build HQ"};
 
 // Determine if nearby supply exists (or sandbags)
 _nearbySupplyPoints = nearestObjects [getPosATL player, SHGT_logistics_cargoCapable,SHGT_logistics_supplySearchRadius];
@@ -81,7 +81,7 @@ _keyleft = [203, [false, false, false], {rot = rot-rotSize; vehPlace setDir rot;
 _keyRight = [205, [false, false, false], {rot = rot+rotSize; vehPlace setDir rot;}] call CBA_fnc_addKeyHandler;
 
 // snap to ground. on by default
-_keySnap = [54, [false, false, false], {if (snap isEqualTo true) exitWith {snap=false}; if (snap isEqualTo false) exitWith {snap=true};}] call CBA_fnc_addKeyHandler;
+_keySnap = [207, [false, false, false], {if (snap isEqualTo true) exitWith {snap=false}; if (snap isEqualTo false) exitWith {snap=true};}] call CBA_fnc_addKeyHandler;
 
 // confirm/Cancel
 _keyConfirm = [28, [false, false, false], {player setVariable ["placing",false];}] call CBA_fnc_addKeyHandler;
@@ -98,11 +98,13 @@ _handle = [{
 
     // Player states
     player forceWalk TRUE;
-    player action ["SwitchWeapon", player, player, 100];
+    //player action ["SwitchWeapon", player, player, 100]; // RUNNING THIS CAUSES ANNOYING SOUND
+    player action ["SWITCHWEAPON", player, player, -1];
 
     // Move Item
     _Pos = player getRelPos [dirForward, 0];
     vehPlace setposATL [(_Pos select 0),(_Pos select 1),(_Pos select 2)+dirZ];
+    
     if (snap) then {
         vehPlace setVectorUp surfaceNormal position vehPlace; // Align object with the terrain underneath
     };

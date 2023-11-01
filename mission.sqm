@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=314;
+		nextID=315;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=72;
+		nextID=84;
 	};
 	class Camera
 	{
-		pos[]={1775.0558,22.533022,5196.2773};
-		dir[]={-0.80025703,-0.53927815,0.26224631};
-		up[]={-0.51246458,0.84212589,0.16793613};
-		aside[]={0.31140915,4.2273314e-008,0.95027888};
+		pos[]={1742.5358,22.533022,5212.376};
+		dir[]={-0.800255,-0.53927678,0.2622456};
+		up[]={-0.51246196,0.84212852,0.16793509};
+		aside[]={0.31140798,0,0.95027637};
 	};
 };
 binarizationWanted=0;
@@ -62,7 +62,8 @@ addons[]=
 	"A3_Soft_F_MRAP_01",
 	"A3_Air_F_Heli_Light_01",
 	"A3_Structures_F_EPA_Civ_Camping",
-	"ace_sitting"
+	"ace_sitting",
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
@@ -338,7 +339,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=33;
+		items=34;
 		class Item0
 		{
 			dataType="Group";
@@ -1635,6 +1636,21 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item33
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1720.0536,9.4768047,5212.6792};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=314;
+			type="Flag_Blue_F";
 		};
 	};
 	class Connections

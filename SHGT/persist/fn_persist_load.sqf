@@ -1,5 +1,6 @@
 // load meta data
 private _saveNameMeta = format ["%1_%2",SHGT_persist_dbName,"meta"];
+if ((isnil "OO_INIDBI")) exitWith {systemChat "inidbi2 mod not loaded, local save/load not possible"};
 SHGT_persist_inidbi_meta = ["new", _saveNameMeta] call OO_INIDBI;
 
 // Check if meta data exists

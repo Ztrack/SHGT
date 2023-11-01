@@ -1,4 +1,7 @@
 
+// Check mod is loaded
+if ((isnil "OO_INIDBI")) exitWith {systemChat "inidbi2 mod not loaded, local save/load not possible"};
+
 // Object persistence dB
 ["Persistence save starting..."] remoteExec ["systemChat"];
 
@@ -34,6 +37,7 @@ _saveNameMeta = format ["%1_%2",SHGT_persist_dbName,"meta"];
 SHGT_persist_inidbi_meta = ["new", _saveNameMeta] call OO_INIDBI;
 _saveList = ["read", ["names", "list", []]] call SHGT_persist_inidbi_meta;
 _saveList pushback _saveName;
+if (count _saveList > 10) then {_saveList deleteAt 0}; // Store x saves in meta file
 ["write", ["names","list", _saveList]] call SHGT_persist_inidbi_meta;
 
 // Print complete

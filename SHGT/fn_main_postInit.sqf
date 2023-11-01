@@ -6,7 +6,7 @@ SHGT_persist_autoSave = true; // autosave true/false
 SHGT_persist_adminTag = 'Spearhead'; // Tag that allows saving/loading
 SHGT_persist_autoSaveFrequency = 360; // in minutes
 SHGT_persist_dBNamePrefix = 'SHGT_dB';
-SHGT_persist_dBNamePostfix = 'balticDefender'; // set to '' if you want it to append the briefingName
+SHGT_persist_dBNamePostfix = 'testing'; // set to '' if you want it to append the briefingName
 SHGT_persist_hqObjectName = "Flag_Blue_F";
 SHGT_persist_fobObjectName = "Flag_Green_F";
 SHGT_persist_pbObjectName = "Land_WoodenLog_F";
@@ -21,7 +21,7 @@ SHGT_persist_saveObject = "Land_Laptop_03_black_F";
 SHGT_logistics_supplySource = "Land_Cargo40_military_green_F";
 SHGT_logistics_supplyMax = 500;
 SHGT_logistics_supplySearchRadius = 300;
-SHGT_logistics_buildTimeMultiplier = 8;
+SHGT_logistics_buildTimeMultiplier = 8; // Bigger number = will take longer. Direct multiplier
 SHGT_callToPrayer = false;
 SHGT_deleteAllMapLocations = false;
 SHGT_removeAICollisionDamage = false;
