@@ -1,27 +1,36 @@
+// This whitelist script will first check all mods loaded on the server and allow them. Then it will reference mods in the whitelist array. 
+// If there are leftover mods not on the server or whitelisted, player is kicked
+// Run this command in-game to generate whitelist "copyToClipboard str ("true" configClasses (configFile >> "CfgPatches") apply {configName _x});"
 
-if ((isServer) and isNil ("SHGT_clientAddons")) then {SHGT_clientAddons = []; publicVariable "SHGT_clientAddons";};
-SHGT_whitelistedAddons = ["vn_versioning","3denEnhanced"];
-
-SHGT_modCheckerToServer = {
-params ["_clientConfigs","_name"];
-	private _AA = "((toLower (configName _x)) find ""a3"" != 0) && ((toLower (configName _x)) find ""jsrs"" != 0) && ((toLower (configName _x)) find ""vn"" != 0)" configClasses (configFile >> "CfgPatches"); 
-	//private _AA = "(toLower (configName _x)) find ""a3"" != 0 && (toLower (configName _x)) find ""jsrs"" != 0 " configClasses (configFile >> "CfgPatches"); 
-	private _serverConfigs = _AA apply {configName _x} ; //bux
-	private _clientSide = _clientConfigs - _serverConfigs;
-	_clientSide = _clientSide - SHGT_whitelistedAddons;
-	diag_log format ["SHGT Addon Checker: %1, %2", _name, _clientSide];
-	//{
-	//	if (_x isEqualTo _name) then {SHGT_clientAddons set [_forEachIndex,[_name,_clientSide]]} else {SHGT_clientAddons pushBack [_name,_clientSide]};
-	//} forEach SHGT_clientAddons;
-	//if (SHGT_clientAddons isEqualTo []) then {SHGT_clientAddons pushBack [_name,_clientSide]};
-	//publicVariable "SHGT_clientAddons";
+if ((isServer) and isNil ("SHGT_serverAddons")) then {
+	SHGT_serverAddons = ("true" configClasses (configFile >> "CfgPatches") apply {configName _x});
+	publicVariable "SHGT_serverAddons";
 };
 
+// Following code runs only on players
+if !(hasInterface) exitWith {};
 
+// Run the following code in unnscheduled so we can suspend
+[] spawn {
 
-if (hasInterface) then {
-	private _AA = "(toLower (configName _x)) find ""a3"" != 0 && (toLower (configName _x)) find ""jsrs"" != 0" configClasses (configFile >> "CfgPatches"); 
-	private _configs = _AA apply {configName _x} ; //bux
-	private _name = name player;
-	[[_configs,_name],SHGT_modCheckerToServer] remoteExec ["call", 2, false];
+//Wait for conditions
+waitUntil {uiSleep 1; !(isNil "SHGT_whitelistedAddons")}; // Wait for whitelist variable to exist
+waitUntil {uiSleep 1; (getClientStateNumber >= 10)}; // Wait for player to be past the briefing phase
+
+// Get player addons
+_playerAddons = ("true" configClasses (configFile >> "CfgPatches") apply {configName _x}); // Get all player addons
+
+// Find if any mods remain after checking server + whitelist addons
+_remainder = _playerAddons - SHGT_serverAddons;
+_remainder = _remainder - SHGT_whitelistedAddons;
+
+// If mods are good, player continues with their miserable life
+uiSleep 5;
+if !(count _remainder > 0) exitWith {systemChat "SHGT WL: Good"}; // Player is good to play on the server
+
+// If unwhitelisted mods exist, continue to warn & kick player
+systemChat format ["Unwhitelisted mods loaded, You will be kicked to lobby in 15... Remove: %1",str _remainder];
+uiSleep 15;
+endMission "END2";
+
 };
