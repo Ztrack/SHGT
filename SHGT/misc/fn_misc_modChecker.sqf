@@ -2,35 +2,40 @@
 // If there are leftover mods not on the server or whitelisted, player is kicked
 // Run this command in-game to generate whitelist "copyToClipboard str ("true" configClasses (configFile >> "CfgPatches") apply {configName _x});"
 
-if ((isServer) and isNil ("SHGT_serverAddons")) then {
-	SHGT_serverAddons = ("true" configClasses (configFile >> "CfgPatches") apply {configName _x});
+if (isServer) then {
+	SHGT_serverAddons = ("(toLower (configName _x)) find ""a3"" != 0" configClasses (configFile >> "CfgPatches") apply {configName _x});
 	publicVariable "SHGT_serverAddons";
 };
 
 // Following code runs only on players
-if !(hasInterface) exitWith {};
+if (!(hasInterface) or (isServer)) exitWith {};
 
 // Run the following code in unnscheduled so we can suspend
 [] spawn {
 
 //Wait for conditions
-waitUntil {uiSleep 1; !(isNil "SHGT_whitelistedAddons")}; // Wait for whitelist variable to exist
-waitUntil {uiSleep 1; (getClientStateNumber >= 10)}; // Wait for player to be past the briefing phase
+waitUntil {uiSleep 1; (getClientStateNumber >= 10)}; // Wait for whitelist variable to exist
+waitUntil {uiSleep 1; !(isNil "SHGT_serverAddons")}; // Wait for whitelist variable to exist
+uiSleep 30;
+
+// Get whitelist
+systemChat "SHGT WL: Start...";
+private _contents = loadFile "SHGT\SHGT_modWhitelist.txt";
+SHGT_whitelistedAddons = parseSimpleArray _contents;
 
 // Get player addons
-_playerAddons = ("true" configClasses (configFile >> "CfgPatches") apply {configName _x}); // Get all player addons
+private _playerAddons = ("(toLower (configName _x)) find ""a3"" != 0" configClasses (configFile >> "CfgPatches") apply {configName _x}); // Get all player addons
 
-// Find if any mods remain after checking server + whitelist addons
-_remainder = _playerAddons - SHGT_serverAddons;
+private _remainder = _playerAddons - SHGT_serverAddons;
 _remainder = _remainder - SHGT_whitelistedAddons;
 
 // If mods are good, player continues with their miserable life
-uiSleep 5;
-if !(count _remainder > 0) exitWith {systemChat "SHGT WL: Good"}; // Player is good to play on the server
+if (!(count _remainder > 0) or (_remainder isEqualTo []) or (isNil "_remainder")) exitWith {systemChat "SHGT WL: Good";}; // Player is good to play on the server
 
 // If unwhitelisted mods exist, continue to warn & kick player
-systemChat format ["Unwhitelisted mods loaded, You will be kicked to lobby in 15... Remove: %1",str _remainder];
-uiSleep 15;
+systemChat format ["Unwhitelisted mods loaded, You will be kicked to lobby in 30s... Remove: %1",str _remainder];
+hint format ["Unwhitelisted mods loaded, You will be kicked to lobby in 30s... Remove: %1",str _remainder];
+uiSleep 30;
 endMission "END2";
 
 };
