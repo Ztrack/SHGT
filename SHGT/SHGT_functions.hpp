@@ -65,5 +65,9 @@ class SHGT {
 		class misc_soccerInit {};
 		class misc_modChecker {};
 		class misc_quickDropBackpack {};
+		class misc_kickPlayerOnVehicleDeath {};
+		class misc_kickdeadPlayerFromVehicleOnDeath {};
+		class misc_removeItemsFromAI {};
+		class misc_removeGPSfromVehicles {};
 	};
 };

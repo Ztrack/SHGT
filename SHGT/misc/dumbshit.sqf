@@ -34,3 +34,11 @@ heli1 setObjectScale .1;
 
 };
 };
+
+
+// TURBO
+_veh = vehicle _this;        
+_vel = (velocity _veh);        
+_dir = direction _veh;        
+_speed = 10;       
+_veh setVelocity [(_vel select 0) + (sin _dir) * _speed, (_vel select 1) + (cos _dir) * _speed, (_vel select 2)];
