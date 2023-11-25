@@ -18,6 +18,9 @@ class SHGT {
 		class logistics_createBase {};
 		class logistics_baseSavePlayer {};
 		class logistics_baseLoadPlayer {};
+		class logistics_lcla_loadCargoInit {postInit = 1;};
+		class logistics_lcla_loadCargo {};
+		class logistics_lcla_UnloadCargo {};
 	};
 	class persist {
 		file = "SHGT\persist";
