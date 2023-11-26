@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=329;
+		nextID=338;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=105;
+		nextID=108;
 	};
 	class Camera
 	{
-		pos[]={1733.4283,24.995569,5236.6909};
-		dir[]={-0.74775326,-0.60084373,0.28258082};
-		up[]={-0.56204861,0.79936653,0.21240184};
-		aside[]={0.35350597,0,0.93543231};
+		pos[]={1707.4707,11.511438,5188.6748};
+		dir[]={-0.73878473,-0.64153999,0.2064549};
+		up[]={-0.61786771,0.76708955,0.1726644};
+		aside[]={0.26914051,0,0.96310091};
 	};
 };
 binarizationWanted=0;
@@ -66,13 +66,16 @@ addons[]=
 	"A3_Structures_F_Mil_Flags",
 	"A3_Ui_F",
 	"ace_mk6mortar",
-	"A3_Air_F_Heli_Heli_Transport_03"
+	"A3_Air_F_Heli_Heli_Transport_03",
+	"A3_Structures_F_Orange_Humanitarian_Camps",
+	"A3_Structures_F_Mil_Cargo",
+	"A3_Props_F_Enoch_Military_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=31;
+		items=33;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -288,12 +291,28 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item31
+		{
+			className="A3_Structures_F_Orange";
+			name="Arma 3 Orange - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item32
+		{
+			className="A3_Props_F_Enoch";
+			name="Arma 3 Contact Platform - Decorative and Mission Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
 {
 	"RHS_USAF",
-	"Heli"
+	"Heli",
+	"Orange",
+	"Contact"
 };
 randomSeed=15398668;
 class ScenarioData
@@ -385,7 +404,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1708.3835,5.5014391,5242.0718};
+						position[]={1701.5228,5.5014391,5185.2842};
 						angles[]={0,4.9377632,0};
 					};
 					side="West";
@@ -1593,39 +1612,6 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1707.485,5.7840548,5244.061};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				name="box1";
-			};
-			id=319;
-			type="ACE_Box_82mm_Mo_HE";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[""ACE_1Rnd_82mm_Mo_HE""],[8]],[[""ACE_Altimeter"",""TFAR_anprc148jem""],[5,5]],[[],[]]],false]";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item35
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={1721.644,8.8615875,5263.8838};
 				angles[]={0,1.8345853,0};
 			};
@@ -1655,71 +1641,53 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item36
+		class Item35
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1709.6969,5.7840548,5243.5991};
+				position[]={1687.0117,6.8745632,5182.6992};
+				angles[]={-0,1.8656064,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				name="box1_1";
 			};
-			id=326;
-			type="ACE_Box_82mm_Mo_HE";
-			class CustomAttributes
+			id=332;
+			type="Land_MedicalTent_01_MTP_closed_F";
+		};
+		class Item36
+		{
+			dataType="Object";
+			class PositionInfo
 			{
-				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[""ACE_1Rnd_82mm_Mo_HE""],[8]],[[""ACE_Altimeter"",""TFAR_anprc148jem""],[5,5]],[[],[]]],false]";
-						};
-					};
-				};
-				nAttributes=1;
+				position[]={1693.0762,6.1999998,5192.6904};
+				angles[]={0,4.9914737,-0};
 			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=333;
+			type="Land_Medevac_house_V1_F";
 		};
 		class Item37
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1711.3529,5.7840548,5241.8579};
+				position[]={1698.8823,5.9179478,5186.5771};
+				angles[]={-0,4.964529,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				name="box1_2";
 			};
-			id=327;
-			type="ACE_Box_82mm_Mo_HE";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[],[]],[[""ACE_1Rnd_82mm_Mo_HE""],[8]],[[""ACE_Altimeter"",""TFAR_anprc148jem""],[5,5]],[[],[]]],false]";
-						};
-					};
-				};
-				nAttributes=1;
-			};
+			id=336;
+			type="Land_PortableCabinet_01_medical_F";
 		};
 	};
 	class Connections

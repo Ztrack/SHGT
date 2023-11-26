@@ -72,5 +72,7 @@ class SHGT {
 		class misc_kickdeadPlayerFromVehicleOnDeath {};
 		class misc_removeItemsFromAI {};
 		class misc_removeGPSfromVehicles {};
+		class misc_addFullHealInteractionInit {postInit = 1;};
+		class misc_addFullHealInteraction {};
 	};
 };
