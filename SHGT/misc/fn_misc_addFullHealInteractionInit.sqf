@@ -8,4 +8,3 @@ publicVariable "SHGT_medical_interactionObject";
 	private _veh = (_this select 0);
 	[_veh] call SHGT_fnc_misc_addFullHealInteraction;
 }, true, [], true] call CBA_fnc_addClassEventHandler;
-

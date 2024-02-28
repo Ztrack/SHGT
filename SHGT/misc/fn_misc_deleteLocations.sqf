@@ -17,6 +17,7 @@ publicVariable "SHGT_locations";
 // RUN FOR PLAYERS - LOCAL COMMANDS
 
 // Delete original map markers
+if (SHGT_deleteTownMarkers isEqualTo true) then {
 _locationTypes = ["Name","NameCity","NameCityCapital","NameVillage","NameLocal","Airport","Strategic"];
 _locations = nearestLocations [[worldSize/2,worldSize/2,0], _locationTypes, worldSize*2];
 {
@@ -25,6 +26,7 @@ _locations = nearestLocations [[worldSize/2,worldSize/2,0], _locationTypes, worl
         _editableLocation setType "Invisible";
     };
 } forEach _locations;
+};
 
 // Add new map markers
 {

@@ -74,5 +74,17 @@ class SHGT {
 		class misc_removeGPSfromVehicles {};
 		class misc_addFullHealInteractionInit {postInit = 1;};
 		class misc_addFullHealInteraction {};
+		class misc_cadence {};
+	};
+	class civInteract {
+		file = "SHGT\civInteract";
+		class civInteract_postInit {postInit = 1;};
+		class civInteract_civInit {};
+		class civInteract_giveHumrat {};
+		class civInteract_intelEnemy {};
+		class civInteract_intelIED {};
+		class civInteract_CivAddActions {};
+		class civInteract_reputationLossKilledEventHandler {};
+		class civInteract_changeTownRepOfCivilian {};
 	};
 };
