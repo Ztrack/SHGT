@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=403;
+		nextID=410;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=126;
+		nextID=132;
 	};
 	class Camera
 	{
-		pos[]={1685.4579,27.130138,5123.7197};
-		dir[]={0.29007834,-0.40880215,0.86529499};
-		up[]={0.12993826,0.91262305,0.38760197};
-		aside[]={0.94814068,1.4901161e-008,-0.31785122};
+		pos[]={1673.5691,29.829496,5082.731};
+		dir[]={0.0039405879,-0.50530976,0.86292905};
+		up[]={0.002307486,0.86293799,0.50530452};
+		aside[]={0.99998951,0,-0.0045664781};
 	};
 };
 binarizationWanted=0;
@@ -39,9 +39,10 @@ addons[]=
 	"A3_Weapons_F",
 	"ace_smallarms",
 	"ace_ballistics",
-	"ace_csw",
-	"ace_minedetector",
 	"rhsusf_c_weapons",
+	"rhsusf_sounds",
+	"ace_compat_rhs_usf3",
+	"ace_minedetector",
 	"ace_nightvision",
 	"A3_Weapons_F_Items",
 	"ace_medical_engine",
@@ -49,12 +50,9 @@ addons[]=
 	"UK3CB_Factions_Equipment_Vests",
 	"ace_attach",
 	"ace_chemlights",
-	"ace_hearing",
+	"ace_field_rations",
 	"ace_fortify",
 	"ace_sandbag",
-	"ace_explosives",
-	"ace_field_rations",
-	"UK3CB_Factions_Objects_Pallets",
 	"shgt",
 	"A3_Weapons_F_Ammoboxes",
 	"ace_cargo",
@@ -75,13 +73,18 @@ addons[]=
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Props_F_Enoch_Military_Camps",
 	"A3_Characters_F_Exp_Civil",
-	"A3_Characters_F_AoW"
+	"A3_Characters_F_AoW",
+	"A3_Armor_F_EPC_MBT_01",
+	"ace_vehicle_damage",
+	"ace_viewports",
+	"A3_Structures_F_Households_House_Big02",
+	"A3_Structures_F_Mil_Barracks"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=39;
+		items=41;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -126,230 +129,244 @@ class AddonsMetaData
 		};
 		class Item6
 		{
-			className="ace_csw";
-			name="ACE3 - Crew-Served Weapons";
+			className="rhsusf_c_weapons";
+			name="RHSUSF Weapons & Accessories";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item7
+		{
+			className="rhsusf_sounds";
+			name="USF Sounds";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item8
+		{
+			className="ace_compat_rhs_usf3";
+			name="ACE3 - RHS USAF Compatibility";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item7
+		class Item9
 		{
 			className="ace_minedetector";
 			name="ACE3 - Mine Detector";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item8
-		{
-			className="rhsusf_c_weapons";
-			name="RHSUSF Weapons & Accessories";
-			author="Red Hammer Studios";
-			url="http://www.rhsmods.org/";
-		};
-		class Item9
+		class Item10
 		{
 			className="ace_nightvision";
 			name="ACE3 - Night Vision";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item10
+		class Item11
 		{
 			className="ace_medical_engine";
 			name="ACE3 - Medical Engine";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item11
+		class Item12
 		{
 			className="ace_medical_treatment";
 			name="ACE3 - Medical Treatment";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item12
+		class Item13
 		{
 			className="UK3CB_Factions_Equipment";
 			name="3CB Factions - Equipment";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
 		};
-		class Item13
+		class Item14
 		{
 			className="ace_attach";
 			name="ACE3 - Attach";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item14
+		class Item15
 		{
 			className="ace_chemlights";
 			name="ace_chemlights";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item15
-		{
-			className="ace_hearing";
-			name="ACE3 - Hearing";
-			author="ACE-Team";
-			url="https://ace3.acemod.org/";
-		};
 		class Item16
-		{
-			className="ace_fortify";
-			name="ace_fortify";
-			author="ACE-Team";
-			url="https://ace3.acemod.org/";
-		};
-		class Item17
-		{
-			className="ace_sandbag";
-			name="ACE3 - Sand Bag";
-			author="ACE-Team";
-			url="https://ace3.acemod.org/";
-		};
-		class Item18
-		{
-			className="ace_explosives";
-			name="ACE3 - Explosives";
-			author="ACE-Team";
-			url="https://ace3.acemod.org/";
-		};
-		class Item19
 		{
 			className="ace_field_rations";
 			name="ACE3 - Field Rations";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item20
+		class Item17
 		{
-			className="UK3CB_Factions_Objects_Pallets";
-			name="3CB Factions - Pallets";
-			author="3 Commando Brigade";
-			url="www.3commandobrigade.com";
+			className="ace_fortify";
+			name="ace_fortify";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
 		};
-		class Item21
+		class Item18
+		{
+			className="ace_sandbag";
+			name="ACE3 - Sand Bag";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item19
 		{
 			className="SHGT";
 			name="shgt";
 		};
-		class Item22
+		class Item20
 		{
 			className="ace_cargo";
 			name="ACE3 - Cargo";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item23
+		class Item21
 		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item24
+		class Item22
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item25
+		class Item23
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item26
+		class Item24
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item27
+		class Item25
 		{
 			className="A3_Soft_F";
 			name="Arma 3 Alpha - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item28
+		class Item26
 		{
 			className="A3_Air_F";
 			name="Arma 3 Alpha - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item29
+		class Item27
 		{
 			className="A3_Structures_F_EPA";
 			name="Arma 3 Survive Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item30
+		class Item28
 		{
 			className="ace_sitting";
 			name="ACE3 - Sitting";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item31
+		class Item29
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item32
+		class Item30
 		{
 			className="ace_mk6mortar";
 			name="ACE3 - Mk6 Mortar";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item33
+		class Item31
 		{
 			className="A3_Air_F_Heli";
 			name="Arma 3 Helicopters - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item34
+		class Item32
 		{
 			className="kat_misc";
 			name="KAT - KAT - MISC";
 			author="Katalam";
 			url="https://github.com/KAT-Advanced-Medical/KAM";
 		};
-		class Item35
+		class Item33
 		{
 			className="A3_Structures_F_Orange";
 			name="Arma 3 Orange - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item36
+		class Item34
 		{
 			className="A3_Props_F_Enoch";
 			name="Arma 3 Contact Platform - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item37
+		class Item35
 		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item38
+		class Item36
 		{
 			className="A3_Characters_F_AoW";
 			name="Arma 3 Art of War - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item37
+		{
+			className="A3_Armor_F_EPC";
+			name="Arma 3 Win Episode - Armored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item38
+		{
+			className="ace_vehicle_damage";
+			name="ACE3 - Vehicle Damage";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item39
+		{
+			className="ace_viewports";
+			name="ACE3 - Viewports";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item40
+		{
+			className="A3_Structures_F_Households";
+			name="Arma 3 - Houses";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -358,7 +375,6 @@ class AddonsMetaData
 dlcs[]=
 {
 	"RHS_USAF",
-	"UK3CB_Factions",
 	"Heli",
 	"Orange",
 	"Contact",
@@ -446,7 +462,7 @@ class CustomAttributes
 								singleType="ARRAY";
 								class value
 								{
-									items=544;
+									items=542;
 									class Item0
 									{
 										class data
@@ -3804,7 +3820,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_ifakthirdslotitem";
+											value="kat_misc_afakfirstslotitem";
 										};
 									};
 									class Item420
@@ -3812,7 +3828,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_ifakfourthslotitem";
+											value="kat_misc_afaksecondslotitem";
 										};
 									};
 									class Item421
@@ -3820,7 +3836,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_afakfirstslotitem";
+											value="kat_misc_afakthirdslotitem";
 										};
 									};
 									class Item422
@@ -3828,7 +3844,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_afaksecondslotitem";
+											value="kat_misc_afakfourthslotitem";
 										};
 									};
 									class Item423
@@ -3836,7 +3852,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_afakthirdslotitem";
+											value="kat_misc_afakfifthslotitem";
 										};
 									};
 									class Item424
@@ -3844,7 +3860,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_afakfourthslotitem";
+											value="kat_misc_afaksixthslotitem";
 										};
 									};
 									class Item425
@@ -3852,7 +3868,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_afakfifthslotitem";
+											value="kat_pharma_requireinsiv";
 										};
 									};
 									class Item426
@@ -3860,7 +3876,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_misc_afaksixthslotitem";
+											value="kat_pharma_medicationsrequireinsiv";
 										};
 									};
 									class Item427
@@ -3868,7 +3884,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_requireinsiv";
+											value="kat_pharma_ivdropenable";
 										};
 									};
 									class Item428
@@ -3876,7 +3892,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medicationsrequireinsiv";
+											value="kat_pharma_ivdrop";
 										};
 									};
 									class Item429
@@ -3884,7 +3900,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_ivdropenable";
+											value="kat_pharma_ivreuse";
 										};
 									};
 									class Item430
@@ -3892,7 +3908,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_ivdrop";
+											value="kat_pharma_medlvl_applyiv";
 										};
 									};
 									class Item431
@@ -3900,7 +3916,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_ivreuse";
+											value="kat_pharma_treatmenttime_applyiv";
 										};
 									};
 									class Item432
@@ -3908,7 +3924,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_applyiv";
+											value="kat_pharma_ivchecklimbdamage";
 										};
 									};
 									class Item433
@@ -3916,7 +3932,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_applyiv";
+											value="kat_pharma_medlvl_applyio";
 										};
 									};
 									class Item434
@@ -3924,7 +3940,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_ivchecklimbdamage";
+											value="kat_pharma_treatmenttime_applyio";
 										};
 									};
 									class Item435
@@ -3932,7 +3948,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_applyio";
+											value="kat_pharma_reorientation_enable";
 										};
 									};
 									class Item436
@@ -3940,7 +3956,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_applyio";
+											value="kat_pharma_medlvl_reorientation";
 										};
 									};
 									class Item437
@@ -3948,7 +3964,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_reorientation_enable";
+											value="kat_pharma_treatmenttime_reorientation";
 										};
 									};
 									class Item438
@@ -3956,7 +3972,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_reorientation";
+											value="kat_pharma_reorientation_slap";
 										};
 									};
 									class Item439
@@ -3964,7 +3980,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_reorientation";
+											value="kat_pharma_reorientationchance";
 										};
 									};
 									class Item440
@@ -3972,7 +3988,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_reorientation_slap";
+											value="kat_pharma_medlvl_carbonate";
 										};
 									};
 									class Item441
@@ -3980,7 +3996,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_reorientationchance";
+											value="kat_pharma_treatmenttime_carbonate";
 										};
 									};
 									class Item442
@@ -3988,7 +4004,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_carbonate";
+											value="kat_pharma_carbonatechance";
 										};
 									};
 									class Item443
@@ -3996,7 +4012,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_carbonate";
+											value="kat_pharma_medlvl_lorazepam";
 										};
 									};
 									class Item444
@@ -4004,7 +4020,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_carbonatechance";
+											value="kat_pharma_treatmenttime_lorazepam";
 										};
 									};
 									class Item445
@@ -4012,7 +4028,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_lorazepam";
+											value="kat_pharma_medlvl_etomidate";
 										};
 									};
 									class Item446
@@ -4020,7 +4036,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_lorazepam";
+											value="kat_pharma_treatmenttime_etomidate";
 										};
 									};
 									class Item447
@@ -4028,7 +4044,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_etomidate";
+											value="kat_pharma_medlvl_flumezenil";
 										};
 									};
 									class Item448
@@ -4036,7 +4052,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_etomidate";
+											value="kat_pharma_treatmenttime_flumazenil";
 										};
 									};
 									class Item449
@@ -4044,7 +4060,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_flumezenil";
+											value="kat_pharma_medlvl_naloxone";
 										};
 									};
 									class Item450
@@ -4052,7 +4068,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_flumazenil";
+											value="kat_pharma_treatmenttime_naloxone";
 										};
 									};
 									class Item451
@@ -4060,7 +4076,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_naloxone";
+											value="kat_pharma_medlvl_pervitin";
 										};
 									};
 									class Item452
@@ -4068,7 +4084,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_naloxone";
+											value="kat_pharma_chromatic_aberration_slider_pervitin";
 										};
 									};
 									class Item453
@@ -4076,7 +4092,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_pervitin";
+											value="kat_pharma_medlvl_txa";
 										};
 									};
 									class Item454
@@ -4084,7 +4100,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_chromatic_aberration_slider_pervitin";
+											value="kat_pharma_treatmenttime_txa";
 										};
 									};
 									class Item455
@@ -4092,7 +4108,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_txa";
+											value="kat_pharma_medlvl_norepinephrine";
 										};
 									};
 									class Item456
@@ -4100,7 +4116,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_txa";
+											value="kat_pharma_treatmenttime_norepinephrine";
 										};
 									};
 									class Item457
@@ -4108,7 +4124,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_norepinephrine";
+											value="kat_pharma_medlvl_phenylephrine";
 										};
 									};
 									class Item458
@@ -4116,7 +4132,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_norepinephrine";
+											value="kat_pharma_treatmenttime_phenylephrine";
 										};
 									};
 									class Item459
@@ -4124,7 +4140,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_phenylephrine";
+											value="kat_pharma_medlvl_nitroglycerin";
 										};
 									};
 									class Item460
@@ -4132,7 +4148,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_phenylephrine";
+											value="kat_pharma_treatmenttime_nitroglycerin";
 										};
 									};
 									class Item461
@@ -4140,7 +4156,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_nitroglycerin";
+											value="kat_pharma_medlvl_amiodarone";
 										};
 									};
 									class Item462
@@ -4148,7 +4164,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_nitroglycerin";
+											value="kat_pharma_treatmenttime_amiodarone";
 										};
 									};
 									class Item463
@@ -4156,7 +4172,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_amiodarone";
+											value="kat_pharma_medlvl_lidocaine";
 										};
 									};
 									class Item464
@@ -4164,7 +4180,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_amiodarone";
+											value="kat_pharma_treatmenttime_lidocaine";
 										};
 									};
 									class Item465
@@ -4172,7 +4188,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_lidocaine";
+											value="kat_pharma_medlvl_atropine";
 										};
 									};
 									class Item466
@@ -4180,7 +4196,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_lidocaine";
+											value="kat_pharma_treatmenttime_atropine";
 										};
 									};
 									class Item467
@@ -4188,7 +4204,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_atropine";
+											value="kat_pharma_medlvl_eaca";
 										};
 									};
 									class Item468
@@ -4196,7 +4212,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_atropine";
+											value="kat_pharma_treatmenttime_eaca";
 										};
 									};
 									class Item469
@@ -4204,7 +4220,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_eaca";
+											value="kat_pharma_medlvl_ketamine";
 										};
 									};
 									class Item470
@@ -4212,7 +4228,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_eaca";
+											value="kat_pharma_treatmenttime_ketamine";
 										};
 									};
 									class Item471
@@ -4220,7 +4236,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_ketamine";
+											value="kat_pharma_chromatic_aberration_slider_ketamine";
 										};
 									};
 									class Item472
@@ -4228,7 +4244,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_ketamine";
+											value="kat_pharma_medlvl_fentanyl";
 										};
 									};
 									class Item473
@@ -4236,7 +4252,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_chromatic_aberration_slider_ketamine";
+											value="kat_pharma_treatmenttime_fentanyl";
 										};
 									};
 									class Item474
@@ -4244,7 +4260,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_fentanyl";
+											value="kat_pharma_chromatic_aberration_slider_fentanyl";
 										};
 									};
 									class Item475
@@ -4252,7 +4268,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_fentanyl";
+											value="kat_pharma_medlvl_nalbuphine";
 										};
 									};
 									class Item476
@@ -4260,7 +4276,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_chromatic_aberration_slider_fentanyl";
+											value="kat_pharma_treatmenttime_nalbuphine";
 										};
 									};
 									class Item477
@@ -4268,7 +4284,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_nalbuphine";
+											value="kat_pharma_medlvl_penthrox";
 										};
 									};
 									class Item478
@@ -4276,7 +4292,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_treatmenttime_nalbuphine";
+											value="kat_pharma_kidneyaction";
 										};
 									};
 									class Item479
@@ -4284,7 +4300,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_medlvl_penthrox";
+											value="kat_pharma_blockchance";
 										};
 									};
 									class Item480
@@ -4292,7 +4308,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_kidneyaction";
+											value="kat_pharma_coagulation";
 										};
 									};
 									class Item481
@@ -4300,7 +4316,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_blockchance";
+											value="kat_pharma_staminamedication";
 										};
 									};
 									class Item482
@@ -4308,7 +4324,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_coagulation";
+											value="kat_surgery_enable_fracture";
 										};
 									};
 									class Item483
@@ -4316,7 +4332,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_pharma_staminamedication";
+											value="kat_surgery_simplechance";
 										};
 									};
 									class Item484
@@ -4324,7 +4340,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_enable_fracture";
+											value="kat_surgery_compoundchance";
 										};
 									};
 									class Item485
@@ -4332,7 +4348,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_simplechance";
+											value="kat_surgery_fracturecheck_medlevel";
 										};
 									};
 									class Item486
@@ -4340,7 +4356,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_compoundchance";
+											value="kat_surgery_enable_selfcheckfracture";
 										};
 									};
 									class Item487
@@ -4348,7 +4364,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_fracturecheck_medlevel";
+											value="kat_surgery_etomidatetime";
 										};
 									};
 									class Item488
@@ -4356,7 +4372,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_enable_selfcheckfracture";
+											value="kat_surgery_closedtime";
 										};
 									};
 									class Item489
@@ -4364,7 +4380,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_etomidatetime";
+											value="kat_surgery_incisiontime";
 										};
 									};
 									class Item490
@@ -4372,7 +4388,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_closedtime";
+											value="kat_surgery_intermediatetime";
 										};
 									};
 									class Item491
@@ -4380,7 +4396,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_incisiontime";
+											value="kat_surgery_opentime";
 										};
 									};
 									class Item492
@@ -4388,7 +4404,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_intermediatetime";
+											value="kat_surgery_fracturecheck_time";
 										};
 									};
 									class Item493
@@ -4396,7 +4412,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_opentime";
+											value="kat_surgery_closedreduction_medlevel";
 										};
 									};
 									class Item494
@@ -4404,7 +4420,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_fracturecheck_time";
+											value="kat_surgery_surgicalaction_medlevel";
 										};
 									};
 									class Item495
@@ -4412,7 +4428,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_closedreduction_medlevel";
+											value="kat_surgery_closedlocation";
 										};
 									};
 									class Item496
@@ -4420,7 +4436,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_surgicalaction_medlevel";
+											value="kat_surgery_surgicallocation";
 										};
 									};
 									class Item497
@@ -4428,7 +4444,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_closedlocation";
+											value="kat_surgery_npwttime";
 										};
 									};
 									class Item498
@@ -4436,7 +4452,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_surgicallocation";
+											value="kat_breathing_enable";
 										};
 									};
 									class Item499
@@ -4444,7 +4460,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_surgery_npwttime";
+											value="kat_breathing_spo2_dievalue";
 										};
 									};
 									class Item500
@@ -4452,7 +4468,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_enable";
+											value="kat_breathing_spo2_dieactive";
 										};
 									};
 									class Item501
@@ -4460,7 +4476,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_spo2_dievalue";
+											value="kat_breathing_spo2_unconscious";
 										};
 									};
 									class Item502
@@ -4468,7 +4484,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_spo2_dieactive";
+											value="kat_breathing_spo2_multiplypositive";
 										};
 									};
 									class Item503
@@ -4476,7 +4492,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_spo2_unconscious";
+											value="kat_breathing_spo2_multiplynegative";
 										};
 									};
 									class Item504
@@ -4484,7 +4500,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_spo2_multiplypositive";
+											value="kat_breathing_stable_spo2";
 										};
 									};
 									class Item505
@@ -4492,7 +4508,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_spo2_multiplynegative";
+											value="kat_breathing_spo2_perfusion";
 										};
 									};
 									class Item506
@@ -4500,7 +4516,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_stable_spo2";
+											value="kat_breathing_spo2_perfusionmultiplier";
 										};
 									};
 									class Item507
@@ -4508,7 +4524,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_spo2_perfusion";
+											value="kat_breathing_medlvl_pulseoximeter";
 										};
 									};
 									class Item508
@@ -4516,7 +4532,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_spo2_perfusionmultiplier";
+											value="kat_breathing_medlvl_chestseal";
 										};
 									};
 									class Item509
@@ -4524,7 +4540,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_medlvl_pulseoximeter";
+											value="kat_breathing_enable_selfchestseal";
 										};
 									};
 									class Item510
@@ -4532,7 +4548,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_medlvl_chestseal";
+											value="kat_breathing_clearchestsealaftertreatment";
 										};
 									};
 									class Item511
@@ -4540,7 +4556,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_enable_selfchestseal";
+											value="kat_breathing_pulseoximeter_spo2warning";
 										};
 									};
 									class Item512
@@ -4548,7 +4564,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_clearchestsealaftertreatment";
+											value="kat_breathing_pneumothoraxchance";
 										};
 									};
 									class Item513
@@ -4556,7 +4572,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_pulseoximeter_spo2warning";
+											value="kat_breathing_hptxchance";
 										};
 									};
 									class Item514
@@ -4564,7 +4580,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_pneumothoraxchance";
+											value="kat_breathing_advptxenable";
 										};
 									};
 									class Item515
@@ -4572,7 +4588,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_hptxchance";
+											value="kat_breathing_medlvl_hemopneumothoraxtreatment";
 										};
 									};
 									class Item516
@@ -4580,7 +4596,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_advptxenable";
+											value="kat_breathing_pneumothoraxdamagethreshold";
 										};
 									};
 									class Item517
@@ -4588,7 +4604,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_medlvl_hemopneumothoraxtreatment";
+											value="kat_breathing_pneumothoraxdamagethreshold_takendamage";
 										};
 									};
 									class Item518
@@ -4596,7 +4612,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_pneumothoraxdamagethreshold";
+											value="kat_breathing_deeppenetratinginjurychance";
 										};
 									};
 									class Item519
@@ -4604,7 +4620,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_pneumothoraxdamagethreshold_takendamage";
+											value="kat_breathing_hptxbleedamount";
 										};
 									};
 									class Item520
@@ -4612,7 +4628,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_deeppenetratinginjurychance";
+											value="kat_breathing_deterioratingpneumothorax_chance";
 										};
 									};
 									class Item521
@@ -4620,7 +4636,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_hptxbleedamount";
+											value="kat_breathing_deterioratingpneumothorax_interval";
 										};
 									};
 									class Item522
@@ -4628,7 +4644,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_deterioratingpneumothorax_chance";
+											value="kat_breathing_pneumothoraxalwaysvisible";
 										};
 									};
 									class Item523
@@ -4636,7 +4652,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_deterioratingpneumothorax_interval";
+											value="kat_breathing_tensionhemothoraxalwaysvisible";
 										};
 									};
 									class Item524
@@ -4644,7 +4660,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_pneumothoraxalwaysvisible";
+											value="kat_breathing_showpneumothorax_dupe";
 										};
 									};
 									class Item525
@@ -4652,7 +4668,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_tensionhemothoraxalwaysvisible";
+											value="kat_breathing_inspectchest_enable";
 										};
 									};
 									class Item526
@@ -4660,7 +4676,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_showpneumothorax_dupe";
+											value="kat_breathing_inspectchest_medlvl";
 										};
 									};
 									class Item527
@@ -4668,7 +4684,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_inspectchest_enable";
+											value="kat_breathing_inspectchest_time";
 										};
 									};
 									class Item528
@@ -4676,7 +4692,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_inspectchest_medlvl";
+											value="kat_breathing_showcyanosis";
 										};
 									};
 									class Item529
@@ -4684,7 +4700,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_inspectchest_time";
+											value="kat_breathing_slightvalue";
 										};
 									};
 									class Item530
@@ -4692,7 +4708,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_showcyanosis";
+											value="kat_breathing_mildvalue";
 										};
 									};
 									class Item531
@@ -4700,7 +4716,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_slightvalue";
+											value="kat_breathing_severevalue";
 										};
 									};
 									class Item532
@@ -4708,7 +4724,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_mildvalue";
+											value="kat_breathing_enablespo2flashing";
 										};
 									};
 									class Item533
@@ -4716,7 +4732,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_severevalue";
+											value="kat_breathing_staminalossatlowspo2";
 										};
 									};
 									class Item534
@@ -4724,7 +4740,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_enablespo2flashing";
+											value="kat_breathing_lowspo2level";
 										};
 									};
 									class Item535
@@ -4732,7 +4748,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_staminalossatlowspo2";
+											value="kat_breathing_stethoscopelisteningtime";
 										};
 									};
 									class Item536
@@ -4740,7 +4756,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_lowspo2level";
+											value="kat_breathing_medlvl_bvm";
 										};
 									};
 									class Item537
@@ -4748,7 +4764,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_stethoscopelisteningtime";
+											value="kat_breathing_medlvl_pocketbvm";
 										};
 									};
 									class Item538
@@ -4756,7 +4772,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_medlvl_bvm";
+											value="kat_breathing_medlvl_bvm_oxygen";
 										};
 									};
 									class Item539
@@ -4764,7 +4780,7 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_medlvl_pocketbvm";
+											value="kat_breathing_bvmoxygen_multiplier";
 										};
 									};
 									class Item540
@@ -4772,26 +4788,10 @@ class CustomAttributes
 										class data
 										{
 											singleType="STRING";
-											value="kat_breathing_medlvl_bvm_oxygen";
-										};
-									};
-									class Item541
-									{
-										class data
-										{
-											singleType="STRING";
-											value="kat_breathing_bvmoxygen_multiplier";
-										};
-									};
-									class Item542
-									{
-										class data
-										{
-											singleType="STRING";
 											value="kat_breathing_portableoxygentank_refilltime";
 										};
 									};
-									class Item543
+									class Item541
 									{
 										class data
 										{
@@ -4809,7 +4809,7 @@ class CustomAttributes
 								singleType="ARRAY";
 								class value
 								{
-									items=544;
+									items=542;
 									class Item0
 									{
 										class data
@@ -16176,7 +16176,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0;
 													};
 												};
 											};
@@ -16203,67 +16203,13 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0;
 													};
 												};
 											};
 										};
 									};
 									class Item419
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="STRING";
-														value="[['kat_Painkiller', 1]]";
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item420
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="STRING";
-														value="[['kat_chestSeal', 1]]";
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item421
 									{
 										class data
 										{
@@ -16284,13 +16230,13 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0;
 													};
 												};
 											};
 										};
 									};
-									class Item422
+									class Item420
 									{
 										class data
 										{
@@ -16311,13 +16257,13 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0;
 													};
 												};
 											};
 										};
 									};
-									class Item423
+									class Item421
 									{
 										class data
 										{
@@ -16338,13 +16284,13 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0;
 													};
 												};
 											};
 										};
 									};
-									class Item424
+									class Item422
 									{
 										class data
 										{
@@ -16365,7 +16311,61 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0;
+													};
+												};
+											};
+										};
+									};
+									class Item423
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="STRING";
+														value="[['kat_guedel', 3], ['kat_IO_FAST', 2], ['kat_IV_16', 8]. ['ACE_plasmaIV_500', 4], ['ACE_plasmaIV_1000', 4]]";
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0;
+													};
+												};
+											};
+										};
+									};
+									class Item424
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="STRING";
+														value="[['ACE_morphine', 3], ['ACE_epinephrine', 3], ['kat_EACA', 4], ['kat_PentrhoxItem', 6], ['kat_phenlyephrine', 1]]";
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0;
 													};
 												};
 											};
@@ -16383,8 +16383,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="STRING";
-														value="[['kat_guedel', 3], ['kat_IO_FAST', 2], ['kat_IV_16', 8]. ['ACE_plasmaIV_500', 4], ['ACE_plasmaIV_1000', 4]]";
+														singleType="BOOL";
+														value=1;
 													};
 												};
 												class Item1
@@ -16410,8 +16410,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="STRING";
-														value="[['ACE_morphine', 3], ['ACE_epinephrine', 3], ['kat_EACA', 4], ['kat_PentrhoxItem', 6], ['kat_phenlyephrine', 1]]";
+														singleType="BOOL";
+														value=1;
 													};
 												};
 												class Item1
@@ -16464,8 +16464,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="BOOL";
-														value=1;
+														singleType="SCALAR";
+														value=600;
 													};
 												};
 												class Item1
@@ -16492,7 +16492,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="BOOL";
-														value=1;
+														value=0;
 													};
 												};
 												class Item1
@@ -16519,7 +16519,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=600;
+														value=1;
 													};
 												};
 												class Item1
@@ -16545,8 +16545,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="BOOL";
-														value=0;
+														singleType="SCALAR";
+														value=2.0034101;
 													};
 												};
 												class Item1
@@ -16572,7 +16572,7 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="SCALAR";
+														singleType="BOOL";
 														value=1;
 													};
 												};
@@ -16600,7 +16600,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2.0034101;
+														value=1;
 													};
 												};
 												class Item1
@@ -16626,8 +16626,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="BOOL";
-														value=1;
+														singleType="SCALAR";
+														value=7;
 													};
 												};
 												class Item1
@@ -16653,7 +16653,7 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="SCALAR";
+														singleType="BOOL";
 														value=1;
 													};
 												};
@@ -16681,60 +16681,6 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=7;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item437
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item438
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
 														value=0;
 													};
 												};
@@ -16749,7 +16695,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item439
+									class Item437
 									{
 										class data
 										{
@@ -16776,7 +16722,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item440
+									class Item438
 									{
 										class data
 										{
@@ -16789,6 +16735,60 @@ class CustomAttributes
 													class data
 													{
 														singleType="BOOL";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item439
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=100;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item440
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
 														value=1;
 													};
 												};
@@ -16816,7 +16816,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=100;
+														value=7;
 													};
 												};
 												class Item1
@@ -16843,7 +16843,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=100;
 													};
 												};
 												class Item1
@@ -16870,7 +16870,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=7;
+														value=1;
 													};
 												};
 												class Item1
@@ -16897,7 +16897,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=100;
+														value=2;
 													};
 												};
 												class Item1
@@ -17059,7 +17059,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2;
+														value=7;
 													};
 												};
 												class Item1
@@ -17113,7 +17113,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=7;
+														value=0.51192701;
 													};
 												};
 												class Item1
@@ -17167,7 +17167,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0.51192701;
+														value=7;
 													};
 												};
 												class Item1
@@ -17626,7 +17626,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0.51192701;
 													};
 												};
 												class Item1
@@ -17653,7 +17653,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=7;
+														value=1;
 													};
 												};
 												class Item1
@@ -17680,7 +17680,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0.51192701;
+														value=7;
 													};
 												};
 												class Item1
@@ -17707,7 +17707,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=0.51192701;
 													};
 												};
 												class Item1
@@ -17734,7 +17734,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=7;
+														value=1;
 													};
 												};
 												class Item1
@@ -17761,7 +17761,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0.51192701;
+														value=7;
 													};
 												};
 												class Item1
@@ -17814,8 +17814,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="SCALAR";
-														value=7;
+														singleType="BOOL";
+														value=0;
 													};
 												};
 												class Item1
@@ -17842,7 +17842,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=20;
 													};
 												};
 												class Item1
@@ -17869,7 +17869,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="BOOL";
-														value=0;
+														value=1;
 													};
 												};
 												class Item1
@@ -17895,8 +17895,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="SCALAR";
-														value=20;
+														singleType="BOOL";
+														value=0;
 													};
 												};
 												class Item1
@@ -17923,7 +17923,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="BOOL";
-														value=1;
+														value=0;
 													};
 												};
 												class Item1
@@ -17938,60 +17938,6 @@ class CustomAttributes
 										};
 									};
 									class Item483
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=0;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item484
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=0;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item485
 									{
 										class data
 										{
@@ -18018,7 +17964,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item486
+									class Item484
 									{
 										class data
 										{
@@ -18045,7 +17991,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item487
+									class Item485
 									{
 										class data
 										{
@@ -18072,7 +18018,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item488
+									class Item486
 									{
 										class data
 										{
@@ -18099,7 +18045,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item489
+									class Item487
 									{
 										class data
 										{
@@ -18126,61 +18072,61 @@ class CustomAttributes
 											};
 										};
 									};
+									class Item488
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=10;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item489
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=10;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
 									class Item490
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=10;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item491
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=10;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item492
 									{
 										class data
 										{
@@ -18207,7 +18153,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item493
+									class Item491
 									{
 										class data
 										{
@@ -18234,7 +18180,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item494
+									class Item492
 									{
 										class data
 										{
@@ -18248,6 +18194,60 @@ class CustomAttributes
 													{
 														singleType="SCALAR";
 														value=10;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item493
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item494
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0;
 													};
 												};
 												class Item1
@@ -18328,7 +18328,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0;
+														value=20;
 													};
 												};
 												class Item1
@@ -18354,8 +18354,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="SCALAR";
-														value=0;
+														singleType="BOOL";
+														value=1;
 													};
 												};
 												class Item1
@@ -18382,7 +18382,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=20;
+														value=65;
 													};
 												};
 												class Item1
@@ -18436,60 +18436,6 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=65;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item502
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item503
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
 														value=75.183601;
 													};
 												};
@@ -18504,7 +18450,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item504
+									class Item502
 									{
 										class data
 										{
@@ -18531,7 +18477,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item505
+									class Item503
 									{
 										class data
 										{
@@ -18544,6 +18490,60 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item504
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=85;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item505
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
 														value=1;
 													};
 												};
@@ -18571,7 +18571,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=85;
+														value=1;
 													};
 												};
 												class Item1
@@ -18586,60 +18586,6 @@ class CustomAttributes
 										};
 									};
 									class Item507
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item508
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item509
 									{
 										class data
 										{
@@ -18666,7 +18612,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item510
+									class Item508
 									{
 										class data
 										{
@@ -18679,6 +18625,60 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item509
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item510
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
 														value=0;
 													};
 												};
@@ -18706,7 +18706,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
+														value=85;
 													};
 												};
 												class Item1
@@ -18732,8 +18732,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="BOOL";
-														value=0;
+														singleType="SCALAR";
+														value=5;
 													};
 												};
 												class Item1
@@ -18760,7 +18760,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=85;
+														value=5;
 													};
 												};
 												class Item1
@@ -18775,60 +18775,6 @@ class CustomAttributes
 										};
 									};
 									class Item514
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=5;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item515
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=5;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item516
 									{
 										class data
 										{
@@ -18855,7 +18801,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item517
+									class Item515
 									{
 										class data
 										{
@@ -18868,6 +18814,60 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item516
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0.78770602;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item517
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
 														value=1;
 													};
 												};
@@ -18895,60 +18895,6 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0.78770602;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item519
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item520
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
 														value=0;
 													};
 												};
@@ -18963,7 +18909,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item521
+									class Item519
 									{
 										class data
 										{
@@ -18990,7 +18936,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item522
+									class Item520
 									{
 										class data
 										{
@@ -19017,7 +18963,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item523
+									class Item521
 									{
 										class data
 										{
@@ -19044,7 +18990,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item524
+									class Item522
 									{
 										class data
 										{
@@ -19058,6 +19004,60 @@ class CustomAttributes
 													{
 														singleType="BOOL";
 														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item523
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item524
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=0;
 													};
 												};
 												class Item1
@@ -19083,8 +19083,8 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="BOOL";
-														value=1;
+														singleType="SCALAR";
+														value=2;
 													};
 												};
 												class Item1
@@ -19110,7 +19110,7 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="BOOL";
+														singleType="SCALAR";
 														value=0;
 													};
 												};
@@ -19138,7 +19138,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=2;
+														value=6;
 													};
 												};
 												class Item1
@@ -19164,7 +19164,7 @@ class CustomAttributes
 												{
 													class data
 													{
-														singleType="SCALAR";
+														singleType="BOOL";
 														value=0;
 													};
 												};
@@ -19192,60 +19192,6 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=6;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item530
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=0;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item531
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
 														value=90;
 													};
 												};
@@ -19260,7 +19206,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item532
+									class Item530
 									{
 										class data
 										{
@@ -19287,7 +19233,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item533
+									class Item531
 									{
 										class data
 										{
@@ -19314,61 +19260,61 @@ class CustomAttributes
 											};
 										};
 									};
+									class Item532
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item533
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="BOOL";
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
 									class Item534
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item535
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="BOOL";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item536
 									{
 										class data
 										{
@@ -19395,7 +19341,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item537
+									class Item535
 									{
 										class data
 										{
@@ -19422,7 +19368,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item538
+									class Item536
 									{
 										class data
 										{
@@ -19436,6 +19382,60 @@ class CustomAttributes
 													{
 														singleType="SCALAR";
 														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item537
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item538
+									{
+										class data
+										{
+											singleType="ARRAY";
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														singleType="SCALAR";
+														value=1;
 													};
 												};
 												class Item1
@@ -19462,7 +19462,7 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=0;
+														value=1;
 													};
 												};
 												class Item1
@@ -19489,60 +19489,6 @@ class CustomAttributes
 													class data
 													{
 														singleType="SCALAR";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item541
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-												class Item1
-												{
-													class data
-													{
-														singleType="SCALAR";
-														value=1;
-													};
-												};
-											};
-										};
-									};
-									class Item542
-									{
-										class data
-										{
-											singleType="ARRAY";
-											class value
-											{
-												items=2;
-												class Item0
-												{
-													class data
-													{
-														singleType="SCALAR";
 														value=5;
 													};
 												};
@@ -19557,7 +19503,7 @@ class CustomAttributes
 											};
 										};
 									};
-									class Item543
+									class Item541
 									{
 										class data
 										{
@@ -19626,7 +19572,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=44;
+		items=47;
 		class Item0
 		{
 			dataType="Group";
@@ -19664,7 +19610,7 @@ class Mission
 							};
 							class secondaryWeapon
 							{
-								name="ace_csw_kordCarryTripod";
+								name="rhs_weap_M136";
 							};
 							class handgun
 							{
@@ -19741,23 +19687,13 @@ class Mission
 							{
 								typeName="UK3CB_B_Alice_Bedroll_2_K";
 								isBackpack=1;
-								class MagazineCargo
-								{
-									items=1;
-									class Item0
-									{
-										name="100Rnd_65x39_caseless_black_mag";
-										count=4;
-										ammoLeft=100;
-									};
-								};
 								class ItemCargo
 								{
-									items=6;
+									items=3;
 									class Item0
 									{
-										name="ACE_EarPlugs";
-										count=1;
+										name="ACE_Humanitarian_Ration";
+										count=20;
 									};
 									class Item1
 									{
@@ -19767,22 +19703,7 @@ class Mission
 									class Item2
 									{
 										name="ACE_Sandbag_empty";
-										count=20;
-									};
-									class Item3
-									{
-										name="ACE_DefusalKit";
-										count=1;
-									};
-									class Item4
-									{
-										name="ACE_Humanitarian_Ration";
-										count=2;
-									};
-									class Item5
-									{
-										name="UK3CB_Cocaine_Brick";
-										count=44;
+										count=10;
 									};
 								};
 							};
@@ -21155,6 +21076,53 @@ class Mission
 			{
 			};
 			id=401;
+		};
+		class Item44
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1694.2666,8.2264757,5157.6382};
+				angles[]={-0,0.25006425,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=404;
+			type="B_MBT_01_TUSK_F";
+		};
+		class Item45
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1709.161,8.3839674,5184.4751};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				health=0.046763863;
+			};
+			id=408;
+			type="Land_i_House_Big_02_V1_F";
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1651.0074,5.5,5188.5103};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=409;
+			type="Land_i_Barracks_V1_F";
 		};
 	};
 	class Connections
