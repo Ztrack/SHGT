@@ -90,5 +90,6 @@ class SHGT {
 		class civInteract_interActGUI {};
 		class civInteract_buildingDestroyedRepHandler {};
 		class civInteract_getNearestTownArea {};
+		class civInteract_IEDInit {};
 	};
 };

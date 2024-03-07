@@ -11,13 +11,18 @@ SHGT_civInteract_TownrepAddedFromDestroyedBuilding = -2;
 SHGT_civInteract_TownrepAddedFromcivKilled = -2; // Triggers when civ is killed by a player
 
 
-
 // DO NOT TOUCH PAST HERE
 if !(SHGT_civInteraction_status isEqualTo true) exitWith {};
 SHGT_areaReputation = createHashMap;
 {
 	_reputation = 50; // Initialize as this
 	SHGT_areaReputation set [_x, _reputation];
+	if (SHGT_civInteraction_debug isEqualTo true) then {
+		_x setMarkerColor "ColorCIV";
+		_x setmarkerAlpha 0.5;
+	} else {
+		_x setmarkerAlpha 0;
+	};
 } forEach SHGT_civInteract_TOAR;
 publicVariable "SHGT_areaReputation"; // update Hashmap for JIP
 
@@ -30,7 +35,8 @@ publicVariable "SHGT_areaReputation"; // update Hashmap for JIP
 // Add building changed EH server side
 [] call SHGT_fnc_civInteract_buildingDestroyedRepHandler; // Server side init
 
-
+// Start IED generation dependent on rep
+[] call SHGT_fnc_civInteract_IEDInit; // Server side init
 
 
 

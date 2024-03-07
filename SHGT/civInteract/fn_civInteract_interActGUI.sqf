@@ -6,7 +6,7 @@ SHGT_civInteract_GUIactions = [["Give Humanitarian Ration",SHGT_fnc_civInteract_
 _headline = "Select Interaction";
 
 
-_unit addAction ["Interact", {
+_SHGT_civInteractionID = _unit addAction ["Interact", {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 	_actions = _arguments select 0;
 	_headline = _arguments select 1;
@@ -50,3 +50,12 @@ _unit addAction ["Interact", {
 
 
 },[SHGT_civInteract_GUIactions,_headline],6,true,true,"","true",10];
+
+// Local killed EH to remove interaction on death
+_unit setVariable ["_SHGT_civInteractionID",_SHGT_civInteractionID];
+_unit addEventHandler ["Killed", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	_id = _unit getVariable ["_SHGT_civInteractionID",'not found'];
+	if (_id isEqualTo 'not found') exitWith {};
+	_unit removeAction _id; // Remove civ interaction addaction
+}];

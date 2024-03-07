@@ -4,3 +4,14 @@ allowFunctionsRecompile = 1; // REMOVE THIS FOR A REAL MISSION
 class CfgFunctions {
 	#include "SHGT\SHGT_functions.hpp"
 };
+class CfgSounds
+{
+	sounds[] = {}; // OFP required it filled, now it can be empty or absent depending on the game's version
+
+	class SHGT_nokia1
+	{
+		name = "Nokia sound";						// display name
+		sound[] = { "SHGT\ied\SHGT_nokia1.ogg", 1, 1, 50 };	// file, volume, pitch, maxDistance
+		titles[] = {0,""};
+	};
+};

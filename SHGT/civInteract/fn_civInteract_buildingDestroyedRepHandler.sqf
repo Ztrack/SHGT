@@ -8,14 +8,18 @@ if !isServer exitWith {};
 
 addMissionEventHandler ["EntityKilled", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	
+	// Filtering
 	if !(_unit isKindOf "house") exitWith {};
-
+	if !(isPlayer _killer) exitWith {};
+	
+	// Report
 	_area = [_unit] call SHGT_fnc_civInteract_getNearestTownArea;
 	systemChat format ["%1 destroyed by %2 near %3",typeOf _unit,name _killer,_area];
 
 	// set town rep
-	//[_unit,SHGT_civInteract_TownrepAddedFromDestroyedBuilding] call SHGT_fnc_civInteract_changeTownRepofCivilian;
 	_areaReputation = SHGT_areaReputation getOrDefault [_area,'not found'];
+	if (_areaReputation isEqualTo 'not found') exitWith {systemChat "ERROR: civ area info not found"};
 	_newAreaReputation = _areaReputation + SHGT_civInteract_TownrepAddedFromDestroyedBuilding;
 	SHGT_areaReputation set [_area,_newAreaReputation];
 	publicVariable "SHGT_areaReputation";

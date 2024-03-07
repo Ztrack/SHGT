@@ -8,11 +8,10 @@ _unit addEventHandler ["Killed", {
 	if (_area isEqualTo 'not found') exitWith {systemChat "ERROR: civ area info not found"};
 	_areaReputation = SHGT_areaReputation getOrDefault [_area,'not found'];
 	if (_areaReputation isEqualTo 'not found') exitWith {systemChat "ERROR: civ area info not found"};
-	SHGT_areaReputation set [_area, _areaReputation+SHGT_civInteract_civKilledReputationLoss];
-	publicVariable "SHGT_areaReputation";
-	//systemChat format ["%1", _area];
+	SHGT_areaReputation set [_area, _areaReputation+SHGT_civInteract_TownrepAddedFromcivKilled];
+	publicVariable "SHGT_areaReputation"; // this probably wont work in MP? Needs to run ONLY on server
+
 	_msg = format ["Civilian was killed by %1 in %2", name _killer, _area];
-	//systemChat _msg;
-	diag_log _msg;
+	//diag_log _msg;
 	[_msg] remoteExec ["systemChat", 0];
 }];
