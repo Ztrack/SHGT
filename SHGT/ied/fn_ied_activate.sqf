@@ -1,6 +1,11 @@
 // This function runs locally on each client and blows up the IED if a player gets too close while not crouched
 if !(hasInterface) exitWith {}; 
 
+IEDKilledEH = {
+	_unit addEventHandler ["Killed", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	}];
+};
 IEDactivationScript = {
 	//if !isServer exitWith {}; // redundant but for testing
 	params ["_ied"];

@@ -41,3 +41,4 @@ publicVariable "SHGT_ied_radioActivationChance";
 [[],SHGT_fnc_ied_activate] remoteExec ["call",0,true];
 
 
+

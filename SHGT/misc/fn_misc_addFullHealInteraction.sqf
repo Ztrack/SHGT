@@ -11,7 +11,7 @@ _object addAction ["Heal me up daddy", {
 
 	// Step 1: See if conditions are met (No nearby enemies)
 	_enemySides = [side player] call BIS_fnc_enemySides;
-	_radius = 500;
+	_radius = 50;
 	_nearEnemies = allUnits select {(_x distance player < _radius) AND (side _x in _enemySides)};
 
 	_nearestEnemy = 

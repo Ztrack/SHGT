@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=432;
+		nextID=694;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=147;
+		nextID=156;
 	};
 	class Camera
 	{
-		pos[]={1687.0221,8.6245089,5153.5562};
-		dir[]={-0.84406143,-0.50535387,0.17938162};
-		up[]={-0.49431416,0.86291224,0.10505264};
-		aside[]={0.20787935,-7.4505806e-009,0.97815454};
+		pos[]={1711.1459,18.726995,5146.7358};
+		dir[]={-0.83291346,-0.50056589,0.23598526};
+		up[]={-0.4816089,0.86569846,0.13645189};
+		aside[]={0.27259523,-7.4505806e-009,0.96212888};
 	};
 };
 binarizationWanted=0;
@@ -78,8 +78,7 @@ addons[]=
 	"A3_Structures_F_Households_House_Big02",
 	"A3_Structures_F_Households_House_Shop01",
 	"A3_Modules_F_Curator_Mines",
-	"A3_Structures_F_Items_Vessels",
-	"A3_Props_F_Enoch_Military_Garbage"
+	"A3_Structures_F_Items_Vessels"
 };
 class AddonsMetaData
 {
@@ -359,8 +358,7 @@ dlcs[]=
 	"Orange",
 	"Contact",
 	"Expansion",
-	"Curator",
-	"Enoch"
+	"Curator"
 };
 randomSeed=15398668;
 class ScenarioData
@@ -19546,7 +19544,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=58;
+		items=53;
 		class Item0
 		{
 			dataType="Group";
@@ -20873,7 +20871,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1693.0078,5.5014386,5151.6729};
+						position[]={1694.6063,5.5014391,5149.272};
+						angles[]={0,0.27092955,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -20911,7 +20910,6 @@ class Mission
 					};
 					id=396;
 					type="C_Man_casual_3_F";
-					atlOffset=-4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -20948,7 +20946,6 @@ class Mission
 			{
 			};
 			id=395;
-			atlOffset=-4.7683716e-007;
 		};
 		class Item42
 		{
@@ -21139,72 +21136,6 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2954.6506,91.948067,5146.3252};
-				angles[]={0,4.9450965,0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=414;
-			type="Land_u_House_Big_02_V1_F";
-		};
-		class Item49
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={2838.3713,84.37014,5242.7842};
-				angles[]={0,4.9450965,0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=415;
-			type="Land_u_House_Big_02_V1_F";
-			atlOffset=7.6293945e-006;
-		};
-		class Item50
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={2652.0598,87.609222,5440.9878};
-				angles[]={0,4.9450965,0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=416;
-			type="Land_u_House_Big_02_V1_F";
-		};
-		class Item51
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={2661.3093,125.15353,4938.8721};
-				angles[]={0,4.9450965,0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=417;
-			type="Land_u_House_Big_02_V1_F";
-			atlOffset=-7.6293945e-006;
-		};
-		class Item52
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={1682.9166,5.5,5137.3799};
 			};
 			side="Empty";
@@ -21215,7 +21146,7 @@ class Mission
 			id=419;
 			type="IEDLandBig_F";
 		};
-		class Item53
+		class Item49
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21230,7 +21161,7 @@ class Mission
 			id=421;
 			type="IEDUrbanBig_F";
 		};
-		class Item54
+		class Item50
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21245,7 +21176,7 @@ class Mission
 			id=422;
 			type="IEDLandSmall_F";
 		};
-		class Item55
+		class Item51
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21256,12 +21187,12 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="[ " \n " this, " \n " ""Defuse"", " \n " ""a3\ui_f\data\igui\cfg\actions\repair_ca.paa"", ""a3\ui_f\data\igui\cfg\actions\repair_ca.paa"", " \n " ((_target distance _caller) < 1), ""true"", " \n " {}, " \n " {}, " \n " {deleteVehicle _target}, " \n " {[_target] call IEDactivationScript;}, " \n " [_ied], 2, nil, true, false " \n " ] call BIS_fnc_holdActionAdd; ";
+				name="ied1";
 			};
 			id=423;
 			type="IEDUrbanSmall_F";
 		};
-		class Item56
+		class Item52
 		{
 			dataType="Object";
 			class PositionInfo
@@ -21292,21 +21223,6 @@ class Mission
 				};
 				nAttributes=1;
 			};
-		};
-		class Item57
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={1682.256,5.8837366,5155.1309};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=431;
-			type="Land_GarbageBarrel_02_buried_F";
 		};
 	};
 	class Connections

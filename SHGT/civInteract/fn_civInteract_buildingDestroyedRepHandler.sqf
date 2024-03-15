@@ -12,6 +12,7 @@ addMissionEventHandler ["EntityKilled", {
 	// Filtering
 	if !(_unit isKindOf "house") exitWith {};
 	if !(isPlayer _killer) exitWith {};
+	if ((typeOf _unit) in SHGT_civInteract_DefineCivHouses) exitWith {}; // Add filter here isKindOf
 	
 	// Report
 	_area = [_unit] call SHGT_fnc_civInteract_getNearestTownArea;

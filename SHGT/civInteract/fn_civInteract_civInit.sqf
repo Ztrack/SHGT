@@ -4,6 +4,9 @@
 ["Civilian", "init",{
 _unit = (_this select 0); // Get init object
 
+// Filter
+//if !(_unit isKindOf "man") exitWith {};
+
 // Find what area(s) this civ originates and store it
 _area = [_unit] call SHGT_fnc_civInteract_getNearestTownArea;
 _unit setVariable ["SHGT_area",_area,true]; // store what area this unit belongs to. will not change even if civilian moves around
@@ -22,3 +25,4 @@ _unit setVariable ["SHGT_civReputation",_civReputation,true];
 [_unit] call SHGT_fnc_civInteract_reputationLossKilledEventHandler;
 
 }, true, [], true] call CBA_fnc_addClassEventHandler;
+
