@@ -91,5 +91,8 @@ class SHGT {
 		class civInteract_buildingDestroyedRepHandler {};
 		class civInteract_getNearestTownArea {};
 		class civInteract_IEDInit {};
+		class civInteract_Question_1 {};
+		class civInteract_Question_2 {};
+		class civInteract_Question_3 {};
 	};
 };

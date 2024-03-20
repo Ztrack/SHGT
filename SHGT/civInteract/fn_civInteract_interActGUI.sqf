@@ -2,7 +2,7 @@
 // _actions array holds information for each interaction in the form of [["Action/question 1 name",Function 1 to call],["Action/question 2 name",Function 2 to call]]
 // Example: _actions = [["Give Humanitarian Ration",SHGT_fnc_civInteract_giveHumrat],["Any Enemies nearby?",SHGT_fnc_civInteract_intelEnemy]];
 params ["_unit"];
-SHGT_civInteract_GUIactions = [["Give Humanitarian Ration",SHGT_fnc_civInteract_giveHumrat],["Any Enemies nearby?",SHGT_fnc_civInteract_intelEnemy],["Any nearby IEDs?",SHGT_fnc_civInteract_intelIED]];
+SHGT_civInteract_GUIactions = [["Do you support us?",SHGT_fnc_civInteract_Question_1],["What is the opinion of our forces in this area?",SHGT_fnc_civInteract_Question_2],["What town do you live in?",SHGT_fnc_civInteract_Question_3],["Give Humanitarian Ration",SHGT_fnc_civInteract_giveHumrat],["Any Enemies nearby?",SHGT_fnc_civInteract_intelEnemy],["Any nearby IEDs?",SHGT_fnc_civInteract_intelIED]];
 _headline = "Select Interaction";
 
 
