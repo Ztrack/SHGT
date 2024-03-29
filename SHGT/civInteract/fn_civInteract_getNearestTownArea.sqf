@@ -1,3 +1,5 @@
+// Call as _area = [_unit] call SHGT_fnc_civInteract_getNearestTownArea;
+
 // Accepts position or object as parameters
 params ["_unit"];
 

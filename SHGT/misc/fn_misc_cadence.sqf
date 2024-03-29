@@ -73,10 +73,10 @@ params ["_lead"];
 
 // Time for units to end and reposition for loopback - sound file is 56 secs long - allowing for overhead
 _runningLooptime = 60;
-_musicLoopTime = 90;
+_musicLoopTime = 100;
 
 // Set cadence list 
-_cadenceList = ["StickToBeer","mamaCantYouSee","redandgold"];
+_cadenceList = ["SHGT_c130rolling","SHGT_mamaCantYouSee","SHGT_greengrass","SHGT_ileftmyhome"];
 
 // set sound distance for cadence to be heard
 _soundDist = 50;

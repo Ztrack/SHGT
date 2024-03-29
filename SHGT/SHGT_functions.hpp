@@ -87,6 +87,7 @@ class SHGT {
 		class civInteract_reputationLossKilledEventHandler {};
 		class civInteract_changeTownRepOfCivilian {};
 		class civInteract_getTownRepofCivilian {};
+		class civInteract_changeNearestTownRep {};
 		class civInteract_interActGUI {};
 		class civInteract_buildingDestroyedRepHandler {};
 		class civInteract_getNearestTownArea {};

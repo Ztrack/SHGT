@@ -50,6 +50,7 @@ for "_i" from (_forParamsy select 0) to (_forParamsy select 1) do {
 				_marker = createMarker [_markerName, [_xPos,_yPos]];
 				_marker setMarkerShape "RECTANGLE";
 				_marker setMarkerSize [50, 50];
+				_marker setmarkerAlpha 0;
 				_markerList pushBack _marker;
 				if (SHGT_civInteraction_debug isEqualTo true) then {
 					_x setMarkerColor "ColorRed";
