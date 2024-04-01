@@ -54,6 +54,8 @@ class SHGT {
 		class ied_postInit {};
 		class ied_vehicleInit {};
 		class ied_activate {};
+		class ied_CuratorModules {postInit = 1;};
+		class ied_CreateVBED {};
 	};
 	class misc {
 		file = "SHGT\misc";
@@ -75,6 +77,7 @@ class SHGT {
 		class misc_addFullHealInteractionInit {postInit = 1;};
 		class misc_addFullHealInteraction {};
 		class misc_cadence {};
+		class misc_dogAI {postInit = 1};
 	};
 	class civInteract {
 		file = "SHGT\civInteract";

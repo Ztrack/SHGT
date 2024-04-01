@@ -2,7 +2,7 @@ if !isServer exitWith {};
 
 // EDITABLE SERVER SETTINGS
 SHGT_civInteraction_status = true; // If set to false, the module turns off
-SHGT_civInteraction_debug = true;
+SHGT_civInteraction_debug = false;
 SHGT_civInteract_civrepSpread = 20; // Civ rep will be town rep +/- this number
 SHGT_civInteract_TOAR = ['ao1','ao2','ao3']; // TOARs drawn on the editor map as markers of any type. Each marker is a town/area
 SHGT_civInteract_civrepaddedfromHumrat = 20;

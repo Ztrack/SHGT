@@ -1,82 +1,24 @@
 /*
-ROS_Cadence by Rickoshay
+Cadence script by Ztrack with inspiration from Rickoshay
 
-Description
-===========
-Creates the effect of a call-and-response work song sung by military personnel while running or marching.
-
-How it works
-============
-Each AI runner unit is locked into a running animation with a forward veloctiy and direction.
-In this state they will run in synch and alignment - and through objects in their path, in a straight line - forever.
-It is therefore important to have them all pointed in exactly the same direction and be evenly spaced.
-The leading unit will be the 3D sound source. There are two sound files - 58s and 1m56s in length. Based on the setting below you
-can have them reverse their direction ie -180 degrees after they complete one 58 second run which is about 235m from
-their start postion or allow them to continue running for an additional 235m ie. total outbound distance ~470m.
-This would require a clear path i.e. no obstructions for ~500m.
-(Tip: You can use the HIDE module in Eden to clear any unwanted terrain objects in their path)
-
-See deletion options below.
-
-Legal stuff
-===========
-Credit must be given in your mission and on the Steam Workshop if this script is oncluded in your work.
-
-Setup and Sound
-===============
-Create 11 units (the runners) name them run1..run11 starting at the front to the back sequentially - see demo.
-Unit run1 - is the leader in front of the group
-Place them approximately 3m apart in two slightly staggered lines:
-eg:	     3   5   7   8   11
-	 1
-	    2   4   6   8   10
-Add the two march sound classes to your description.ext file in CFGsounds - see demo.
-
-Starting the runners
-====================
-To call this script, place the following command line on a laptop or trigger or in the init.sqf file:
-[] execvm "scripts\ROS_cadence.sqf";
-
-How to delete the runners
-=========================
-Either adjust the Auto delete options below - or if you want them to stop running at a specific point - create a trigger with an area that covers
-the end position with enough overlap to allow for slight variance in the distance and angle on the runners and put the following lines in the trigger:
-Cond: run1 in thislist
-OnAct field:
-{deletevehicle _x} foreach [run1, run2,run3,run4,run5,run6,run7,run8,run9,run10,run11];
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-MODIFICATIONS BY ZTRACK:
 1. No need to name any units anything. Simply put this line of code into the leader of the group in the editor, then group as many units as you want to the lead in whatever placement.
-[this] call SHGT_fnc_misc_cadence;
-2. Modify _cadenceList with sound files as needed. It will play a random song
+[this,[["SHGT_c130rolling",68],["SHGT_mamaCantYouSee",83],["SHGT_greengrass",78],["SHGT_ileftmyhome",96]]] call SHGT_fnc_misc_cadence;
+2. Modify _cadenceList with sound files and run times as needed. It will play a random song
 3. Set the appropriate music loop and running loop timers
 
 
 
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////*/
 
 if (!isServer) exitWith {};
 
 scopeName "main";
-params ["_lead"];
+params ["_lead","_cadenceList"];
 
 // Time for units to end and reposition for loopback - sound file is 56 secs long - allowing for overhead
 _runningLooptime = 60;
 _musicLoopTime = 100;
-
-// Set cadence list 
-_cadenceList = ["SHGT_c130rolling","SHGT_mamaCantYouSee","SHGT_greengrass","SHGT_ileftmyhome"];
 
 // set sound distance for cadence to be heard
 _soundDist = 50;
@@ -145,7 +87,7 @@ _handle_animations = [{
 	params ["_params"];
 	_lead = _params select 0;
 	_runners = _params select 1;
-
+	
 	{_x playmove "AmovPercMrunSnonWnonDf"} forEach _runners;
 
 	if !(alive _lead) exitWith {};
@@ -153,22 +95,25 @@ _handle_animations = [{
 }, 1, [_lead,_runners]] call CBA_fnc_addPerFrameHandler;
 
 // Start song loop
-_handle_sounds = [{
-	params ["_params"];
-	_lead = _params select 0;
-	_cadenceList = _params select 1;
-	_soundDist = _params select 2;
-	_sound = selectRandom _cadenceList;
-	//my_soundSrc = _lead say3D _sound;
+SHGT_misc_CadencePlayFunc = {
+	params ["_lead","_cadenceList","_soundDist"];
+	_cadence = selectRandom _cadenceList;
+	_sound = _cadence select 0;
+	//systemChat str _cadence;
+	_musicLoopTime = (_cadence select 1) + 10; // play time + x seconds delay
 	[_lead, [_sound,_soundDist]] remoteExec ["say3D",0];
-	if !(alive _lead) exitWith {};
-}, _musicLoopTime, [_lead,_cadenceList,_soundDist]] call CBA_fnc_addPerFrameHandler;
+	[{params ["_lead","_cadenceList","_soundDist"]; [_lead,_cadenceList,_soundDist] call SHGT_misc_CadencePlayFunc}, [_lead,_cadenceList,_soundDist], _musicLoopTime] call CBA_fnc_waitAndExecute;
+};
+
+[_lead,_cadenceList,_soundDist] call SHGT_misc_CadencePlayFunc;
+
+
 /*
 params ["_lead","_soundDist","_cadenceList"];
 _play = selectRandom _cadenceList;
 	[_lead, [_play,_soundDist]] remoteExec ["say3D",0];
 
-
+[{params ["_unit","_vehicle"]; _unit moveinCargo _vehicle;}, [_unit,_vehicle], 1] call CBA_fnc_waitAndExecute;
 
 /*
 // Start them running and play cadence sound on first unit

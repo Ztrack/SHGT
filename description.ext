@@ -4,6 +4,7 @@ allowFunctionsRecompile = 1; // REMOVE THIS FOR A REAL MISSION
 class CfgFunctions {
 	#include "SHGT\SHGT_functions.hpp"
 };
+
 class CfgSounds
 {
 	sounds[] = {}; // OFP required it filled, now it can be empty or absent depending on the game's version
@@ -17,31 +18,31 @@ class CfgSounds
 	class SHGT_c130rolling
 	{
 		name = "c130rolling";						// display name
-		sound[] = { "sounds\c130rolling.ogg", 1, 1, 50 };	// file, volume, pitch, maxDistance
+		sound[] = { "sounds\c130rolling.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
 		titles[] = {0,""};
 	};
 	class SHGT_greengrass
 	{
 		name = "greengrass";						// display name
-		sound[] = { "sounds\greengrass.ogg", 1, 1, 50 };	// file, volume, pitch, maxDistance
+		sound[] = { "sounds\greengrass.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
 		titles[] = {0,""};
 	};
 	class SHGT_ileftmyhome
 	{
 		name = "ileftmyhome";						// display name
-		sound[] = { "sounds\ileftmyhome.ogg", 1, 1, 50 };	// file, volume, pitch, maxDistance
+		sound[] = { "sounds\ileftmyhome.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
 		titles[] = {0,""};
 	};
 	class SHGT_mamaCantYouSee
 	{
 		name = "mamaCantYouSee";						// display name
-		sound[] = { "sounds\mamaCantYouSee.ogg", 1, 1, 50 };	// file, volume, pitch, maxDistance
+		sound[] = { "sounds\mamaCantYouSee.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
 		titles[] = {0,""};
 	};
 	class Horsewithnoname_1
 	{
 		name = "Horse with no name";						// display name
-		sound[] = { "sounds\Horsewithnoname_1.ogg", 1, 1, 50 };	// file, volume, pitch, maxDistance
+		sound[] = { "sounds\Horsewithnoname_1.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
 		titles[] = {0,""};
 	};
 	class dog_barking
@@ -50,5 +51,4 @@ class CfgSounds
 		sound[] = { "sounds\dog_barking.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
 		titles[] = {0,""};
 	};
-	
 };
