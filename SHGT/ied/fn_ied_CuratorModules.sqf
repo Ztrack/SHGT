@@ -32,7 +32,7 @@ _FuncSpawnIED = {
 		};
 	};
 };
-["SHGT", "Create IED", _FuncSpawnIED] call zen_custom_modules_fnc_register;
+["SHGT", "Create Random IED", _FuncSpawnIED] call zen_custom_modules_fnc_register;
 
 // Function to spawn VBED
 
@@ -56,4 +56,4 @@ _FuncSpawnVBED = {
 	[_veh] call SHGT_fnc_ied_CreateVBED;
 	};
 };
-["SHGT", "Create VBED", _FuncSpawnVBED] call zen_custom_modules_fnc_register;
+["SHGT", "Create Random VBED", _FuncSpawnVBED] call zen_custom_modules_fnc_register;

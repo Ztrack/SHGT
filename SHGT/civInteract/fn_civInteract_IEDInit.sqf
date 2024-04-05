@@ -1,27 +1,11 @@
 // IEDS should spawn over time in towns dependent on the town reputation
 // Should not spawn ieds if players are close & if no players are in the area
-SHGT_civInteract_maxIEDsDensity = 2; // Max density of IEDs per 100x100 meter area
-SHGT_civInteract_maxIEDsPerArea = 20; // Max ieds per large AO/town area
-SHGT_civInteract_SafeplayerProximity = 1000; // Check players are far enough before spawning a new IED
-SHGT_civInteract_IEDsUpdate = .25; // Time in minutes before a 'tick' is made to spawn more IEDs
-SHGT_civInteract_IEDSpawnRate = 20; // How many IEDs spawn per town area per tick.
-SHGT_civInteract_IEDSpawnRoadChance = 50; // Chance an IED will spawn on a road vs near a building
-SHGT_civInteract_IEDminimumSpacing = 20; // minimum spacing between IED spawns
-SHGT_civInteract_highRepThreshold = 80; // At this reputation no more IEDS will spawn. Linear relationship between 0 and this number to determine max density and #
-SHGT_civInteraction_PauseIEDSpawningNearPlayers = false;
+
 //SHGT_ied_iedList = ["ACE_IEDLandBig_Range","ACE_IEDUrbanBig_Range","ACE_IEDUrbanSmall_Range","ACE_IEDLandSmall_Range"];
 // step 1: Build code to spawn IED at a random position on a road within the AO/town marker. Then offset it randomly. Maybe use getroadinfo to see width
 // instead of trying to build a marker array (many many markers), which could be performance heavy...
 // Could use nearestObjects to check for nearby IEDs if i want to create a minimum spawn distance
 
-SHGT_civInteraction_RoadIEDList = [
-'IEDLandBig_F',
-'IEDUrbanBig_F',
-'IEDLandSmall_F',
-'IEDUrbanSmall_F',
-'SHGT_jbad_tires',
-'SHGT_jbad_opx2_tires'
-];
 SHGT_civInteraction_RoadIEDListAmmo = [];
 {
 	_ammo = ([getText(configFile >> "CfgVehicles" >> _x >> "ammo")] select 0);
@@ -32,28 +16,8 @@ SHGT_civInteraction_RoadIEDListAmmo = [];
 		SHGT_civInteraction_RoadIEDListAmmo pushBackUnique _ammo;
 	};
 } forEach SHGT_civInteraction_RoadIEDList;
+publicVariable "SHGT_civInteraction_RoadIEDListAmmo";
 
-SHGT_civInteraction_BuildingIEDList = [
-'SHGT_jbad_bag',
-'SHGT_IED_jbad_opx2_barrel_black',
-'SHGT_jbad_opx2_barrel_blue',
-'SHGT_jbad_opx2_barrel_green',
-'SHGT_jbad_opx2_barrel_yellow',
-'SHGT_Land_Canister_EP1',
-'SHGT_jbad_opx2_garbagebags',
-'SHGT_rhsusf_props_ScepterMWC_OD',
-'SHGT_Land_Tyre_F',
-'SHGT_Radio_Old',
-'SHGT_Land_Reservoir_EP1',
-'SHGT_Suitcase',
-'SHGT_jbad_opx2_tires',
-'SHGT_jbad_tires',
-'SHGT_Land_BarrelTrash_F',
-'SHGT_IED_LandSmall',
-'SHGT_jbad_Tv_a',
-'SHGT_Land_Tyre_F',
-'SHGT_Land_Sack_EP1'
-];
 SHGT_civInteraction_BuildingIEDListAmmo = [];
 {
 	_ammo = ([getText(configFile >> "CfgVehicles" >> _x >> "ammo")] select 0);
@@ -64,11 +28,11 @@ SHGT_civInteraction_BuildingIEDListAmmo = [];
 		SHGT_civInteraction_BuildingIEDListAmmo pushBackUnique _ammo;
 	};
 } forEach SHGT_civInteraction_BuildingIEDList;
+publicVariable "SHGT_civInteraction_BuildingIEDListAmmo";
 
 SHGT_civInteraction_IEDList = [];
 SHGT_civInteraction_IEDList append SHGT_civInteraction_RoadIEDList;
 SHGT_civInteraction_IEDList append SHGT_civInteraction_BuildingIEDList;
-publicVariable "SHGT_civInteraction_IEDList";
 // idea: use position of normal obj to get pos of ammo
 // Find Ammo types 
 SHGT_civInteraction_IEDListAmmo = [];
@@ -82,6 +46,8 @@ SHGT_civInteraction_IEDListAmmo = [];
 	};
 } forEach SHGT_civInteraction_IEDList;
 
+publicVariable "SHGT_civInteraction_IEDList";
+publicVariable "SHGT_civInteraction_IEDListAmmo";
 
 
 //Creating markers to find areas that have roads & buildings
@@ -202,12 +168,11 @@ _handle = [{
 
 				// If unsucessful, move on to next block
 				if (_newIEDPos isEqualTo []) then { continue }; // no road was found, redo calc
+				if (_newIEDPos isEqualTo []) then {_newIEDPos = _newIEDPos findEmptyPosition [0, 15, "B_soldier_AAA_F"];};
+				if (_newIEDPos isEqualTo []) then { continue }; // no road was found, redo calc
 				if !(_newIEDPos inArea _thisMarker) then {continue}; // if not in area, reset
 				if (surfaceIsWater _newIEDPos) then {continue}; // if above water, reset
 				if !((nearestObjects [_newIEDPos, SHGT_civInteraction_IEDListAmmo, SHGT_civInteract_IEDminimumSpacing, true]) isEqualTo []) then { continue };
-				_newIEDPos = _newIEDPos findEmptyPosition [0, 3, "B_soldier_AAA_F"];
-				if (_newIEDPos isEqualTo []) then {_newIEDPos = _newIEDPos findEmptyPosition [0, 15, "B_soldier_AAA_F"];};
-				if (_newIEDPos isEqualTo []) then { continue }; // no road was found, redo calc
 
 				// if sucessful, spawn an IED
 				_newIED = createVehicle [_type, _newIEDPos, [], 0];

@@ -6,6 +6,8 @@ _unit addAction [_actionName, {
  _num = floor (random (count _sounds));
  _play = _sounds select _num;
  _target say3D _play;
+ _target setRandomLip true;
+[{params ["_unit"]; _unit setRandomLip false;}, [ _target], 10] call CBA_fnc_waitAndExecute;
 
  // GLOBAL EFFECT
  //[[_target,_play],{

@@ -16,8 +16,7 @@ if (!isServer) exitWith {};
 scopeName "main";
 params ["_lead","_cadenceList"];
 
-// Time for units to end and reposition for loopback - sound file is 56 secs long - allowing for overhead
-_runningLooptime = 60;
+_runningLooptime = 80;
 _musicLoopTime = 100;
 
 // set sound distance for cadence to be heard
@@ -49,6 +48,15 @@ _orgPos = getPosASL _lead;
 //[_lead, [_play,_soundDist]] remoteExec ["say3D",0];
 //_soundSrc = playSound3D [_sound,_lead];
 
+// Remove collision between all runners
+{
+	_thisUnit = _x;
+	{
+		if (_x isEqualTo _thisUnit) then {continue};
+		_thisUnit disableCollisionWith _x;
+	} forEach (_runners);
+} forEach _runners;
+
 SHGT_cadence_loop = 1;
 // Loop to handle reorientation of runners
 _handle_reorientation = [{
@@ -57,7 +65,7 @@ _handle_reorientation = [{
 	_runners = _params select 1;
 	_ROS_r1_offsets = _params select 2;
 	_orgPos = _params select 3;
-
+	if !(alive _lead) exitWith {[_this] call CBA_fnc_removePerFrameHandler;};
 	// Stop anim
 	{_x switchmove "";} foreach _runners;
 
@@ -72,14 +80,16 @@ _handle_reorientation = [{
 		_lead setdir (_dir - 180);
 	};
 	
-	_dir = getdir _lead;
-	{
-		_pos = ASLToAGL (_lead modelToWorld (_ROS_r1_offsets select _foreachindex));
-		_x setPosASL _pos;
-		_x setdir _dir;
-	} foreach (_runners - [_lead]);
-
-	if !(alive _lead) exitWith {};
+	[{
+		params ["_lead","_runners","_ROS_r1_offsets"];
+		_dir = getdir _lead;
+		{
+			_pos = ASLToAGL (_lead modelToWorld (_ROS_r1_offsets select _foreachindex));
+			_x setPosASL _pos;
+			_x setdir _dir;
+		} foreach (_runners - [_lead]);
+	}, [_lead,_runners,_ROS_r1_offsets]] call CBA_fnc_execNextFrame;
+	
 }, _runningLooptime, [_lead,_runners,_ROS_r1_offsets,_orgPos]] call CBA_fnc_addPerFrameHandler;
 
 // Start per frame handler to set animations every second
@@ -87,12 +97,12 @@ _handle_animations = [{
 	params ["_params"];
 	_lead = _params select 0;
 	_runners = _params select 1;
-	
-	{_x playmove "AmovPercMrunSnonWnonDf"} forEach _runners;
-
-	if !(alive _lead) exitWith {};
-
-}, 1, [_lead,_runners]] call CBA_fnc_addPerFrameHandler;
+	if !(alive _lead) exitWith {[_this] call CBA_fnc_removePerFrameHandler;};
+	[{
+		params ["_runners"];
+		{_x playmoveNow "AmovPercMrunSnonWnonDf"} forEach _runners;
+	}, [_runners]] call CBA_fnc_execNextFrame;
+}, .5, [_lead,_runners]] call CBA_fnc_addPerFrameHandler;
 
 // Start song loop
 SHGT_misc_CadencePlayFunc = {
@@ -101,6 +111,7 @@ SHGT_misc_CadencePlayFunc = {
 	_sound = _cadence select 0;
 	//systemChat str _cadence;
 	_musicLoopTime = (_cadence select 1) + 10; // play time + x seconds delay
+	if !(alive _lead) exitWith {};
 	[_lead, [_sound,_soundDist]] remoteExec ["say3D",0];
 	[{params ["_lead","_cadenceList","_soundDist"]; [_lead,_cadenceList,_soundDist] call SHGT_misc_CadencePlayFunc}, [_lead,_cadenceList,_soundDist], _musicLoopTime] call CBA_fnc_waitAndExecute;
 };

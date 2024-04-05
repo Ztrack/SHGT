@@ -4,6 +4,9 @@ if !(isServer) exitWith {};
 ["MFR_Dog_Base", "init", {
 	private  _unit = (_this select 0);
 
+	// disable Lambs AI
+	_unit setVariable ["lambs_danger_disableAI",true]; 
+
 
 	// Handler for detecting IEDs
 	_handle = [{
@@ -35,14 +38,15 @@ if !(isServer) exitWith {};
 		};
 	}];
 
-
-
-
-
-
-
-
-
+	// Add head pat
+	_headPatFunc = {
+	params ["_unit"];
+	_action = ["Headpat","Head pat","",
+	{
+		_target say3d "singlebark";
+	},{true},{},[],[0,0,0],2,[false, true, false, false, false],{}] call ace_interact_menu_fnc_createAction;
+	[_unit, 0, ["ACE_Head"], _action] call ace_interact_menu_fnc_addActionToObject;};
+	[[_unit],_headPatFunc] remoteExec ["call", 0, true];
 
 
 

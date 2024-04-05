@@ -9,16 +9,19 @@ private _sucess = false; // initialize
 
 // Checks
 private _hasReceivedHumrat = _unit getVariable ["SHGT_hasReceivedHumrat", false];
+private _area = [];
 _area = _unit getVariable ["SHGT_area", 'not found'];
-if (_area isEqualTo 'not found') exitWith {
-	systemChat "ERROR: civ area info not found"
+if (_area isEqualTo 'not found') then {
+	_area = [_unit] call SHGT_fnc_civInteract_getNearestTownArea;
+	systemChat "Debug me: Needed to find nearest town";
+	if (_area isEqualTo [0,0,0]) exitWith {systemChat "Debug me: Failed to get town area"};
 };
-_maxHumratReached = false;
+private _maxHumratReached = false;
 if isNil "SHGT_humratGainToday" then {
 	SHGT_humratGainToday = createHashMap;
 	SHGT_humratGainToday set [_area, 0]; publicVariable "SHGT_humratGainToday";
 };
-_currentTownHumratGain = SHGT_humratGainToday getOrDefault [_area, 0];
+private _currentTownHumratGain = SHGT_humratGainToday getOrDefault [_area, 0];
 _maxHumratReached = (_currentTownHumratGain>=SHGT_civInteract_maxHumratRepGainPerDay);
 
 // get state

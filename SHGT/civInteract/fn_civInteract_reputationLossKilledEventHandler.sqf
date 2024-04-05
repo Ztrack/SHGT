@@ -11,7 +11,18 @@ _unit addEventHandler ["Killed", {
 	SHGT_areaReputation set [_area, _areaReputation+SHGT_civInteract_TownrepAddedFromcivKilled];
 	publicVariable "SHGT_areaReputation"; // this probably wont work in MP? Needs to run ONLY on server
 
-	_msg = format ["Civilian was killed by %1 in %2", name _killer, _area];
-	//diag_log _msg;
-	[_msg] remoteExec ["systemChat", 0];
+	// Get server time
+	systemTime params ["_year", "_month", "_day", "_hour", "_minute", "_second", "_millisecond"];
+	_time = format ["%1 %2 %3, %4:%5",_year,_month,_day,_hour,_minute];
+	_msg = format ["%1 Civilian was killed by %2 in %3", _time, name _killer, _area];
+
+	// send msg to diary
+	_func = {params ["_msg"]; player createDiaryRecord ['Diary', ["SHGT Reputation Log",_msg]]};
+	[[_msg],_func] remoteExec ["call", 0, true];
+
+	// Store msg
+	if (isNil "SHGT_civInteraction_repLog") then {SHGT_civInteraction_repLog = []};
+	SHGT_civInteraction_repLog pushback _msg;
+	publicVariable "SHGT_civInteraction_repLog";
+
 }];

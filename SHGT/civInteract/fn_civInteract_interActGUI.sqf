@@ -1,6 +1,8 @@
 // This function creates an addaction for players to select how to interact with the civ
 // _actions array holds information for each interaction in the form of [["Action/question 1 name",Function 1 to call],["Action/question 2 name",Function 2 to call]]
 // Example: _actions = [["Give Humanitarian Ration",SHGT_fnc_civInteract_giveHumrat],["Any Enemies nearby?",SHGT_fnc_civInteract_intelEnemy]];
+if !(hasInterface) exitWith {};
+
 params ["_unit"];
 SHGT_civInteract_GUIactions = [["Do you support us?",SHGT_fnc_civInteract_Question_1],["What is the opinion of our forces in this area?",SHGT_fnc_civInteract_Question_2],["What town do you live in?",SHGT_fnc_civInteract_Question_3],["Give Humanitarian Ration",SHGT_fnc_civInteract_giveHumrat],["Any Enemies nearby?",SHGT_fnc_civInteract_intelEnemy],["Any nearby IEDs?",SHGT_fnc_civInteract_intelIED]];
 _headline = "Select Interaction";
@@ -41,6 +43,9 @@ _SHGT_civInteractionID = _unit addAction ["Interact", {
 			_unit = SHGT_civInteract_GUIUnit;
 			_function = (SHGT_civInteract_GUIactions select _index) select 1;
 			[_unit] call _function; // Runs in unscheduled
+			[_unit, [selectRandom SHGT_civInteract_responseSounds,25]] remoteExec ["say3D",0];
+			_unit setRandomLip true;
+			[{params ["_unit"]; _unit setRandomLip false;}, [_unit], 5] call CBA_fnc_waitAndExecute;
 		};
 	},
 	"confirm", // reverts to default

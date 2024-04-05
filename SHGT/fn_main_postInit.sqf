@@ -1,8 +1,8 @@
 if !isServer exitWith {};
 
 //Settings:
-SHGT_persist_autoLoad = true; // should the server load a save on start?
-SHGT_persist_autoSave = true; // autosave true/false
+SHGT_persist_autoLoad = false; // should the server load a save on start?
+SHGT_persist_autoSave = false; // autosave true/false
 SHGT_persist_adminTag = 'Spearhead'; // Tag that allows saving/loading
 SHGT_persist_autoSaveFrequency = 360; // in minutes
 SHGT_persist_dBNamePrefix = 'SHGT_dB';
@@ -31,7 +31,7 @@ SHGT_garageInit = true;
 SHGT_odinInit = false;
 SHGT_checkMods = true; // Kicks player on mod discrepency. Run this command in-game to generate whitelist "copyToClipboard str ("true" configClasses (configFile >> "CfgPatches") apply {configName _x});"
 SHGT_kickPlayerFromVehicleOnDeath = false; // Kicks player on death from a vehicle. If set to false, they need to be dragged out. Currently not applying to aircraft
-SHGT_kickPlayerOnVehicleDeath = true; // Kicks players from a vehicle when the VEHICLE dies.
+SHGT_kickPlayerOnVehicleDeath = false; // Kicks players from a vehicle when the VEHICLE dies.
 SHGT_removeItemsFromAI = true; // Currently removes binos + radios from all AI
 SHGT_removeGPSfromVehicles = ["B_MRAP_01_F"]; // Remove GPS in vehicles from classnames
 
@@ -46,9 +46,9 @@ SHGT_logistics_categories set ['PB',['PB','WEAPONS','PERSONAL','CARGO']];
 SHGT_logistics_categories set ['GLOBAL',['GLOBAL','CREATION']];
 
 // Define garaged vehicles & object
-SHGT_garage_vehicleStorage = '[["Common","UK3CB_LDF_B_T72BB","12"],["Common","UK3CB_CW_US_B_EARLY_M1A1","4"],["Common","UK3CB_LDF_B_Marshall_Cage_Camo","4"],["Common","rhsusf_M1117_O","12"],["Common","UK3CB_LDF_B_T810_Refuel","8"],["Common","UK3CB_LDF_B_T810_Recovery","8"],["Common","UK3CB_LDF_B_T810_Repair","8"],["Common","UK3CB_LDF_B_T810_Reammo","8"],["Common","UK3CB_LDF_B_T810_Closed_PKM","5"],["Common","rhsusf_M1117_O","5"],["Common","UK3CB_LDF_B_M1025_TOW","5"],["Common","rhsusf_m1025_w_m2","8"],["Common","B_T_Truck_01_flatbed_F","8"],["Common","rhsusf_m1152_usarmy_wd","8"],["Common","UK3CB_CHD_B_2S1","NaN"],["Reaper","rhsusf_m1151_m2_v1_usarmy_wd","10"],["Reaper","UK3CB_ANA_B_M1151_GPK_PKM","10"],["misfit","rhsusf_m1165a1_gmv_m2_m240_socom_d","10"],["misfit","rhsusf_mrzr4_d","10"],["gambler","RHS_AH64D_wd","4"],["gambler","rhsgref_b_mi24g_CAS","12"],["gambler","UK3CB_UN_B_Mi8AMTSh","12"],["gambler","RHS_UH60M_d","4"],["gambler","FIR_F16C_Polish","4"],["gambler","FIR_F16D_Polish_CFT","4"],["gambler","UK3CB_LDF_B_MIG29SM","12"],["gambler","HWK_mi6pol","5"],["gambler","UK3CB_LDF_B_C130J_CARGO","2"],["gambler","UK3CB_LDF_B_C130J","2"],["gambler","B_UAV_02_dynamicLoadout_F","4"],["viking","rhsusf_m1165a1_gmv_m134d_m240_socom_d","10"],["viking","rhsusf_m1240a1_m2crows_usarmy_wd","10"],["viking","UK3CB_ADC_C_SUV_Armoured","5"],["viking","UK3CB_ION_B_Desert_Quadbike","10"],["viking","UK3CB_ION_B_Desert_SUV_Armed","5"],["Common","UK3CB_LDF_B_M1025_TOW","5"]]';
+SHGT_garage_vehicleStorage = '[["common","rhsusf_m998_d_4dr","20"],["common","rhsusf_m1165_usarmy_d","20"],["common","UK3CB_B_MTVR_Recovery_USMC_DES","5"],["common","UK3CB_B_MTVR_Reammo_USMC_DES","5"],["common","UK3CB_B_MTVR_Refuel_USMC_DES","5"],["common","UK3CB_B_MTVR_Repair_USMC_DES","5"],["Reaper","rhsusf_m1a1fep_d","1"],["Reaper","rhsusf_m1043_d_s_m2","8"],["Reaper","rhsusf_m1043_d_s_mk19","8"],["Reaper","UK3CB_B_LAV25_US_DES","4"],["Reaper","UK3CB_B_LAV25_HQ_US_DES","1"],["Reaper","UK3CB_B_AAV_US_DES","1"],["Reaper","rhsusf_M1230a1_usarmy_d","1"],["Reaper","rhsusf_M1232_MC_M2_usmc_d","6"],["Reaper","rhsusf_M1232_MC_MK19_usmc_d","6"],["Reaper","rhsusf_m1045_d_s","2"],["Reaper","UK3CB_B_AAV_US_DES","1"],["misfit","rhsusf_m1165a1_gmv_m2_m240_socom_d","5"],["misfit","rhsusf_m1165a1_gmv_mk19_m240_socom_d","5"],["viking","rhsusf_m1165a1_gmv_m2_m240_socom_d","5"],["viking","rhsusf_m1165a1_gmv_mk19_m240_socom_d","5"],["gambler","RHS_A10","1"],["gambler","UK3CB_B_Osprey_IDWS_HMG_USMC_D","2"],["gambler","RHS_MELB_MH6M","4"],["gambler","RHS_UH60M_d","4"],["gambler","RHS_AH1Z","4"],["gambler","rhsusf_CH53E_USMC_GAU21_D","4"],["gambler","rhsusf_CH53E_USMC_D","4"],["gambler","fza_ah64d_b2e","2"],["misfit","rhsusf_stryker_m1126_m2_d","1"],["misfit","rhsusf_M1078A1R_SOV_M2_D_fmtv_socom","1"],["viking","rhsusf_M1078A1R_SOV_M2_D_fmtv_socom","1"],["misfit","rhsusf_M1238A1_M2_socom_d","3"],["viking","rhsusf_M1238A1_M2_socom_d","2"],["misfit","rhsusf_M1238A1_Mk19_socom_d","3"],["viking","rhsusf_M1238A1_Mk19_socom_d","2"]]';
 SHGT_garage_object = ["Land_RepairDepot_01_tan_F"];
-SHGT_garage_target = ["Land_JumpTarget_F"];
+SHGT_garage_target = ["Land_JumpTarget_F","Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"];
 SHGT_garage_tags = ["common","reaper","misfit","gambler","viking","HQ"];
 
 // Call functions
