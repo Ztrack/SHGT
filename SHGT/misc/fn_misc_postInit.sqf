@@ -9,7 +9,7 @@ publicVariable "SHGT_removeGPSfromVehicles";
 if (SHGT_checkMods isEqualTo true) then { [[],SHGT_fnc_misc_modChecker] remoteExec ["call",0,true]; };
 if (SHGT_deleteAllMapLocations isEqualTo true) then {[] call SHGT_fnc_misc_deleteLocations};
 if (SHGT_removeAICollisionDamage isEqualTo true) then {[[],SHGT_fnc_misc_removeAICollisionDamage] remoteExec ["call",0,true]};
-if (SHGT_callToPrayer isEqualTo true) then {[[],SHGT_fnc_misc_callToPrayer] remoteExec ["call",-2,true];};
+if (SHGT_callToPrayer isEqualTo true) then {[] call SHGT_fnc_misc_callToPrayer};
 if (SHGT_addVehicleReloadingAction isEqualTo true) then {[[],SHGT_fnc_misc_vehicleReloadingaddAction] remoteExec ["call",-2,true];};
 [[],SHGT_fnc_misc_medicalDummy] remoteExec ["call",0,true];
 [[],SHGT_fnc_misc_soccerInit] remoteExec ["call",0,true];

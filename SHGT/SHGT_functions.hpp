@@ -56,6 +56,7 @@ class SHGT {
 		class ied_activate {};
 		class ied_CuratorModules {postInit = 1;};
 		class ied_CreateVBED {};
+		class ied_SBomber {};
 	};
 	class misc {
 		file = "SHGT\misc";
@@ -98,5 +99,6 @@ class SHGT {
 		class civInteract_Question_1 {};
 		class civInteract_Question_2 {};
 		class civInteract_Question_3 {};
+		class civInteract_curatorModules {postInit = 1};
 	};
 };

@@ -104,3 +104,5 @@ if (isPersonal and !cancelled) then {
     
 };
 
+if (vehPlace isKindOf "StaticWeapon") then {vehPlace setVehicleAmmo 0;}; // remove ammo from turrets
+if (vehPlace isKindOf "house") then {vehPlace allowDamage false}; // remove ammo from turrets

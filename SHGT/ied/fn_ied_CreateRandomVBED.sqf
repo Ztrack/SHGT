@@ -12,7 +12,7 @@ params ["_veh"];
 		}
 	} forEach SHGT_ied_vbedVehicles;
 	if (_info isEqualTo []) exitWith {
-		systemChat "vehicle offset not found"
+		systemChat "BUG: vehicle offset not found"
 	};
 
 	// Determine if this vehicle has an ied randomly

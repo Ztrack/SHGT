@@ -8,7 +8,7 @@ private _radius = 500;
 private _nearEnemies = allUnits select {
 	_x distance player < _radius and side _x in _enemySides
 };
-private _nearestEnemy = _nearEnemies select 0;
+private _nearEnemy = selectRandom _nearEnemies;
 if (_nearEnemies isEqualTo []) then {
 	_enemyDetected = false
 } else {
@@ -111,7 +111,7 @@ switch (_case) do
 	};
 	case 3: {
 		_outputText = selectRandom _KnownandLikedResponses;
-		_pos = getPosATL _nearestEnemy;
+		_pos = getPosATL _nearEnemy;
 		_pos = [(_pos select 0) + (random 200 - 200), (_pos select 1) + (random 200 - 200), _pos select 2];
 		_marker = createMarker [format ["SHGTEnemyMarker%1", random 10000], _pos];
 		_marker setMarkerShape "ELLIPSE";

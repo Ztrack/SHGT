@@ -74,6 +74,7 @@ for "_i" from 0 to _numObj-1 do {
 	} forEach (_items select 0); };
 
 	if (_objType in SHGT_logistics_cargoCapable) then {_obj setVariable ["supplyCount",_supplyCount,true]};
+	if (_obj isKindOf "house") then {_obj allowDamage false}; // remove damage from house sim objects
 
 	if (_dBType isEqualTo "veh") then {
 		private _objectFuel = ["read", [_name, "fuel", []]] call SHGT_persist_inidbi;

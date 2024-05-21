@@ -10,7 +10,10 @@ _shgCivRep = SHGT_areaReputation getOrDefault [_area,0];
 
 _outputText = "";
 private _LikedResponses = [
-	"We support you"
+	"We fully support you"
+];
+private _partialLikedResponses = [
+	"Most of us support you, but you havent convinced us all"
 ];
 private _NeutralResponses = [
 	"Some of us support you"
@@ -23,13 +26,16 @@ private _HatedResponses = [
 _case = 0; // Initialize
 if (_shgCivRep<=24) then {
 	_case = 1
-}; // IED is nearby, player hated
-if (_shgCivRep>=25 and _shgCivRep<=59) then {
+}; // player hated
+if (_shgCivRep>=25) then {
 	_case = 2
-}; // IED is nearby, player is neutral
+}; // player is neutral
 if (_shgCivRep>=60) then {
 	_case = 3
-}; // IED is nearby, player is liked
+}; // player is liked
+if (_shgCivRep>=80) then {
+	_case = 4
+}; // player is well liked
 
 switch (_case) do
 {
@@ -40,6 +46,9 @@ switch (_case) do
 		_outputText = selectRandom _NeutralResponses
 	};
 	case 3: {
+		_outputText = selectRandom _partialLikedResponses;
+	};
+	case 4: {
 		_outputText = selectRandom _LikedResponses;
 	};
 	default {

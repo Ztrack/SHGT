@@ -5,7 +5,7 @@ params ["_unit"];
 // get near IEDs
 private _iedArray = nearestMines [_unit, SHGT_ied_iedListAmmo, 500];
 private _iedCount = count _iedArray;
-private _nearestIED = _iedArray select 0;
+private _nearIED = selectRandom _iedArray;
 private _iedKnown = (_iedCount >0);
 private _lieChance = random 100;
 
@@ -122,7 +122,7 @@ switch (_case) do
 	};
 	case 3: {
 		_outputText = selectRandom _KnownandLikedResponses;
-        _pos = getPosATL _nearestIED;
+        _pos = getPosATL _nearIED;
         _pos = [(_pos select 0) + (random 50 - 50),(_pos select 1) + (random 50 - 50),_pos select 2];
         _marker = createMarker [format ["SHGTIEDMarker%1",random 10000], _pos];
         _marker setMarkerShape "ELLIPSE";

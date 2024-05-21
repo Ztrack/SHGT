@@ -19,7 +19,7 @@ waitUntil {uiSleep 1; !(isNil "SHGT_serverAddons")}; // Wait for whitelist varia
 uiSleep 30;
 
 // Get whitelist
-systemChat "SHGT WL: Start...";
+//systemChat "SHGT WL: Start...";
 private _contents = loadFile "SHGT\SHGT_modWhitelist.txt";
 SHGT_whitelistedAddons = parseSimpleArray _contents;
 
@@ -30,7 +30,7 @@ private _remainder = _playerAddons - SHGT_serverAddons;
 _remainder = _remainder - SHGT_whitelistedAddons;
 
 // If mods are good, player continues with their miserable life
-if (!(count _remainder > 0) or (_remainder isEqualTo []) or (isNil "_remainder")) exitWith {systemChat "SHGT WL: Good";}; // Player is good to play on the server
+if (!(count _remainder > 0) or (_remainder isEqualTo []) or (isNil "_remainder")) exitWith {}; // Player is good to play on the server
 
 // If unwhitelisted mods exist, continue to warn & kick player
 systemChat format ["Unwhitelisted mods loaded, You will be kicked to lobby in 30s... Remove: %1",str _remainder];

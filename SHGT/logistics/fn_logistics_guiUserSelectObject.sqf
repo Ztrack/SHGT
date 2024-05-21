@@ -78,6 +78,7 @@ private _uiArray = [];
 	if (_thisClass isEqualTo SHGT_persist_pbObjectName) then {_textLeft=["BUILD PB",[159/225,43/225,104/225,1]]};
 	if (_thisClass isEqualTo SHGT_persist_saveObject) then {_textLeft=["BUILD PERSIST SAVE OBJECT",[159/225,43/225,104/225,1]]};
 	if (_thisClass isEqualTo SHGT_logistics_supplySource) then {_textLeft=["BUILD SUPPLY DEPOT",[159/225,43/225,104/225,1]]};
+	if (_thisClass isEqualTo SHGT_medical_interactionObject) then {_textLeft=["BUILD FULL HEAL STATION",[159/225,43/225,104/225,1]]};
 
 	_uiArray pushBack [_textLeft,_textRight,_pictureLeft,_pictureRight,_tooltip,_data,_value];
 } forEach _objListCost;

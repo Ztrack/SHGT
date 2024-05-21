@@ -10,18 +10,16 @@ addMissionEventHandler ["EntityKilled", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	
 	// Filtering
-	if !(_unit isKindOf "house") exitWith {};
 	if !(isPlayer _killer) exitWith {};
-	if ((typeOf _unit) in SHGT_civInteract_DefineCivHouses) exitWith {}; // Add filter here isKindOf
+	if !((typeOf _unit) in SHGT_civInteract_DefineCivHouses) exitWith {}; // Add filter here isKindOf
 	
 	// Report
 	_area = [_unit] call SHGT_fnc_civInteract_getNearestTownArea;
-	//systemChat format ["%1 destroyed by %2 near %3",typeOf _unit,name _killer,_area];
 
 	// set town rep
-	_areaReputation = SHGT_areaReputation getOrDefault [_area,'not found'];
-	if (_areaReputation isEqualTo 'not found') exitWith {systemChat "ERROR: civ area info not found"};
-	_newAreaReputation = _areaReputation + SHGT_civInteract_TownrepAddedFromDestroyedBuilding;
+	[_unit,SHGT_civInteract_TownrepAddedFromcivKilled] call SHGT_fnc_civInteract_changeNearestTownRep;
+	private _areaReputation = SHGT_areaReputation getOrDefault [_area,0];
+	private _newAreaReputation = _areaReputation + SHGT_civInteract_TownrepAddedFromDestroyedBuilding;
 	SHGT_areaReputation set [_area,_newAreaReputation];
 	publicVariable "SHGT_areaReputation";
 
@@ -33,12 +31,13 @@ addMissionEventHandler ["EntityKilled", {
 	// send msg to diary
 	_func = {params ["_msg"]; player createDiaryRecord ['Diary', ["SHGT Reputation Log",_msg]]};
 	[[_msg],_func] remoteExec ["call", 0, true];
+	diag_log _msg;
 
 	// Store msg
 	if (isNil "SHGT_civInteraction_repLog") then {SHGT_civInteraction_repLog = []};
 	SHGT_civInteraction_repLog pushback _msg;
 	publicVariable "SHGT_civInteraction_repLog";
-	
+	//systemChat "Report complete";
 }];
 
 

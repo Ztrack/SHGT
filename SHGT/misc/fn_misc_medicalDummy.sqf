@@ -20,6 +20,7 @@ SHGT_spawnDummy = {
 	_unit setDir (getDir _target);
 	_unit attachTo [_target,[.5,0,0.5]];
 	_unit setUnconscious true;
+	_unit setVariable ["ace_medical_damageThreshold",1000,true]; 
 	//_unit attachTo [_target,[0,0,0.5]];
 };
 

@@ -13,4 +13,4 @@ SHGT_fnc_misc_quickDropBackpackFunc = {
 
 // Add keybind
 #include "\a3\editor_f\Data\Scripts\dikCodes.h"
-["SHGT","misc_quickDropBackpack", "Quick Drop Backpack", {[] call SHGT_fnc_misc_quickDropBackpackFunc}, "", [35, [true, false, false]]] call CBA_fnc_addKeybind;
+["SHGT","misc_quickDropBackpack", "Quick Drop Backpack", {[] call SHGT_fnc_misc_quickDropBackpackFunc}, "", [35, [true, true, false]]] call CBA_fnc_addKeybind;

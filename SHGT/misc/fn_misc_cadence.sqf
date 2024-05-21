@@ -12,105 +12,65 @@ Cadence script by Ztrack with inspiration from Rickoshay
 //////////////////////////////////////////////////////////////////////////////////////////////*/
 
 if (!isServer) exitWith {};
-
-scopeName "main";
 params ["_lead","_cadenceList"];
 
-_runningLooptime = 80;
-_musicLoopTime = 100;
-
-// set sound distance for cadence to be heard
-_soundDist = 50;
-
-// Array of runners
-_runners = (units (group _lead));
-//_idx = _runners find _lead;
-//_runners deleteAt _idx;
-
-// Get pack offsets from leader
-_ROS_r1_offsets = [];
+private _runners = (units (group _lead));
+private _ROS_r1_offsets = [];
 {_ROS_r1_offsets pushback (_lead worldToModel (getPosASL _x))} foreach (_runners - [_lead]);
 
-// Save _lead
-_dir = getdir _lead;
-_orgPos = getPosASL _lead;
-{_x setDir _dir} forEach (_runners - [_lead]);
+//_waitTime = 360; // Time in seconds to wait before script starts...Useful for bypassing headlessclient transfer
+
+//[{
+//params ["_lead","_cadenceList","_ROS_r1_offsets"];
+//[[_lead,_cadenceList,_ROS_r1_offsets], {
+//params ["_lead","_cadenceList","_ROS_r1_offsets"];
+private _runningLooptime = 80;
+private _musicLoopTime = 100;
+private _soundDist = 50; // set sound distance for cadence to be heard
+
+// Array of runners
+//_runners = (units (group _lead));
 
 // Prevent anim switch and damage
-{_x disableAI "anim"; _x allowDamage false} foreach _runners;
+{_x disableAI "anim"; _x setVariable ["lambs_danger_disableAI",true]; _x playmoveNow "AmovPercMrunSnonWnonDf";} foreach _runners;
 
-// Leader orientation fix for first loop
-//_dir = getdir _lead - 180;
-//_lead setdir (_dir - 180);
+// Save _lead
+private _orgPos = getPosATL _lead;
+private _orgdir = getdir _lead;
 
-// Start cadence
-//_sound = selectRandom _cadenceList;
-//[_lead, [_play,_soundDist]] remoteExec ["say3D",0];
-//_soundSrc = playSound3D [_sound,_lead];
+// Get offsets and attachTo
+{_pos = _ROS_r1_offsets select _forEachIndex; _x attachTo [_lead,[_pos select 0, _pos select 1, 0]]; _x setDir 0;} foreach (_runners - [_lead]);
 
-// Remove collision between all runners
-{
-	_thisUnit = _x;
-	{
-		if (_x isEqualTo _thisUnit) then {continue};
-		_thisUnit disableCollisionWith _x;
-	} forEach (_runners);
-} forEach _runners;
-
-SHGT_cadence_loop = 1;
+_lead setVariable ["_cadence_loop",1];
 // Loop to handle reorientation of runners
 _handle_reorientation = [{
 	params ["_params"];
-	_lead = _params select 0;
-	_runners = _params select 1;
-	_ROS_r1_offsets = _params select 2;
-	_orgPos = _params select 3;
-	if !(alive _lead) exitWith {[_this] call CBA_fnc_removePerFrameHandler;};
-	// Stop anim
-	{_x switchmove "";} foreach _runners;
+	private _lead = _params select 0;
+	private _runners = _params select 1;
+	private _orgPos = _params select 2;
+	private _orgdir = _params select 3;
+	//if !(alive _lead) exitWith {[_this] call CBA_fnc_removePerFrameHandler};
 
-	if (SHGT_cadence_loop isEqualTo 1) then {
+	_cadence_loop = _lead getVariable ["_cadence_loop",2];
+	if (_cadence_loop isEqualTo 1) then {
 		// First time setup
-		_lead setPosASL _orgPos;
-		SHGT_cadence_loop=2;
+		_lead setPosATL _orgPos;
+		_lead setDir _orgdir;
+		_lead setVariable ["_cadence_loop",2];
 	} else {
-
-		// Reorientate _lead
-		_dir = getdir _lead;
-		_lead setdir (_dir - 180);
+		_lead setdir (_orgdir + 180); // Reorientate _lead
+		_lead setVariable ["_cadence_loop",1];
 	};
-	
-	[{
-		params ["_lead","_runners","_ROS_r1_offsets"];
-		_dir = getdir _lead;
-		{
-			_pos = ASLToAGL (_lead modelToWorld (_ROS_r1_offsets select _foreachindex));
-			_x setPosASL _pos;
-			_x setdir _dir;
-		} foreach (_runners - [_lead]);
-	}, [_lead,_runners,_ROS_r1_offsets]] call CBA_fnc_execNextFrame;
-	
-}, _runningLooptime, [_lead,_runners,_ROS_r1_offsets,_orgPos]] call CBA_fnc_addPerFrameHandler;
-
-// Start per frame handler to set animations every second
-_handle_animations = [{
-	params ["_params"];
-	_lead = _params select 0;
-	_runners = _params select 1;
-	if !(alive _lead) exitWith {[_this] call CBA_fnc_removePerFrameHandler;};
-	[{
-		params ["_runners"];
-		{_x playmoveNow "AmovPercMrunSnonWnonDf"} forEach _runners;
-	}, [_runners]] call CBA_fnc_execNextFrame;
-}, .5, [_lead,_runners]] call CBA_fnc_addPerFrameHandler;
+	{_x disableAI "anim"; _x setVariable ["lambs_danger_disableAI",true]; _x playmoveNow "AmovPercMrunSnonWnonDf";} foreach _runners;
+}, _runningLooptime, [_lead,_runners,_orgPos,_orgdir]] call CBA_fnc_addPerFrameHandler;
 
 // Start song loop
 SHGT_misc_CadencePlayFunc = {
 	params ["_lead","_cadenceList","_soundDist"];
-	_cadence = selectRandom _cadenceList;
-	_sound = _cadence select 0;
+	private _cadence = selectRandom _cadenceList;
+	private _sound = _cadence select 0;
 	//systemChat str _cadence;
-	_musicLoopTime = (_cadence select 1) + 10; // play time + x seconds delay
+	private _musicLoopTime = (_cadence select 1) + 10; // play time + x seconds delay
 	if !(alive _lead) exitWith {};
 	[_lead, [_sound,_soundDist]] remoteExec ["say3D",0];
 	[{params ["_lead","_cadenceList","_soundDist"]; [_lead,_cadenceList,_soundDist] call SHGT_misc_CadencePlayFunc}, [_lead,_cadenceList,_soundDist], _musicLoopTime] call CBA_fnc_waitAndExecute;
@@ -118,6 +78,9 @@ SHGT_misc_CadencePlayFunc = {
 
 [_lead,_cadenceList,_soundDist] call SHGT_misc_CadencePlayFunc;
 
+//}] remoteExec ["call",_lead];
+
+//}, [_lead,_cadenceList,_ROS_r1_offsets], _waitTime] call CBA_fnc_waitAndExecute;
 
 /*
 params ["_lead","_soundDist","_cadenceList"];

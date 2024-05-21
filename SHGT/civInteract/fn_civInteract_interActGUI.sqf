@@ -4,12 +4,15 @@
 if !(hasInterface) exitWith {};
 
 params ["_unit"];
+//systemChat str _unit;
+if !(alive _unit) exitWith {private _id = _unit getVariable ["_SHGT_civInteractionID",'not found']; if !(_id isEqualTo 'not found') then {_unit removeAction _id;}};
 SHGT_civInteract_GUIactions = [["Do you support us?",SHGT_fnc_civInteract_Question_1],["What is the opinion of our forces in this area?",SHGT_fnc_civInteract_Question_2],["What town do you live in?",SHGT_fnc_civInteract_Question_3],["Give Humanitarian Ration",SHGT_fnc_civInteract_giveHumrat],["Any Enemies nearby?",SHGT_fnc_civInteract_intelEnemy],["Any nearby IEDs?",SHGT_fnc_civInteract_intelIED]];
 _headline = "Select Interaction";
 
 
 _SHGT_civInteractionID = _unit addAction ["Interact", {
 	params ["_target", "_caller", "_actionId", "_arguments"];
+	if !(alive _target) exitWith {systemChat "He's dead jim";};
 	_actions = _arguments select 0;
 	_headline = _arguments select 1;
 	SHGT_civInteract_GUIUnit = _target;
@@ -43,9 +46,11 @@ _SHGT_civInteractionID = _unit addAction ["Interact", {
 			_unit = SHGT_civInteract_GUIUnit;
 			_function = (SHGT_civInteract_GUIactions select _index) select 1;
 			[_unit] call _function; // Runs in unscheduled
-			[_unit, [selectRandom SHGT_civInteract_responseSounds,25]] remoteExec ["say3D",0];
-			_unit setRandomLip true;
-			[{params ["_unit"]; _unit setRandomLip false;}, [_unit], 5] call CBA_fnc_waitAndExecute;
+			if !(SHGT_civInteract_responseSounds isEqualTo []) then {
+				[_unit, [selectRandom SHGT_civInteract_responseSounds,25]] remoteExec ["say3D",0];
+				_unit setRandomLip true;
+				[{params ["_unit"]; _unit setRandomLip false;}, [_unit], 5] call CBA_fnc_waitAndExecute;
+			};
 		};
 	},
 	"confirm", // reverts to default
@@ -54,8 +59,10 @@ _SHGT_civInteractionID = _unit addAction ["Interact", {
 
 
 
-},[SHGT_civInteract_GUIactions,_headline],6,true,true,"","true",10];
+},[SHGT_civInteract_GUIactions,_headline],6,true,true,"","true",4];
 
+
+/*
 // Local killed EH to remove interaction on death
 _unit setVariable ["_SHGT_civInteractionID",_SHGT_civInteractionID];
 _unit addEventHandler ["Killed", {
