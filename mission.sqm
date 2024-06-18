@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=330;
+		nextID=333;
 	};
 	class Camera
 	{
-		pos[]={1216.3431,39.495468,5185.3066};
-		dir[]={-0.89443803,-0.44411844,0.054541189};
-		up[]={-0.44341674,0.89588505,0.027033586};
-		aside[]={0.06086598,1.1567681e-007,0.99824709};
+		pos[]={1806.4866,68.914558,5192.1323};
+		dir[]={-0.9373877,-0.31063446,0.15826444};
+		up[]={-0.30644995,0.95045871,0.051734302};
+		aside[]={0.16649124,9.1773836e-007,0.98614526};
 	};
 };
 binarizationWanted=0;
@@ -19636,11 +19636,11 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1178.9165,23.410145,5376.2139};
-						angles[]={0,4.6967754,-0};
+						position[]={1713.7511,5.5014391,5165.6816};
+						angles[]={0,4.6967754,0};
 					};
 					side="West";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						init="this setVariable [""infantry"",true];" \n "this setVariable [""common"",true];";
@@ -19785,7 +19785,6 @@ class Mission
 					};
 					id=1;
 					type="B_Soldier_F";
-					atlOffset=13.741869;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -19848,7 +19847,6 @@ class Mission
 			{
 			};
 			id=0;
-			atlOffset=13.741869;
 		};
 		class Item1
 		{
@@ -22175,7 +22173,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1723.8306,7.9179983,5180.4307};
-				angles[]={-0,3.3573744,0};
+				angles[]={0,3.3573744,0};
 			};
 			side="Empty";
 			flags=4;
@@ -22191,7 +22189,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1721.6837,5.5,5170.7275};
-				angles[]={-0,3.2497907,0};
+				angles[]={0,3.2497907,0};
 			};
 			side="Empty";
 			flags=4;
@@ -22207,7 +22205,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1173.7281,25.933088,5283.3867};
-				angles[]={-0,3.0313859,0};
+				angles[]={0,3.0313859,0};
 			};
 			side="Empty";
 			class Attributes

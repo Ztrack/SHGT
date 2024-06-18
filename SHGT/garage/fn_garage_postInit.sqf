@@ -1,6 +1,8 @@
 if !(SHGT_garageInit isEqualTo true) exitWith {}; 
 
-_tempList = parseSimpleArray SHGT_garage_vehicleStorage; // parse list from module or from above default
+_tempList = [];
+if ((typename SHGT_garage_vehicleStorage) isEqualTo "STRING" ) then {_tempList = parseSimpleArray SHGT_garage_vehicleStorage} else {_tempList = SHGT_garage_vehicleStorage;};
+
 SHGT_garage_vehicleStorage = [];
 {
 	
