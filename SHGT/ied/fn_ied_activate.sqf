@@ -6,8 +6,8 @@ SHGT_ied_activateWithNokia = {
 	params ["_ied"];
 	[_ied] spawn {
 		params ["_ied"];
-		[_ied, ["SHGT_nokia1",50]] remoteExec ["say3D",0];
-		_explodelay = random [2, 3, 5]; // random # [min, mid, max], gaussian distribution centered on mid
+		[_ied, [SHGT_ied_ActivationSound,50]] remoteExec ["say3D",0];
+		_explodelay = random SHGT_ied_ActivationDelay; // random # [min, mid, max], gaussian distribution centered on mid
 		sleep _explodelay;
 		//detach _ied;
 		if !(_ied isKindOf "MineBase") then {
@@ -54,7 +54,7 @@ _handle = [{
 
 	// Check if IED has a programmed random distance
 	_detonateDist = _ied getVariable ["iedDistance",0];
-	if (_detonateDist isEqualTo 0) then {_detonateDist = random [2, 3, 6]; _ied setVariable ["iedDistance",_detonateDist,true]}; // Generate random distance if not
+	if (_detonateDist isEqualTo 0) then {_detonateDist = random SHGT_ied_ActivationDistance; _ied setVariable ["iedDistance",_detonateDist,true]}; // Generate random distance if not
 
 	// Add local IED Defusal interaction
 	if ((_ied getVariable ["SHGT_DefuseObject",[]] isEqualTo []) and (_dist <= 4)) then {[_ied] call IEDdefusalInteraction};

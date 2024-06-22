@@ -69,6 +69,9 @@ publicVariable "SHGT_ied_vbedVehicles";
 publicVariable "SHGT_ied_vbedChance";
 //publicVariable "SHGT_ied_iedAmmo";
 publicVariable "SHGT_ied_radioActivationChance";
+publicVariable "SHGT_ied_ActivationSound";
+publicVariable "SHGT_ied_ActivationDelay";
+publicVariable "SHGT_ied_ActivationDistance";
 
 //[] call SHGT_fnc_ied_vehicleInit;
 [[],SHGT_fnc_ied_activate] remoteExec ["call",0,true];

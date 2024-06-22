@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=939;
+		nextID=948;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=333;
+		nextID=336;
 	};
 	class Camera
 	{
-		pos[]={1806.4866,68.914558,5192.1323};
-		dir[]={-0.9373877,-0.31063446,0.15826444};
-		up[]={-0.30644995,0.95045871,0.051734302};
-		aside[]={0.16649124,9.1773836e-007,0.98614526};
+		pos[]={1628.4187,15.899446,5172.8887};
+		dir[]={0.92705762,-0.34595591,0.1444947};
+		up[]={0.34182873,0.93825084,0.053278718};
+		aside[]={0.15400437,3.7252903e-009,-0.98807025};
 	};
 };
 binarizationWanted=0;
@@ -79,13 +79,14 @@ addons[]=
 	"A3_Soft_F_Orange_Truck_02",
 	"A3_Boat_F_Jets_Carrier_01",
 	"A3_Structures_F_Tank_Military_RepairDepot",
-	"A3_Structures_F_Mil_Helipads"
+	"A3_Structures_F_Mil_Helipads",
+	"A3_Boat_F_Boat_Transport_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=40;
+		items=41;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -353,6 +354,13 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_Tank";
 			name="Arma 3 Tank - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item40
+		{
+			className="A3_Boat_F";
+			name="Arma 3 Alpha - Boats and Submersibles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -19623,7 +19631,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=73;
+		items=77;
 		class Item0
 		{
 			dataType="Group";
@@ -19636,8 +19644,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1713.7511,5.5014391,5165.6816};
-						angles[]={0,4.6967754,0};
+						position[]={1640.3281,5.5014391,5175.8369};
+						angles[]={0,0.55951858,-0};
 					};
 					side="West";
 					flags=7;
@@ -22220,7 +22228,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1185.8877,25.451778,5288.6973};
+				position[]={1182.6914,25.108585,5280.4692};
 			};
 			side="Empty";
 			class Attributes
@@ -22228,7 +22236,7 @@ class Mission
 			};
 			id=933;
 			type="Land_HelipadEmpty_F";
-			atlOffset=1.92062;
+			atlOffset=1.5799675;
 		};
 		class Item71
 		{
@@ -22261,6 +22269,66 @@ class Mission
 			id=938;
 			type="Land_JumpTarget_F";
 			atlOffset=54.837585;
+		};
+		class Item73
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1102.5795,1.2435327,5452.0313};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=939;
+			type="B_Boat_Transport_01_F";
+			atlOffset=70.411316;
+		};
+		class Item74
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1670.7889,5.5,5175.2832};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=945;
+			type="IEDLandBig_F";
+		};
+		class Item75
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1653.6852,5.5,5168.9409};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=946;
+			type="IEDLandBig_F";
+		};
+		class Item76
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1650.8752,5.5,5179.6299};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=947;
+			type="IEDLandBig_F";
 		};
 	};
 	class Connections

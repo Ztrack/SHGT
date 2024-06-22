@@ -22,9 +22,10 @@ _target = [];
 {
 	_target = _x;
 	_pos = getPosATL _target;
-	systemChat str ((typeOf _target isEqualTo Land_HelipadEmpty_F));
-	if ((typeOf _target) isEqualTo "Land_HelipadEmpty_F") then {
+	//systemChat str ((typeOf _target isEqualTo Land_HelipadEmpty_F));
+	if (((typeOf _target) isEqualTo "Land_HelipadEmpty_F") or (_target getVariable ["SHGT_spawndirectly",false] isEqualTo true)) then {
 		// This is an empty helipad, spawn directly on it
+		//if ((nearestObjects [_pos, ["Man","Car","Ship","Air"], 5]) isEqualTo []) then {_safePos = _pos} else {_safePos = []};
 		_safePos = _pos;
 		breakWith "END";
 		} else {
@@ -36,11 +37,19 @@ _target = [];
 } forEach _neartargets;
 if (_safePos isEqualTo []) exitWith {systemChat "Not enough space on the target to spawn"};
 
-if ((typeOf _target) isEqualTo "Land_HelipadEmpty_F") then {
-	createVehicle [_classname,_safePos,[],0,"CAN_COLLIDE"];
+// Spawn vehicle
+_obj = objNull; // Init
+if (((typeOf _target) isEqualTo "Land_HelipadEmpty_F") or (_target getVariable ["SHGT_spawndirectly",false] isEqualTo true)) then {
+	_obj = createVehicle [_classname,_safePos,[],0,"CAN_COLLIDE"];
 } else {
 	_obj = createVehicle [_classname,_safePos,[],0,"NONE"];
 };
+
+// Set indestructible for a few seconds
+_obj allowDamage false;
+//[_obj] spawn {sleep 5; params ["_obj"]; _obj allowDamage true;};
+[{params ["_obj"]; _obj allowDamage true}, [_obj], 10] call CBA_fnc_waitAndExecute;
+
 
 // Determine if its a drone, if so we want to spawn crew
 _isDrone = _classname isKindOf "UAV";
