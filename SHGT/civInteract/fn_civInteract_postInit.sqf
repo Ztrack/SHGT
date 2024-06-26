@@ -57,17 +57,19 @@ SHGT_civInteraction_BuildingIEDList = [
 
 // DO NOT TOUCH PAST HERE
 if !(SHGT_civInteraction_status isEqualTo true) exitWith {};
-SHGT_areaReputation = createHashMap;
-{
-	_reputation = 0; // Initialize as this
-	SHGT_areaReputation set [_x, _reputation];
-	if (SHGT_civInteraction_debug isEqualTo true) then {
-		_x setMarkerColor "ColorCIV";
-		_x setmarkerAlpha 0.5;
-	} else {
-		_x setmarkerAlpha 0;
-	};
-} forEach SHGT_civInteract_TOAR;
+if (isNil "SHGT_areaReputation") then {
+	SHGT_areaReputation = createHashMap;
+	{
+		_reputation = 0; // Initialize as this
+		SHGT_areaReputation set [_x, _reputation];
+		if (SHGT_civInteraction_debug isEqualTo true) then {
+			_x setMarkerColor "ColorCIV";
+			_x setmarkerAlpha 0.5;
+		} else {
+			_x setmarkerAlpha 0;
+		};
+	} forEach SHGT_civInteract_TOAR;
+};
 // SHGT_areaReputation set ['DharGhaffari', 8]; // Setting rep for a region example
 publicVariable "SHGT_areaReputation"; // update Hashmap for JIP
 

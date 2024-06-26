@@ -30,7 +30,10 @@ _playerArray = [];
 ["obj"] call SHGT_fnc_persist_saveObjects;
 
 // Save vehicles on the map to list
-["veh",SHGT_persist_vehicleToSave] call SHGT_fnc_persist_saveVehicles;
+["veh"] call SHGT_fnc_persist_saveVehicles;
+
+// Save civ interaction/reputation system data
+[] call SHGT_fnc_persist_saveCivInteract;
 
 // Save metadata
 _saveNameMeta = format ["%1_%2",SHGT_persist_dbName,"meta"];

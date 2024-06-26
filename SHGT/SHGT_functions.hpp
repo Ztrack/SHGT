@@ -35,6 +35,8 @@ class SHGT {
 		class persist_saveBases {};
 		class persist_loadBases {};
 		class persist_autoSave {};
+		class persist_saveCivInteract {};
+		class persist_loadCivInteract {};
 	};
 	class garage {
 		file = "SHGT\garage";

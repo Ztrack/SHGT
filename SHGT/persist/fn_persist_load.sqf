@@ -42,4 +42,7 @@ if !(_temp isEqualTo []) then {SHGT_logistics_playerData = createHashMapFromArra
 // LOAD Vehicles DB
 ["veh",1] call SHGT_fnc_persist_spawnObjects; 
 
+// Load civ interact stats
+[] call SHGT_fnc_persist_loadCivInteract; 
+
 ["Persistence Loading Complete"] remoteExec ["systemChat"];

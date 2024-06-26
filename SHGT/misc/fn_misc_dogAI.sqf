@@ -74,6 +74,14 @@ if !(isServer) exitWith {};
 
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
+/*
+private _action = ["playerconnectToUav","Access fire control systems","",
+	{
+		//player addItem "B_UAVTerminal";  player assignItem "B_UAVTerminal";
+		{player enableUAVConnectability [_x,true];} forEach [tomahawk1,hammer1,hammer2];
+		{Player connectTerminalToUAV tomahawk1};
+	},{"B_UAVTerminal" in (items _player)},{},[],[0,0,0],2,[false, true, false, false, false],{}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 
 /*

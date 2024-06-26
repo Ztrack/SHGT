@@ -4,7 +4,9 @@
 {
 [_x, "init", {
     params ["_vehicle"];
-
+    [_vehicle] spawn {
+        sleep 10;
+        params ["_vehicle"];
     {
         _vehicle enableInfoPanelComponent ["left", _x, false];
         _vehicle enableInfoPanelComponent ["right", _x, false];
@@ -19,5 +21,6 @@
         "VehicleDriverDisplay",
         "VehicleGunnerDisplay"
     ];
+    };
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 } forEach SHGT_removeGPSfromVehicles;

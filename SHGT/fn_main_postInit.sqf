@@ -1,12 +1,12 @@
 if !isServer exitWith {};
 
 //Settings:
-SHGT_persist_autoLoad = true; // should the server load a save on start?
+SHGT_persist_autoLoad = false; // should the server load a save on start?
 SHGT_persist_autoSave = true; // autosave true/false
-SHGT_persist_adminTag = 'Spearhead'; // Tag that allows saving/loading
+SHGT_persist_adminTag = 'HQ'; // Tag that allows saving/loading
 SHGT_persist_autoSaveFrequency = 360; // in minutes
 SHGT_persist_dBNamePrefix = 'SHGT_dB';
-SHGT_persist_dBNamePostfix = 'lastthroes'; // set to '' if you want it to append the briefingName
+SHGT_persist_dBNamePostfix = 'testing'; // set to '' if you want it to append the briefingName
 SHGT_persist_hqObjectName = "Flag_Blue_F";
 SHGT_persist_fobObjectName = "Flag_Green_F";
 SHGT_persist_pbObjectName = "Land_WoodenLog_F";
