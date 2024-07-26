@@ -34,7 +34,7 @@ private _uiArray = [];
 		//systemchat format["_data: %1",_data];
 		//systemchat format["_value: %1",_value];
 		if _confirmed then {
-			_nearObj = nearestObjects [player, ["Car", "Tank","Plane","Helicopter"], 25];
+			_nearObj = nearestObjects [player, ["Car", "Tank","Plane","Helicopter","Ship"], 25];
 			if (_nearObj isEqualTo []) exitWith {systemChat "Nothing nearby to store";};
 			_obj = _nearObj select 0; 
 			_class = typeOf _obj;
