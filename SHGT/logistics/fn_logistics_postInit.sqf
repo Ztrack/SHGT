@@ -1,4 +1,12 @@
 
+
+// Define categories for lists
+SHGT_logistics_categories = createHashMap;
+SHGT_logistics_categories set ['HQ',['HQ','FOB','PB','WEAPONS','PERSONAL','CARGO']];
+SHGT_logistics_categories set ['FOB',['FOB','PB','WEAPONS','PERSONAL','CARGO']];
+SHGT_logistics_categories set ['PB',['PB','WEAPONS','PERSONAL','CARGO']];
+SHGT_logistics_categories set ['GLOBAL',['GLOBAL','CREATION']];
+
 // Parse logi list and create new variable [objclassname,cost,category]
 _tempList = parseSimpleArray SHGT_logistics_list; // parse list from module or from above default
 SHGT_logistics_list = [];

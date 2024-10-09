@@ -103,4 +103,10 @@ class SHGT {
 		class civInteract_Question_3 {};
 		class civInteract_curatorModules {postInit = 1};
 	};
+	class transport {
+		file = "SHGT\transport";
+		class transportInit {};
+		class flightorder {};
+		class recall {};
+	};
 };

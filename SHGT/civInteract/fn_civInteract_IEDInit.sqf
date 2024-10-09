@@ -6,12 +6,15 @@
 // instead of trying to build a marker array (many many markers), which could be performance heavy...
 // Could use nearestObjects to check for nearby IEDs if i want to create a minimum spawn distance
 
+if !(SHGT_civInteraction_iedSpawning isEqualTo true) exitWith {};
+
+
 SHGT_civInteraction_RoadIEDListAmmo = [];
 {
 	_ammo = ([getText(configFile >> "CfgVehicles" >> _x >> "ammo")] select 0);
 	if (_ammo isEqualTo "") then {
 		SHGT_civInteraction_RoadIEDListAmmo pushBackUnique _x;
-		ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
+		//ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
 	} else {
 		SHGT_civInteraction_RoadIEDListAmmo pushBackUnique _ammo;
 	};
@@ -23,7 +26,7 @@ SHGT_civInteraction_BuildingIEDListAmmo = [];
 	_ammo = ([getText(configFile >> "CfgVehicles" >> _x >> "ammo")] select 0);
 	if (_ammo isEqualTo "") then {
 		SHGT_civInteraction_BuildingIEDListAmmo pushBackUnique _x;
-		ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
+		//ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
 	} else {
 		SHGT_civInteraction_BuildingIEDListAmmo pushBackUnique _ammo;
 	};
@@ -40,7 +43,7 @@ SHGT_civInteraction_IEDListAmmo = [];
 	_ammo = ([getText(configFile >> "CfgVehicles" >> _x >> "ammo")] select 0);
 	if (_ammo isEqualTo "") then {
 		SHGT_civInteraction_IEDListAmmo pushBackUnique _x;
-		ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
+		//ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
 	} else {
 		SHGT_civInteraction_IEDListAmmo pushBackUnique _ammo;
 	};

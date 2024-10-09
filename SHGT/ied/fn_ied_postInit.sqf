@@ -32,7 +32,11 @@ SHGT_ied_iedListAmmo = [];
 	_ammo = ([getText(configFile >> "CfgVehicles" >> _x >> "ammo")] select 0);
 	if (_ammo isEqualTo "") then {
 		SHGT_ied_iedListAmmo pushBackUnique _x;
-		ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
+		//ace_minedetector_detectableClasses setVariable [_x,true]; // Set ACE object class to be detectable
+		//_detectables = +(uiNamespace getVariable "ace_minedetector_detectableclasses");
+		//_detectables set [_x, objNull];
+		//uiNamespace setVariable ["ace_minedetector_detectableclasses",_detectables,true];
+		
 	} else {
 		SHGT_ied_iedListAmmo pushBackUnique _ammo;
 	};
