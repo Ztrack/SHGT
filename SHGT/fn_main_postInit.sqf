@@ -86,6 +86,7 @@ SHGT_kickPlayerOnVehicleDeath = false; // Kicks players from a vehicle when the 
 SHGT_removeItemsFromAI = true; // Currently removes binos + radios from all AI
 SHGT_removeGPSfromVehicles = ["B_MRAP_01_F"]; // Remove GPS in vehicles from classnames
 SHGT_medical_interactionObject = "Land_PortableCabinet_01_medical_F";
+SHGT_intelcarrierUnits = ['O_Soldier_AAR_F']; // all of these units will drop documents
 
 // Declarations
 publicVariable "SHGT_medical_interactionObject";

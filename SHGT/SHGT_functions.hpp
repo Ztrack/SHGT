@@ -82,6 +82,7 @@ class SHGT {
 		class misc_addFullHealInteraction {};
 		class misc_cadence {};
 		class misc_dogAI {postInit = 1};
+		class misc_intelCarrier {postInit = 1};
 	};
 	class civInteract {
 		file = "SHGT\civInteract";

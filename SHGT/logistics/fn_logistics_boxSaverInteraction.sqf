@@ -2,9 +2,6 @@
 // Interaction 1: Save a crate to the server profile. Should save the box type, all contents, and input a profile name
 // Interaction 2: Player will have a UI popup to spawn a saved supply box loadout
 
-// Initialize status
-if !(SHGT_logistics_boxSaverStatus isEqualTo true) exitWith {};
-
 // Server Init
 if (isServer) then {
 	// Broadcast public variables
@@ -16,6 +13,9 @@ if (isServer) then {
 	if (typeName SHGT_logisticsBoxDatabase != "HASHMAP") exitWith { SHGT_logisticsBoxDatabase = createHashMap};
 	publicVariable "SHGT_logisticsBoxDatabase";
 };
+
+// Initialize status
+if !(SHGT_logistics_boxSaverStatus isEqualTo true) exitWith {};
 
 // player Init:
 if !(hasInterface) exitWith {};
