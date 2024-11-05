@@ -68,6 +68,12 @@ SHGT_civInteract_iedDefusalTownRepAdd = 2;
 SHGT_civInteraction_RoadIEDList = ['IEDLandBig_F','IEDUrbanBig_F','IEDLandSmall_F','IEDUrbanSmall_F','SHGT_jbad_tires'];
 SHGT_civInteraction_BuildingIEDList = ['SHGT_jbad_bag','SHGT_IED_jbad_opx2_barrel_black','SHGT_jbad_opx2_barrel_blue','SHGT_jbad_opx2_barrel_green','SHGT_jbad_opx2_barrel_yellow','SHGT_Land_Canister_EP1','SHGT_jbad_opx2_garbagebags','SHGT_rhsusf_props_ScepterMWC_OD','SHGT_Land_Tyre_F','SHGT_Radio_Old','SHGT_Land_Reservoir_EP1','SHGT_Suitcase','SHGT_jbad_opx2_tires','SHGT_jbad_tires','SHGT_Land_BarrelTrash_F','SHGT_IED_LandSmall','SHGT_jbad_Tv_a','SHGT_Land_Tyre_F','SHGT_Land_Sack_EP1'];
 
+// Box saver options
+SHGT_logistics_boxSaverStatus = true;
+SHGT_logistics_boxSaverInterActionObjectClass = 'B_supplyCrate_F';
+SHGT_logistics_boxSaverAdminTags = ['HQ','leadership'];
+SHGT_logisticsBoxEmpty = ['ACE_medicalSupplyCrate','ACE_Box_82mm_Mo_HE','ACE_Box_Ammo'];
+
 // Miscellanious settings
 SHGT_callToPrayer = false;
 SHGT_deleteAllMapLocations = false;
