@@ -24,54 +24,7 @@ if !(hasInterface) exitWith {};
 [SHGT_logistics_boxSaverInterActionObjectClass, "init", {
 	private _obj = (_this select 0);
 
-	// Initialize Interaction 1
-	_obj addAction ["Boxfiller - Save nearest box from arsenal to server", {
-		params ["_target", "_caller", "_actionId", "_arguments"];
-		_list = nearestObjects [getPosATL _target, ["ReammoBox_F"], 20];
-		_index = _list find _target;
-		_list deleteAt _index;
-		if (_list isEqualTo []) exitWith {systemChat "no boxes nearby"};
-		private _box = _list select 0;
-		_boxType = typeOf _box;
-		_contents = [getItemCargo _box, getMagazineCargo _box, getWeaponCargo _box, getBackpackCargo _box];
-		SHGT_boxParams = [_boxType,_contents];
-		
-		
-		// run UI function
-		//_boxName = 'testBox1';
-		
-		[
-    		[false,""],
-    		"Name this supply box",
-    		{
-        		systemchat format["Submitted flavour: %1",_text];
-				_boxName = _text;
-				if (_boxName isEqualTo '') exitWith {systemChat "add a profile name to save";};
-
-
-				// Save to database
-				SHGT_logisticsBoxDatabase set [_boxName,SHGT_boxParams];
-				publicVariable "SHGT_logisticsBoxDatabase";
-				[{
-					if !(isServer) exitWith {};
-					[] spawn {
-						sleep 5;
-						// save database
-						profileNamespace setVariable ["SHGT_logisticsBoxDatabase", SHGT_logisticsBoxDatabase];
-						saveProfileNamespace;
-					};
-				}] remoteExec ["call",0];
-
-    		},
-    		"Submit"
-		] call CAU_UserInputMenus_fnc_text;
-		
-	}, [], 1.5, false, true, "", 'true', 10];
-		
-		
-
-
-	// ADDACTION 2 START - Pulling resupply box
+	// ADDACTION 1 START - Pulling resupply box
 	_obj addAction ["Boxfiller - Pull a resupply box", {
 
 		// get supply box profile name
@@ -141,18 +94,59 @@ if !(hasInterface) exitWith {};
 			if ((count (_items select 0)) >0) then {
 			{ _obj addBackpackCargoGlobal [((_items select 0) select _forEachIndex),((_items select 1) select _forEachIndex)];
 			} forEach (_items select 0); };
-
 			systemChat format ["Created resupply box [%1] nearby",_boxProfileName];
-
-
-
-			
 			}; // end if confirmed
 		},
 		"confirm", // reverts to default
 		"cancel"  // reverts to default, disable cancel option
 		] call CAU_UserInputMenus_fnc_listbox;
 	}, [], 1.5, false, true, "", 'true', 10];
+
+	// Initialize Interaction 2 - Save nearest box from arsenal
+
+	_obj addAction ["Boxfiller - Save nearest box from arsenal to server", {
+		params ["_target", "_caller", "_actionId", "_arguments"];
+		_list = nearestObjects [getPosATL _target, ["ReammoBox_F"], 20];
+		_index = _list find _target;
+		_list deleteAt _index;
+		if (_list isEqualTo []) exitWith {systemChat "no boxes nearby"};
+		private _box = _list select 0;
+		_boxType = typeOf _box;
+		_contents = [getItemCargo _box, getMagazineCargo _box, getWeaponCargo _box, getBackpackCargo _box];
+		SHGT_boxParams = [_boxType,_contents];
+		
+		
+		// run UI function
+		//_boxName = 'testBox1';
+		
+		[
+    		[false,""],
+    		"Name this supply box",
+    		{
+        		systemchat format["Submitted flavour: %1",_text];
+				_boxName = _text;
+				if (_boxName isEqualTo '') exitWith {systemChat "add a profile name to save";};
+
+
+				// Save to database
+				SHGT_logisticsBoxDatabase set [_boxName,SHGT_boxParams];
+				publicVariable "SHGT_logisticsBoxDatabase";
+				[{
+					if !(isServer) exitWith {};
+					[] spawn {
+						sleep 5;
+						// save database
+						profileNamespace setVariable ["SHGT_logisticsBoxDatabase", SHGT_logisticsBoxDatabase];
+						saveProfileNamespace;
+					};
+				}] remoteExec ["call",0];
+
+    		},
+    		"Submit"
+		] call CAU_UserInputMenus_fnc_text;
+		
+	}, [], 1.5, false, true, "", 'true', 10];
+
 
 
 	// ADDACTION 3 - Deleting a profile
@@ -269,7 +263,64 @@ if !(hasInterface) exitWith {};
 
 
 
+	// ADDACTION 5 START - Fill nearest vehicle with supply box content
+	_obj addAction ["Boxfiller - Fill nearest vehicle with supply box content", {
 
+		// get supply box profile name
+		//_boxProfileName = 'testBox1';
+		_headline = "Select a resupply box profile";
+
+		private _uiArray = [];
+		{
+			_textLeft = [_x];
+			_textRight = [];
+			_pictureLeft = [];
+			_pictureRight = [];
+			_tooltip = "";
+			_data = _x;
+			_value = 0;
+		_uiArray pushBack [_textLeft,_textRight,_pictureLeft,_pictureRight,_tooltip,_data,_value];
+		} forEach SHGT_logisticsBoxDatabase;
+
+		[
+		[
+			_uiArray,
+			0, // Selects the _x option as default
+			false // Multi select disabled
+		],
+		_headline,
+		{
+			//systemchat format["_confirmed: %1",_confirmed];
+			//systemchat format["_index: %1",_index];
+			//systemchat format["_data: %1",_data];
+			//systemchat format["_value: %1",_value];
+			if _confirmed then {
+			_boxProfileName = _data;
+
+			// Load supply box params
+			_boxParams = SHGT_logisticsBoxDatabase get _boxProfileName;
+			_contents = _boxParams select 1;
+
+			// near nearest vehicle
+			_list = nearestObjects [getPosATL player, ["Car", "Tank","Plane","Helicopter","Ship"], 20];
+			if (_list isEqualTo []) exitWith {systemChat "no vehicles nearby"};
+			private _obj = _list select 0;
+
+			// fill container
+			_fullReturn = [_obj,_contents,true] call SHGT_fnc_logistics_fillContainer;
+
+			// report results
+			if (_fullReturn == true) then {
+				systemChat format ["Some items from [%1] couldnt fit",_boxProfileName]} 
+			else {
+				systemChat format ["Filled nearest vehicle with box profile [%1]",_boxProfileName];
+			}
+			}; // end if confirmed
+		},
+		"confirm", // reverts to default
+		"cancel"  // reverts to default, disable cancel option
+		] call CAU_UserInputMenus_fnc_listbox;
+	}, [], 1.5, false, true, "", 'true', 10];
 
 
 

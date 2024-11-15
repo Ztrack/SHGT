@@ -1,9 +1,8 @@
 // this function will initialize the helicopter with the sripts to begin transport
 // use this to initialize the helo:
-// [this,[pad1,pad2,pad3]] call SHGT_fnc_transportInit;
 // INPUT 1: Helicopter object with crew inside (just "this" in editor)
 // INPUT 2: variable names for helipads or another object that will act as landing points
-
+// USE EX: [this,[pad1,pad2,pad3]] call SHGT_fnc_transportInit;
 
 params ["_helo","_pads"];
 
@@ -33,24 +32,9 @@ _helo addAction [
     { 
 		params ["_target", "_caller", "_actionId", "_arguments"];
 		_helo = _arguments select 0;
-		_thisPad = _arguments select 1;
-		_group = group (driver _helo);   
-		_waypointPosition = getPosATL _thisPad;
+		_thisPad = _arguments select 1;   
 		systemChat "Order received, beginning transport";
-		{deleteWaypoint ((waypoints _group) select 0);} forEach (waypoints _group); // reset waypoints
-		_helo setfuel 1;
-		_wp1 = _group addWaypoint [_waypointPosition, 0];  
-		_wp1 setWaypointType "MOVE";  
-		_wp2 = _group addWaypoint [_waypointPosition, 0];  
-		_wp2 setWaypointType "SCRIPTED"; 
-		_wp2 setWaypointScript "A3\functions_f\waypoints\fn_wpLand.sqf";
-		[_helo,_thisPad] spawn {
-			params ["_helo","_thisPad"];
-			//systemChat "spawn started";
-			waitUntil { sleep 1; ((isTouchingGround _helo) and (_helo distance _thisPad) < 25)};
-			//systemChat "helo has landed";
-			_helo setfuel 0;
-		}
+		[[_helo,_thisPad],SHGT_fnc_flightorder] remoteExec ["spawn", 0];
 	},    
     [_helo,_thisPad],    
     8,    

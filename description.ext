@@ -7,29 +7,5 @@ class CfgFunctions {
 
 class CfgSounds
 {
-	class SHGT_c130rolling
-	{
-		name = "c130rolling";						// display name
-		sound[] = { "sounds\c130rolling.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
-		titles[] = {0,""};
-	};
-	class SHGT_greengrass
-	{
-		name = "greengrass";						// display name
-		sound[] = { "sounds\greengrass.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
-		titles[] = {0,""};
-	};
-	class SHGT_ileftmyhome
-	{
-		name = "ileftmyhome";						// display name
-		sound[] = { "sounds\ileftmyhome.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
-		titles[] = {0,""};
-	};
-	class SHGT_mamaCantYouSee
-	{
-		name = "mamaCantYouSee";						// display name
-		sound[] = { "sounds\mamaCantYouSee.ogg", 10, 1, 50 };	// file, volume, pitch, maxDistance
-		titles[] = {0,""};
-	};
-	#include "SHGT\SHGT_sounds.hpp"
+		#include "SHGT\SHGT_sounds.hpp"
 };

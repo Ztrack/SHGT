@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1026;
+		nextID=1033;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=438;
+		nextID=450;
 	};
 	class Camera
 	{
-		pos[]={1715.798,9.4944201,5215.3667};
-		dir[]={0.48449185,-0.61640465,-0.62073582};
-		up[]={0.37926313,0.78742951,-0.48591575};
-		aside[]={-0.78830647,-1.4901161e-08,-0.61528277};
+		pos[]={1750.5936,18.341776,5205.9614};
+		dir[]={-0.84989607,-0.4912692,0.19096653};
+		up[]={-0.47933638,0.87098694,0.10770318};
+		aside[]={0.21924697,-5.4552947e-07,0.97574896};
 	};
 };
 binarizationWanted=0;
@@ -78,13 +78,14 @@ addons[]=
 	"ace_explosives",
 	"ace_maptools",
 	"ace_trenches",
-	"ace_fortify"
+	"ace_fortify",
+	"A3_Soft_F_MRAP_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=38;
+		items=39;
 		class Item0
 		{
 			className="SHGT";
@@ -340,6 +341,13 @@ class AddonsMetaData
 			name="ACE3 - Fortify";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
+		};
+		class Item38
+		{
+			className="A3_Soft_F";
+			name="Arma 3 Alpha - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -19608,7 +19616,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=73;
+		items=74;
 		class Item0
 		{
 			dataType="Logic";
@@ -19699,7 +19707,20 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				class Attribute2
+				{
+					property="SHGT_arsenal_playerUIDs";
+					expression="_this setVariable ['SHGT_arsenal_playerUIDs',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[]";
+						};
+					};
+				};
+				nAttributes=3;
 			};
 		};
 		class Item2
@@ -21093,6 +21114,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1659.3947,5.7416191,5193.0747};
+				angles[]={0,3.2682984,0};
 			};
 			side="Empty";
 			flags=4;
@@ -21227,7 +21249,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1722.6228,5.5,5262.4351};
+				position[]={1718.8484,5.5,5249.4644};
 				angles[]={0,5.0322552,0};
 			};
 			side="Empty";
@@ -21293,15 +21315,16 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1723.3079,7.2791443,5262.186};
+				position[]={1719.533,7.2791443,5249.2148};
 				angles[]={0,5.1274633,0};
 			};
 			side="West";
 			flags=6;
 			class Attributes
 			{
+				ammo=0.89999998;
 				init="[this,[pad1,pad2,pad3]] call SHGT_fnc_transportInit;";
-				name="transporthelo";
+				name="transporthelo1";
 			};
 			id=1002;
 			type="B_Heli_Light_01_F";
@@ -21335,18 +21358,17 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1707.7245,5.3556514,5217.8877};
+						position[]={1723.3079,5.5014391,5262.2349};
 						angles[]={0,5.1274633,0};
 					};
 					side="West";
 					flags=6;
 					class Attributes
 					{
-						name="transportheloD";
+						name="transporthelo1D";
 					};
 					id=1003;
 					type="B_Helipilot_F";
-					atlOffset=-0.14578772;
 				};
 				class Item1
 				{
@@ -21368,6 +21390,7 @@ class Mission
 			};
 			class Attributes
 			{
+				name="group1";
 			};
 			class CrewLinks
 			{
@@ -21643,6 +21666,38 @@ class Mission
 						{
 							singleType="STRING";
 							value="[[[[],[]],[[],[]],[[""ACE_fieldDressing"",""ACE_bloodIV"",""kat_Armband_Medic_NVG"",""ACE_WaterBottle"",""ACE_MRE_LambCurry""],[10,5,1,1,1]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item73
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1723.1021,8.2582445,5217.2349};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1030;
+			type="B_MRAP_01_hmg_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
 						};
 					};
 				};

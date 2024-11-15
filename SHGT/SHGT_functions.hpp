@@ -22,6 +22,7 @@ class SHGT {
 		class logistics_lcla_loadCargo {};
 		class logistics_lcla_UnloadCargo {};
 		class logistics_boxSaverInteraction {postInit = 1;};
+		class logistics_fillContainer {};
 	};
 	class persist {
 		file = "SHGT\persist";
