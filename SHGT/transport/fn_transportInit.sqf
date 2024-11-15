@@ -51,24 +51,11 @@ _interactObject addAction ["<t color='#FFFF00'>Recall helicopter here</t>",
 		params ["_target", "_caller", "_actionId", "_arguments"];
 		_helo = _arguments select 0;
 		_thisPad = _arguments select 1;
-		_group = group (driver _helo);   
-		_waypointPosition = getPosATL _thisPad;
 		
 		// disallow recall if helo is in the air
 		if !(isTouchingGround _helo) exitWith {systemChat "Negative, we're currently on tasking"};
 		systemChat "Order received, Oscar Mike";
-		{deleteWaypoint ((waypoints _group) select 0);} forEach (waypoints _group); // reset waypoints
-		_helo setfuel 1;
-		_wp1 = _group addWaypoint [_waypointPosition, 0];  
-		_wp1 setWaypointType "MOVE";  
-		_wp2 = _group addWaypoint [_waypointPosition, 0];  
-		_wp2 setWaypointType "SCRIPTED"; 
-		_wp2 setWaypointScript "A3\functions_f\waypoints\fn_wpLand.sqf";
-		[_helo,_thisPad] spawn {
-			params ["_helo","_thisPad"];
-			waitUntil { sleep 1; ((isTouchingGround _helo) and (_helo distance _thisPad) < 25)};
-			_helo setfuel 0;
-		}
+		[[_helo,_thisPad],SHGT_fnc_flightorder] remoteExec ["spawn", 0];
 	},    
     [_helo,_thisPad],    
     8,    
