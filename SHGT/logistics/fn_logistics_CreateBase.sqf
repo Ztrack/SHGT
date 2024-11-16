@@ -16,7 +16,6 @@ isNil {
     //format ["Name this base: %1 x",baseType],
 	"Name this base:",
     {
-        if (_text isEqualTo "") then {_text = "DELETE ME";};
 		//_baseName = format["%1 %2",baseType, _text]; // add prefix baseType
 		_baseName = format["%1 %2","", _text];
 		_pos = getPosATL vehPlace;
@@ -26,10 +25,10 @@ isNil {
 		vehPlace setVariable ["baseName",_baseName,true];
 
 		_baseRespawn = [];
-		if !(baseType isEqualTo "PB") then {
+		if !(baseType in SHGT_persist_addSpawnToBases) then {
 			_baseRespawn = [missionNamespace,_pos,_baseName] call BIS_fnc_addRespawnPosition;
 		};
-		if (baseType isEqualTo "PB") then {
+		if (baseType in SHGT_persist_addPlayerSavingToBases) then {
 			[[vehPlace],SHGT_fnc_logistics_baseSavePlayer] remoteExec ["call",0,true];
 		};
 		vehPlace setVariable ["baseRespawn",_baseRespawn,true];

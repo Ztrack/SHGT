@@ -16,6 +16,10 @@ _veh addAction ["Load object for LCLA drop", {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 	private _veh = _arguments select 0;
 
+	// Check compatability
+	private _check = _veh getVariable ["SHGT_logistics_LCLA_disallowed",false];
+	if (_check isEqualTo true) exitWith {systemChat "This vehicle is not compatible with LCLA operations"};
+
 	// Select object to load
 	systemChat "Select a nearby object to load";
 	private _Objectlist = player nearObjects [SHGT_lcla_ObjecToCheck, 50];

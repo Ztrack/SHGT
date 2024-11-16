@@ -1,5 +1,7 @@
 // This function saves the reputation system stats
 
+// get module info
+if !(SHGT_civInteraction_status isEqualTo true) exitWith {};
 //SHGT_areaReputation
 _export = SHGT_areaReputation toArray false; // split arrays set to false
 

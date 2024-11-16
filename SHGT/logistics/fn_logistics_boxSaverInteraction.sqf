@@ -29,8 +29,9 @@ if !(hasInterface) exitWith {};
 
 		// get supply box profile name
 		//_boxProfileName = 'testBox1';
-		_headline = "Select a resupply box profile";
-
+		private _headline = "Select a resupply box profile";
+		private _Logilist = keys SHGT_logisticsBoxDatabase;
+		_Logilist sort true;
 		private _uiArray = [];
 		{
 			_textLeft = [_x];
@@ -41,7 +42,7 @@ if !(hasInterface) exitWith {};
 			_data = _x;
 			_value = 0;
 		_uiArray pushBack [_textLeft,_textRight,_pictureLeft,_pictureRight,_tooltip,_data,_value];
-		} forEach SHGT_logisticsBoxDatabase;
+		} forEach _Logilist;
 
 		[
 		[
@@ -261,7 +262,16 @@ if !(hasInterface) exitWith {};
 		] call CAU_UserInputMenus_fnc_listbox;
 	}, [], 1.5, false, true, "", 'true', 10];
 
-
+	_obj addAction ["Boxfiller - Put away nearest box", {
+		params ["_target", "_caller", "_actionId", "_arguments"];
+		_list = nearestObjects [getPosATL _target, ["ReammoBox_F"], 20];
+		_index = _list find _target;
+		_list deleteAt _index;
+		if (_list isEqualTo []) exitWith {systemChat "no boxes nearby"};
+		private _box = _list select 0;
+		deleteVehicle _box;
+		
+	}, [], 1.5, false, true, "", 'true', 10];
 
 	// ADDACTION 5 START - Fill nearest vehicle with supply box content
 	_obj addAction ["Boxfiller - Fill nearest vehicle with supply box content", {
@@ -322,8 +332,20 @@ if !(hasInterface) exitWith {};
 		] call CAU_UserInputMenus_fnc_listbox;
 	}, [], 1.5, false, true, "", 'true', 10];
 
+	_obj addAction ["Boxfiller - Clear nearest vehicle contents", {
+		params ["_target", "_caller", "_actionId", "_arguments"];
+		// near nearest vehicle
+		_list = nearestObjects [getPosATL player, ["Car", "Tank","Plane","Helicopter","Ship"], 20];
+		if (_list isEqualTo []) exitWith {systemChat "no vehicles nearby"};
+		private _obj = _list select 0;
 
-
+		// Clear cargo
+		clearItemCargoGlobal _obj;
+		clearMagazineCargoGlobal _obj;
+		clearWeaponCargoGlobal _obj;
+		clearBackpackCargoGlobal _obj;
+		
+	}, [], 1.5, false, true, "", 'true', 10];
 
 
 }, true, [], true] call CBA_fnc_addClassEventHandler;

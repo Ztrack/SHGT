@@ -33,7 +33,7 @@ _helo addAction [
 		params ["_target", "_caller", "_actionId", "_arguments"];
 		_helo = _arguments select 0;
 		_thisPad = _arguments select 1;   
-		systemChat "Order received, beginning transport";
+		systemChat "Pilot: Order received, beginning transport";
 		[[_helo,_thisPad],SHGT_fnc_flightorder] remoteExec ["spawn", 0];
 	},    
     [_helo,_thisPad],    
@@ -53,8 +53,23 @@ _interactObject addAction ["<t color='#FFFF00'>Recall helicopter here</t>",
 		_thisPad = _arguments select 1;
 		
 		// disallow recall if helo is in the air
-		if !(isTouchingGround _helo) exitWith {systemChat "Negative, we're currently on tasking"};
-		systemChat "Order received, Oscar Mike";
+		if !(isTouchingGround _helo) exitWith {
+			systemChat "Pilot: Negative, we're currently on tasking";
+			
+			[_helo,_thisPad] spawn {
+				params ["_helo","_thisPad"];
+				_oldPos = getPosATL _helo;
+				sleep 15;
+				_newPos = getPosATL _helo;
+
+				if ((_oldPos distance _newPos) < 5) then {
+					systemChat "Pilot: Instructions lost in the sauce, rerouting your way";
+				};
+				[[_helo,_thisPad],SHGT_fnc_flightorder] remoteExec ["spawn", 0];
+			};
+			
+			};
+		systemChat "Pilot: Order received, Oscar Mike";
 		[[_helo,_thisPad],SHGT_fnc_flightorder] remoteExec ["spawn", 0];
 	},    
     [_helo,_thisPad],    
@@ -66,3 +81,10 @@ _interactObject addAction ["<t color='#FFFF00'>Recall helicopter here</t>",
 ];
 
 } forEach _pads;
+
+
+// Step 6: remove LCLA compatability
+_helo setVariable ["SHGT_logistics_LCLA_disallowed",true,true];
+
+// Step 7: Modify ACE Cargo settings
+[_helo, 4] call ace_cargo_fnc_setSpace;

@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=450;
+		nextID=453;
 	};
 	class Camera
 	{
-		pos[]={1750.5936,18.341776,5205.9614};
-		dir[]={-0.84989607,-0.4912692,0.19096653};
-		up[]={-0.47933638,0.87098694,0.10770318};
-		aside[]={0.21924697,-5.4552947e-07,0.97574896};
+		pos[]={1711.2544,19.854753,5196.3901};
+		dir[]={0.17855079,-0.4708215,0.86397159};
+		up[]={0.095287733,0.88222849,0.46107829};
+		aside[]={0.97930598,7.4505806e-09,-0.20238611};
 	};
 };
 binarizationWanted=0;
@@ -21249,8 +21249,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1718.8484,5.5,5249.4644};
-				angles[]={0,5.0322552,0};
+				position[]={1713.9244,5.5,5212.1719};
+				angles[]={-0,5.0322552,0};
 			};
 			side="Empty";
 			flags=4;
@@ -21300,7 +21300,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1719.8503,6.7750001,5230.9492};
+				position[]={1718.8214,6.7750001,5218.9785};
 			};
 			side="Empty";
 			flags=5;
@@ -21315,8 +21315,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1719.533,7.2791443,5249.2148};
-				angles[]={0,5.1274633,0};
+				position[]={1714.609,7.2791443,5211.9224};
+				angles[]={-0,5.1274633,0};
 			};
 			side="West";
 			flags=6;
@@ -21359,7 +21359,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1723.3079,5.5014391,5262.2349};
-						angles[]={0,5.1274633,0};
+						angles[]={-0,5.1274633,0};
 					};
 					side="West";
 					flags=6;
@@ -21376,7 +21376,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1708.5394,5.3569021,5220.7358};
-						angles[]={0,5.1274633,0};
+						angles[]={-0,5.1274633,0};
 					};
 					side="West";
 					flags=4;
@@ -21439,7 +21439,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={1725.205,5.5014391,5210.146};
-						angles[]={0,1.9008555,0};
+						angles[]={0,4.8371792,-0};
 					};
 					side="West";
 					flags=7;
@@ -21677,7 +21677,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1723.1021,8.2582445,5217.2349};
+				position[]={1723.4503,8.2582445,5230.9741};
+				angles[]={-0,4.9543071,0};
 			};
 			side="Empty";
 			flags=4;
