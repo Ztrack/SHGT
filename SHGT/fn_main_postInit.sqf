@@ -76,6 +76,9 @@ SHGT_logistics_boxSaverInterActionObjectClass = 'B_supplyCrate_F';
 SHGT_logistics_boxSaverAdminTags = ['HQ','leadership'];
 SHGT_logisticsBoxEmpty = ['ACE_medicalSupplyCrate','ACE_Box_82mm_Mo_HE','ACE_Box_Ammo'];
 
+// Heli transport settings
+SHGT_transport_cargoSize = 4; // ACE cargo of helicopters set to transport
+
 // Miscellanious settings
 SHGT_callToPrayer = false;
 SHGT_deleteAllMapLocations = false;
@@ -89,6 +92,7 @@ SHGT_removeItemsFromAI = true; // Currently removes binos + radios from all AI
 SHGT_removeGPSfromVehicles = ["B_MRAP_01_F"]; // Remove GPS in vehicles from classnames
 SHGT_medical_interactionObject = "Land_PortableCabinet_01_medical_F";
 SHGT_intelcarrierUnits = ['O_Soldier_AAR_F']; // all of these units will drop documents
+
 
 // Declarations
 publicVariable "SHGT_medical_interactionObject";

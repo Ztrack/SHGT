@@ -87,4 +87,4 @@ _interactObject addAction ["<t color='#FFFF00'>Recall helicopter here</t>",
 _helo setVariable ["SHGT_logistics_LCLA_disallowed",true,true];
 
 // Step 7: Modify ACE Cargo settings
-[_helo, 4] call ace_cargo_fnc_setSpace;
+[_helo, SHGT_transport_cargoSize] call ace_cargo_fnc_setSpace;

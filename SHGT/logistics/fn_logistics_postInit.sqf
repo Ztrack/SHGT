@@ -58,3 +58,4 @@ publicVariable "SHGT_logistics_playerData";
 publicVariable "SHGT_persist_radiusToNextBase";
 publicVariable "SHGT_persist_addSpawnToBases";
 publicVariable "SHGT_persist_addPlayerSavingToBases";
+publicVariable "SHGT_transport_cargoSize";
