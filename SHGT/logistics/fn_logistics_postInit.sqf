@@ -40,10 +40,16 @@ SHGT_logistics_list insert [-1,[[SHGT_persist_pbObjectName,SHGT_persist_pbCost,"
 SHGT_logistics_playerData = createHashMap;
 [[],SHGT_fnc_logistics_baseLoadPlayer] remoteExec ["call",0,true];
 
+// Initialize box saving 
+SHGT_logisticsBoxDatabase = profileNamespace getVariable ["SHGT_logisticsBoxDatabase", createHashMap];
+if (typeName SHGT_logisticsBoxDatabase != "HASHMAP") exitWith { SHGT_logisticsBoxDatabase = createHashMap};
+publicVariable "SHGT_logisticsBoxDatabase";
+
+
 // Set done flag
 SHGT_logisticsPostInitCheck = true;
 
-
+/*
 // public variables
 publicVariable "SHGT_logistics_list";
 publicVariable "SHGT_logistics_list";

@@ -1,11 +1,11 @@
 class SHGT {
 	class main {
 		file = "SHGT";
-		class main_postInit {postInit = 1;};
+		class main_settings {preInit = 1;};
 	};
 	class logistics {
 		file = "SHGT\logistics";
-		class logistics_postInit {};
+		class logistics_postInit {postInit = 1};
 		class logistics_addActions {};
 		class logistics_addKeybinds {};
 		class logistics_guiUserSelectObject {};
@@ -26,7 +26,7 @@ class SHGT {
 	};
 	class persist {
 		file = "SHGT\persist";
-		class persist_postInit {};
+		class persist_postInit {postInit = 1};
 		class persist_addActions {};
 		class persist_deleteObjectsBeforeLoad {};
 		class persist_load {};
@@ -42,7 +42,7 @@ class SHGT {
 	};
 	class garage {
 		file = "SHGT\garage";
-		class garage_postInit {};
+		class garage_postInit {postInit = 1};
 		class garage_addActions {};
 		class garage_guiGarageVehicleSelect {};
 		class garage_spawnVehicle {};
@@ -55,7 +55,7 @@ class SHGT {
 	};
 	class ied {
 		file = "SHGT\ied";
-		class ied_postInit {};
+		class ied_postInit {postInit = 1};
 		class ied_vehicleInit {};
 		class ied_activate {};
 		class ied_CuratorModules {postInit = 1;};
@@ -64,7 +64,7 @@ class SHGT {
 	};
 	class misc {
 		file = "SHGT\misc";
-		class misc_postInit {};
+		class misc_postInit {postInit = 1};
 		class misc_addActions {};
 		class misc_quotesSay3d {};
 		class misc_callToPrayer {};

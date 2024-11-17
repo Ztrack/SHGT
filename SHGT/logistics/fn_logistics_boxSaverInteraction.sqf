@@ -2,23 +2,15 @@
 // Interaction 1: Save a crate to the server profile. Should save the box type, all contents, and input a profile name
 // Interaction 2: Player will have a UI popup to spawn a saved supply box loadout
 
-// Server Init
-if (isServer) then {
-	// Broadcast public variables
-	publicVariable "SHGT_logistics_boxSaverStatus";
-	publicVariable "SHGT_logistics_boxSaverInterActionObjectClass";
-	publicVariable "SHGT_logistics_boxSaverAdminTags";
-	publicVariable "SHGT_logisticsBoxEmpty";
-	SHGT_logisticsBoxDatabase = profileNamespace getVariable ["SHGT_logisticsBoxDatabase", createHashMap];
-	if (typeName SHGT_logisticsBoxDatabase != "HASHMAP") exitWith { SHGT_logisticsBoxDatabase = createHashMap};
-	publicVariable "SHGT_logisticsBoxDatabase";
-};
+// For SHGT_logisticsBoxDatabase initialiation, check fn_logistics_postInit.sqf
 
-// Initialize status
-if !(SHGT_logistics_boxSaverStatus isEqualTo true) exitWith {};
+//[{
 
 // player Init:
 if !(hasInterface) exitWith {};
+
+// Initialize status
+if !(SHGT_logistics_boxSaverStatus isEqualTo true) exitWith {};
 
 // Initialize class EH
 [SHGT_logistics_boxSaverInterActionObjectClass, "init", {
@@ -353,7 +345,7 @@ if !(hasInterface) exitWith {};
 
 
 
-
+//}, [], 15] call CBA_fnc_waitAndExecute;
 
 // how to remoteExec call with params:
 // [[62],{params ["_a"]; systemChat str _a;}] remoteExec ["call",0];

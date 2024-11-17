@@ -1,4 +1,3 @@
-if !isServer exitWith {};
 
 // Persistence Settings
 SHGT_persist_autoLoad = false; // should the server load a save on start?
@@ -93,9 +92,15 @@ SHGT_removeGPSfromVehicles = ["B_MRAP_01_F"]; // Remove GPS in vehicles from cla
 SHGT_medical_interactionObject = "Land_PortableCabinet_01_medical_F";
 SHGT_intelcarrierUnits = ['O_Soldier_AAR_F']; // all of these units will drop documents
 
+/*
+if !isServer exitWith {};
 
 // Declarations
 publicVariable "SHGT_medical_interactionObject";
+publicVariable "SHGT_logistics_boxSaverStatus";
+publicVariable "SHGT_logistics_boxSaverInterActionObjectClass";
+publicVariable "SHGT_logistics_boxSaverAdminTags";
+publicVariable "SHGT_logisticsBoxEmpty";
 
 // Call functions
 [] call SHGT_fnc_logistics_postInit;
