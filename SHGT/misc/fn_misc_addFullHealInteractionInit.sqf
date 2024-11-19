@@ -1,4 +1,5 @@
 // This init function will add an interaction to objects for players to full heal from. The actual interaction function called is stored in addFullHealInteraction
+publicVariable "SHGT_medical_interactionObject";
 
 [SHGT_medical_interactionObject, "init", {
 	private _veh = (_this select 0);

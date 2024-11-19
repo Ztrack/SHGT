@@ -1,4 +1,4 @@
-if !(isServer) exitWith {};
+
 
 // Persistence Settings
 SHGT_persist_autoLoad = false; // should the server load a save on start?
