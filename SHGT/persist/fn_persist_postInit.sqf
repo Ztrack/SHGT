@@ -1,5 +1,6 @@
 // Check if logi script is done
 //waitUntil{missionNameSpace getVariable ["SHGT_logisticsPostInitCheck",false];};
+if !(isServer) exitWith {};
 
 // Modify dB name to include the mission name
 if (SHGT_persist_dBNamePostfix isEqualTo '') then {SHGT_persist_dBNamePostfix = briefingName;};
@@ -27,6 +28,8 @@ publicVariable "SHGT_persist_autoSaveFrequency";
 publicVariable "SHGT_persist_autoLoad";
 publicVariable "SHGT_persist_autoSave";
 publicVariable "SHGT_persist_adminTag";
+publicVariable "SHGT_persist_dBNamePostfix";
+
 
 
 if (SHGT_persist_autoLoad isEqualTo true) then {[] call SHGT_fnc_persist_load;}; // autoload if option is true

@@ -1,3 +1,4 @@
+if !(isServer) exitWith {};
 if !(SHGT_odinInit isEqualTo true) exitWith {}; 
 
 

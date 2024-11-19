@@ -1,3 +1,4 @@
+if !(isServer) exitWith {};
 if !(SHGT_garageInit isEqualTo true) exitWith {}; 
 
 _tempList = [];

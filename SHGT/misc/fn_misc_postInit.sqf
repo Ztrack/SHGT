@@ -1,9 +1,13 @@
+if !(isServer) exitWith {};
+
+
 publicVariable "SHGT_callToPrayer";
 publicVariable "SHGT_deleteAllMapLocations";
 publicVariable "SHGT_removeAICollisionDamage";
 publicVariable "SHGT_addVehicleReloadingAction";
 publicVariable "SHGT_kickPlayerFromVehicleOnDeath";
 publicVariable "SHGT_removeGPSfromVehicles";
+publicVariable "SHGT_medical_interactionObject";
 
 [[],SHGT_fnc_misc_addActions] remoteExec ["call",-2,true];
 if (SHGT_checkMods isEqualTo true) then { [[],SHGT_fnc_misc_modChecker] remoteExec ["call",0,true]; };

@@ -1,4 +1,4 @@
-
+if !(isServer) exitWith {};
 
 // Define categories for lists
 SHGT_logistics_categories = createHashMap;
@@ -49,7 +49,7 @@ publicVariable "SHGT_logisticsBoxDatabase";
 // Set done flag
 SHGT_logisticsPostInitCheck = true;
 
-/*
+
 // public variables
 publicVariable "SHGT_logistics_list";
 publicVariable "SHGT_logistics_list";
@@ -65,3 +65,7 @@ publicVariable "SHGT_persist_radiusToNextBase";
 publicVariable "SHGT_persist_addSpawnToBases";
 publicVariable "SHGT_persist_addPlayerSavingToBases";
 publicVariable "SHGT_transport_cargoSize";
+publicVariable "SHGT_logistics_boxSaverStatus";
+publicVariable "SHGT_logistics_boxSaverInterActionObjectClass";
+publicVariable "SHGT_logistics_boxSaverAdminTags";
+publicVariable "SHGT_logisticsBoxEmpty";
