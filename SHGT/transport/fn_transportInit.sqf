@@ -6,25 +6,35 @@
 
 params ["_helo","_pads"];
 
-// step 1: If no crew exists, add them
+if (isServer) then {
+	// step 1: If no crew exists, add them
+	if (count (crew _helo) == 0) then {
+		createVehicleCrew _helo;
+	};
 
-if (count (crew _helo) == 0) then {
-	createVehicleCrew _helo;
+	// step 2: Ensure helo & crew are safe from damage
+	_helo allowDamage false;
+	{_x allowDamage false} forEach (crew _helo);
+
+	// Step 3: remove fuel at start
+	if (isTouchingGround _helo) then { _helo setfuel 0 };
+
+	// Step 4: Store configuration of helo and pads
+	if (isNull SHGT_transport_storage) then {SHGT_transport_storage = []};
+	SHGT_transport_storage pushBack [_helo,_pads];
+	publicVariable "SHGT_transport_storage";
+
+	// Step 5: remove LCLA compatability
+	_helo setVariable ["SHGT_logistics_LCLA_disallowed",true,true];
+
+	// Step 6: Modify ACE Cargo settings
+	[_helo, SHGT_transport_cargoSize] call ace_cargo_fnc_setSpace;
+
+	// Step 7: Make vehicle not persist
+	_helo getVariable ["SHGT_persist_ignore",true,true];
 };
 
-// step 2: Ensure helo & crew are safe from damage
-_helo allowDamage false;
-{_x allowDamage false} forEach (crew _helo);
-
-// Step 3: remove fuel at start
-if (isTouchingGround _helo) then { _helo setfuel 0 };
-
-// Step 4: Store configuration of helo and pads
-if (isNull SHGT_transport_storage) then {SHGT_transport_storage = []};
-SHGT_transport_storage pushBack [_helo,_pads];
-publicVariable "SHGT_transport_storage";
-
-// Step 5 (temp solution probably): Add addaction for each pad (must be executed locally)
+// Step 8: Add addaction for each pad (must be executed locally)
 {
 	_thisPad = _x;
 _helo addAction [
@@ -44,6 +54,7 @@ _helo addAction [
     ""   
 ];
 
+// Step 9: Add interaction to object so it recalls helo
 _interactObject = nearestObjects [_thisPad, ["Windsock_01_F"], 50];
 _interactObject = _interactObject select 0;
 _interactObject addAction ["<t color='#FFFF00'>Recall helicopter here</t>",    
@@ -81,10 +92,3 @@ _interactObject addAction ["<t color='#FFFF00'>Recall helicopter here</t>",
 ];
 
 } forEach _pads;
-
-
-// Step 6: remove LCLA compatability
-_helo setVariable ["SHGT_logistics_LCLA_disallowed",true,true];
-
-// Step 7: Modify ACE Cargo settings
-[_helo, SHGT_transport_cargoSize] call ace_cargo_fnc_setSpace;

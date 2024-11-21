@@ -29,4 +29,3 @@ publicVariable "SHGT_garage_target";
 publicVariable "SHGT_garage_tags";
 // add actions
 [[],SHGT_fnc_garage_addActions] remoteExec ["call",0,true]; // add actions to all garage objects
-[] call SHGT_fnc_garage_loadoutSaverInit;

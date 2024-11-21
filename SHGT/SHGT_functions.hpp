@@ -47,7 +47,7 @@ class SHGT {
 		class garage_guiGarageVehicleSelect {};
 		class garage_spawnVehicle {};
 		class garage_storeVehicle {};
-		class garage_loadoutSaverInit {};
+		class garage_loadoutSaverInit {postInit = 1;};
 	};
 	class odin {
 		file = "SHGT\odin";
