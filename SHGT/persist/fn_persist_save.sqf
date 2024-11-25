@@ -33,7 +33,7 @@ _playerArray = [];
 ["veh"] call SHGT_fnc_persist_saveVehicles;
 
 // Save civ interaction/reputation system data
-[] call SHGT_fnc_persist_saveCivInteract;
+if (SHGT_civInteraction_status isEqualTo true) then {[] call SHGT_fnc_persist_saveCivInteract; };
 
 // Save metadata
 _saveNameMeta = format ["%1_%2",SHGT_persist_dbName,"meta"];

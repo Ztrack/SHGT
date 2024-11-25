@@ -24,7 +24,7 @@ if (_fileExist isEqualTo false) then {SHGT_persist_inidbi = ["new", SHGT_persist
 
 // Send Msg
 [format ["LOADING DATABASE %1",_saveName]] remoteExec ["systemChat"];
- 
+
 // Load Garage
 _temp = ["read", ["Garage","array", []]] call SHGT_persist_inidbi;
 if !(_temp isEqualTo []) then {SHGT_garage_vehicleStorage = _temp; publicVariable "SHGT_garage_vehicleStorage";};
@@ -43,6 +43,6 @@ if !(_temp isEqualTo []) then {SHGT_logistics_playerData = createHashMapFromArra
 ["veh",1] call SHGT_fnc_persist_spawnObjects; 
 
 // Load civ interact stats
-[] call SHGT_fnc_persist_loadCivInteract; 
+if (SHGT_civInteraction_status isEqualTo true) then {[] call SHGT_fnc_persist_loadCivInteract; };
 
 ["Persistence Loading Complete"] remoteExec ["systemChat"];

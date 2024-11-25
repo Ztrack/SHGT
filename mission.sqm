@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1033;
+		nextID=1034;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=456;
+		nextID=462;
 	};
 	class Camera
 	{
-		pos[]={1715.7679,19.854753,5185.5112};
-		dir[]={0.17855081,-0.47082144,0.86397165};
-		up[]={0.095287718,0.88222843,0.4610782};
-		aside[]={0.97930586,0,-0.20238611};
+		pos[]={1694.8378,17.4734,5221.9761};
+		dir[]={0.82387924,-0.52637047,-0.21013615};
+		up[]={0.51004171,0.85025531,-0.1300897};
+		aside[]={-0.24714476,-7.4505806e-09,-0.96897858};
 	};
 };
 binarizationWanted=0;
@@ -19616,7 +19616,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=74;
+		items=75;
 		class Item0
 		{
 			dataType="Logic";
@@ -21704,6 +21704,22 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item74
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1736.9885,6.8528881,5223.2222};
+				angles[]={-0,4.9005566,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1033;
+			type="Land_Cargo10_military_green_F";
 		};
 	};
 	class Connections

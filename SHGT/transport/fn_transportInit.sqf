@@ -1,4 +1,4 @@
-// this function will initialize the helicopter with the sripts to begin transport
+// this function will initialize the helicopter with the scripts to begin transport
 // use this to initialize the helo:
 // INPUT 1: Helicopter object with crew inside (just "this" in editor)
 // INPUT 2: variable names for helipads or another object that will act as landing points
@@ -31,7 +31,7 @@ if (isServer) then {
 	[_helo, SHGT_transport_cargoSize] call ace_cargo_fnc_setSpace;
 
 	// Step 7: Make vehicle not persist
-	_helo getVariable ["SHGT_persist_ignore",true,true];
+	_helo setVariable ["SHGT_persist_ignore",true,true];
 };
 
 // Step 8: Add addaction for each pad (must be executed locally)

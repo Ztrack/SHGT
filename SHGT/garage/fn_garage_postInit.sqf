@@ -23,9 +23,10 @@ SHGT_garage_vehicleStorage = [];
 
 // Broadcast public variables
 publicVariable "SHGT_garage_status";
+publicVariable "SHGT_garage_interactObject";
 publicVariable "SHGT_garage_vehicleStorage";
-publicVariable "SHGT_garage_object";
 publicVariable "SHGT_garage_target";
 publicVariable "SHGT_garage_tags";
+
 // add actions
 [[],SHGT_fnc_garage_addActions] remoteExec ["call",0,true]; // add actions to all garage objects

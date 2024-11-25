@@ -25,7 +25,7 @@ isNil {
 		vehPlace setVariable ["baseName",_baseName,true];
 
 		_baseRespawn = [];
-		if !(baseType in SHGT_persist_addSpawnToBases) then {
+		if (baseType in SHGT_persist_addSpawnToBases) then {
 			_baseRespawn = [missionNamespace,_pos,_baseName] call BIS_fnc_addRespawnPosition;
 		};
 		if (baseType in SHGT_persist_addPlayerSavingToBases) then {

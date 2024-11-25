@@ -47,16 +47,18 @@ for "_i" from 0 to _numObj-1 do {
 	_obj setVariable ["baseName",_baseName,true];
 
 	// Create respawn
+	_baseType = [];
+	if (_objType isEqualTo SHGT_persist_hqObjectName) then {_baseType = "HQ";};
+	if (_objType isEqualTo SHGT_persist_fobObjectName) then {_baseType = "FOB";};
+	if (_objType isEqualTo SHGT_persist_pbObjectName) then {_baseType = "PB";};
 	_baseRespawn = [];
-	if !(_objType isEqualTo SHGT_persist_pbObjectName) then {
-		_baseRespawn = [missionNamespace, _pos,_baseName] call BIS_fnc_addRespawnPosition;
+	if (_baseType in SHGT_persist_addSpawnToBases) then {
+		_baseRespawn = [missionNamespace,_pos,_baseName] call BIS_fnc_addRespawnPosition;
+	};
+	if (_baseType in SHGT_persist_addPlayerSavingToBases) then {
+		[[_obj],SHGT_fnc_logistics_baseSavePlayer] remoteExec ["call",0,true];
 	};
 	_obj setVariable ["baseRespawn",_baseRespawn,true];
-
-	// Set player saving/loading at PB
-	if (_objType isEqualTo SHGT_persist_pbObjectName) then {
-			[[_obj],SHGT_fnc_logistics_baseSavePlayer] remoteExec ["call",0,true];
-	};
 };
 
 

@@ -1,7 +1,7 @@
 
 
 // Persistence Settings
-SHGT_persist_autoLoad = false; // should the server load a save on start?
+SHGT_persist_autoLoad = true; // should the server load a save on start?
 SHGT_persist_autoSave = true; // autosave true/false
 SHGT_persist_adminTag = 'HQ'; // Tag that allows saving/loading
 SHGT_persist_autoSaveFrequency = 360; // in minutes
@@ -31,7 +31,7 @@ SHGT_logistics_list = '[["Land_Cargo10_military_green_F","20","CARGO"],["Land_HB
 // Garage module Settings
 SHGT_garage_status = true;
 SHGT_garage_vehicleStorage = '[["common","B_MRAP_01_F","20"],["common","B_Boat_Transport_01_F","20"],["common","B_Boat_Armed_01_minigun_F","20"]]';
-SHGT_garage_object = ["Land_RepairDepot_01_tan_F"];
+SHGT_garage_interactObject = ["Land_RepairDepot_01_tan_F"];
 SHGT_garage_target = ["Land_HelipadEmpty_F","Land_JumpTarget_F","Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"];
 SHGT_garage_tags = ["common","reaper","misfit","gambler","viking","HQ"];
 

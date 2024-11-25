@@ -27,7 +27,7 @@ SHGT_logistics_list insert [-1,[[SHGT_persist_hqObjectName,0,"CREATION"]],true];
 SHGT_logistics_list insert [-1,[[SHGT_persist_fobObjectName,SHGT_persist_fobCost,"CREATION"]],true];
 SHGT_logistics_list insert [-1,[[SHGT_persist_pbObjectName,SHGT_persist_pbCost,"CREATION"]],true];
 {SHGT_logistics_list insert [-1,[[_x,0,"HQ"]],true]; } forEach SHGT_garage_target;
-{SHGT_logistics_list insert [-1,[[_x,0,"HQ"]],true];} forEach SHGT_garage_object;
+{SHGT_logistics_list insert [-1,[[_x,0,"HQ"]],true];} forEach SHGT_garage_interactObject;
 //SHGT_logistics_list insert [-1,[[SHGT_persist_pbObjectName,SHGT_persist_pbCost,"CREATION"]],true]; // implemented in guiUserSelectObject
 
 // add keybind for menu

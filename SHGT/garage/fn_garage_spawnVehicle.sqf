@@ -10,7 +10,7 @@ _numLeftAfter = _numLeftBefore-1;
 if (_numLeftBefore <= 0) exitWith{systemChat "None Left"};
 
 // Find nearest Garage
-_garageObject = nearestObjects [player, SHGT_garage_object,50];
+_garageObject = nearestObjects [player, SHGT_garage_interactObject,50];
 _garageObject = (_target select 0);
 
 // find nearest target that has space
