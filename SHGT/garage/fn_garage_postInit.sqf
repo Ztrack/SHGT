@@ -15,12 +15,6 @@ SHGT_garage_vehicleStorage = [];
 	SHGT_garage_vehicleStorage pushBack [_tag,_class,_numleft];
 } forEach _tempList;
 
-
-
-
-
-
-
 // Broadcast public variables
 publicVariable "SHGT_garage_status";
 publicVariable "SHGT_garage_interactObject";

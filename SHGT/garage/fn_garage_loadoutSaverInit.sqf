@@ -112,6 +112,18 @@ publicVariable "SHGT_garageLoadouts";
 		// Set loadout locally on every player
 		[[_veh],_exportVehicleCode] remoteExec ["call",0,true];
 
+		// EH for deleting objects when vehicle destroyed
+		_veh addEventHandler ["Killed", {
+			params ["_entity"];
+			{ deleteVehicle _x } forEach attachedObjects _entity;
+		}];
+		// EH for deleting objects when veh deleted
+		_veh addEventHandler ["Deleted", {
+			params ["_entity"];
+			if !(local _entity) exitWith {};
+			{ deleteVehicle _x } forEach attachedObjects _entity;
+		}];
+
 		}; // Close spawn function
 	}, true, [], true] call CBA_fnc_addClassEventHandler;
 } forEach SHGT_garageLoadouts;

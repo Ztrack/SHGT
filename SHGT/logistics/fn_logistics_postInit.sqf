@@ -8,7 +8,8 @@ SHGT_logistics_categories set ['PB',['PB','WEAPONS','PERSONAL','CARGO']];
 SHGT_logistics_categories set ['GLOBAL',['GLOBAL','CREATION']];
 
 // Parse logi list and create new variable [objclassname,cost,category]
-_tempList = parseSimpleArray SHGT_logistics_list; // parse list from module or from above default
+_tempList = SHGT_logistics_list;
+if (typeName SHGT_logistics_list isEqualTo "STRING") then {_tempList = parseSimpleArray SHGT_logistics_list} else {};
 SHGT_logistics_list = [];
 SHGT_logistics_cargoCapable = [];
 {
