@@ -1,14 +1,13 @@
-
 /*
-Run this code in init of object for attached objs, relative to a vehicle named 'car1' as an example:
-this attachTo [car1]; 
-
-or alternatively for automatic attachment:
+For automatic attachment:
 this attachTo [(nearestObjects [this, ["Car", "Tank","Plane","Helicopter","Ship"], 30] select 0)]; 
 */
 
+if !(isServer) exitWith {};
+
 [] spawn {
 sleep .01;
+
 private _loadOutModules = allMissionObjects "SHGT_garage_loadoutSaver";
 SHGT_garageLoadouts = createHashMap; // Initialize hashmap
 SHGT_garageAttachments = createHashMap; // Initialize hashmap
@@ -38,7 +37,6 @@ SHGT_garageAttachments = createHashMap; // Initialize hashmap
 
 			_attachments pushBack [_class,_pos,_dir];
 		} forEach attachedObjects _veh;
-		//systemChat str _attachments;
 
 		// Save vehicle to hashmap
 		SHGT_garageLoadouts set [_class,[_contents,_exportVehicleCode,_attachments]];
@@ -52,9 +50,7 @@ SHGT_garageAttachments = createHashMap; // Initialize hashmap
 } forEach _loadOutModules;
 publicVariable "SHGT_garageLoadouts";
 
-
-// Add class event handlers 
-// Initialize code to apply skins to all players since the function is local...
+// Add class event handler to set skin, cargo, and attachments
 
 {
 	[_x, "init", {
@@ -109,7 +105,7 @@ publicVariable "SHGT_garageLoadouts";
 			_obj setDir _newDir;
 		} forEach _attachments;
 
-		// Set loadout locally on every player
+		// Initialize code to apply skins to all players since the function is local
 		[[_veh],_exportVehicleCode] remoteExec ["call",0,true];
 
 		// EH for deleting objects when vehicle destroyed

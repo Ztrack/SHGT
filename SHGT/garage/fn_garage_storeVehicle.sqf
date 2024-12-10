@@ -38,12 +38,12 @@ private _uiArray = [];
 			if (_nearObj isEqualTo []) exitWith {systemChat "Nothing nearby to store";};
 			_obj = _nearObj select 0; 
 			_class = typeOf _obj;
-			_tag = _data;
+			_tag = toLower (_data);
 			_idx = []; // Init
 			_numLeft = []; // Init
 
 			{
-				_thisTag = _x select 0;
+				_thisTag = toLower (_x select 0);
 				_thisClass = _x select 1;
 				_thisLeft = _x select 2;
 				if ((_tag isEqualTo _thisTag) and (_class isEqualTo _thisClass)) then {

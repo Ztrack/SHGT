@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1036;
+		nextID=1045;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=468;
+		nextID=483;
 	};
 	class Camera
 	{
-		pos[]={1720.6237,16.604198,5210.7134};
-		dir[]={0.75658411,-0.62761223,-0.18353079};
-		up[]={0.60992354,0.77852601,-0.14795414};
-		aside[]={-0.23574132,0,-0.97181594};
+		pos[]={1701.6903,13.093501,5184.4453};
+		dir[]={0.29321635,-0.37990639,0.87732279};
+		up[]={0.12042353,0.92502499,0.36031517};
+		aside[]={0.94843149,-7.4505806e-09,-0.31698212};
 	};
 };
 binarizationWanted=0;
@@ -21056,9 +21056,132 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				textures="rhs_desert";
 			};
 			id=971;
 			type="rhsusf_M1083A1P2_B_WD_flatbed_fmtv_usarmy";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="VehicleCustomization";
+					expression="if (local _this) then {([_this] + _value + [true]) call (uinamespace getvariable 'BIS_fnc_initVehicle')};";
+					class Value
+					{
+						class data
+						{
+							singleType="ARRAY";
+							class value
+							{
+								items=2;
+								class Item0
+								{
+									class data
+									{
+										singleType="ARRAY";
+										class value
+										{
+											items=2;
+											class Item0
+											{
+												class data
+												{
+													singleType="STRING";
+													value="rhs_desert";
+												};
+											};
+											class Item1
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=1;
+												};
+											};
+										};
+									};
+								};
+								class Item1
+								{
+									class data
+									{
+										singleType="ARRAY";
+										class value
+										{
+											items=8;
+											class Item0
+											{
+												class data
+												{
+													singleType="STRING";
+													value="hide_cover";
+												};
+											};
+											class Item1
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=1;
+												};
+											};
+											class Item2
+											{
+												class data
+												{
+													singleType="STRING";
+													value="hide_scaffold";
+												};
+											};
+											class Item3
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=1;
+												};
+											};
+											class Item4
+											{
+												class data
+												{
+													singleType="STRING";
+													value="hide_bench";
+												};
+											};
+											class Item5
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=1;
+												};
+											};
+											class Item6
+											{
+												class data
+												{
+													singleType="STRING";
+													value="hide_spare";
+												};
+											};
+											class Item7
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=0;
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item59
 		{
@@ -21438,7 +21561,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1725.205,5.5014391,5210.146};
+						position[]={1715.0135,5.5014391,5174.6318};
 						angles[]={0,4.8371792,0};
 					};
 					side="West";
