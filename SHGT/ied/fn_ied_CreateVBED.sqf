@@ -15,9 +15,6 @@ params ["_veh"];
 		systemChat "vehicle offset not found"
 	};
 
-	// Determine if this vehicle has an ied randomly
-	if !(random 100 <= SHGT_ied_vbedChance) exitWith {};
-
 	private _class = _info select 0;
 	private _rand = (floor ( random (count _info -1))) +1;
 	private _selectedInfo = _info select _rand;

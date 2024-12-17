@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1045;
+		nextID=1046;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=483;
+		nextID=498;
 	};
 	class Camera
 	{
-		pos[]={1701.6903,13.093501,5184.4453};
-		dir[]={0.29321635,-0.37990639,0.87732279};
-		up[]={0.12042353,0.92502499,0.36031517};
-		aside[]={0.94843149,-7.4505806e-09,-0.31698212};
+		pos[]={1706.9286,13.958895,5154.3301};
+		dir[]={0.38496074,-0.40403363,0.82979655};
+		up[]={0.17003343,0.91474414,0.36651313};
+		aside[]={0.90713519,1.4901161e-08,-0.42083979};
 	};
 };
 binarizationWanted=0;
@@ -73,6 +73,7 @@ addons[]=
 	"A3_Weapons_F_Items",
 	"ace_medical_engine",
 	"ace_medical_treatment",
+	"UK3CB_Factions_Equipment_Vests",
 	"ace_attach",
 	"ace_chemlights",
 	"ace_explosives",
@@ -85,7 +86,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=39;
+		items=40;
 		class Item0
 		{
 			className="SHGT";
@@ -302,47 +303,54 @@ class AddonsMetaData
 		};
 		class Item32
 		{
+			className="UK3CB_Factions_Equipment";
+			name="3CB Factions - Equipment";
+			author="3 Commando Brigade";
+			url="www.3commandobrigade.com";
+		};
+		class Item33
+		{
 			className="ace_attach";
 			name="ACE3 - Attach";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item33
+		class Item34
 		{
 			className="ace_chemlights";
 			name="ACE3 - Chemlights";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item34
+		class Item35
 		{
 			className="ace_explosives";
 			name="ACE3 - Explosives";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item35
+		class Item36
 		{
 			className="ace_maptools";
 			name="ACE3 - Map Tools";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item36
+		class Item37
 		{
 			className="ace_trenches";
 			name="ACE3 - Trenches";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item37
+		class Item38
 		{
 			className="ace_fortify";
 			name="ACE3 - Fortify";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item38
+		class Item39
 		{
 			className="A3_Soft_F";
 			name="Arma 3 Alpha - Unarmored Land Vehicles";
@@ -20674,7 +20682,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={2402.293,15.954,5335.7012};
-			name="QazakoJumat";
+			name="TOAR1";
 			markerType="RECTANGLE";
 			type="";
 			a=1000;
@@ -20686,7 +20694,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={2028.392,5.9860001,2718.0569};
-			name="Gerdan";
+			name="TOAR3";
 			markerType="RECTANGLE";
 			type="";
 			a=374.09;
@@ -20698,7 +20706,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={1961.944,5.1100001,3557.2339};
-			name="KarShek";
+			name="TOAR2";
 			markerType="RECTANGLE";
 			type="";
 			a=374.09;
@@ -20867,7 +20875,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={2300.3689,9.3450003,2022.647};
-			name="AnbarTappeh";
+			name="TOAR4";
 			markerType="RECTANGLE";
 			type="";
 			a=374.09;
@@ -20879,7 +20887,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={3261.135,77.210999,2053.356};
-			name="EsaKhan";
+			name="TOAR5";
 			markerType="RECTANGLE";
 			type="";
 			a=374.09;
@@ -20891,7 +20899,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={3252.3621,201.25301,2750.8989};
-			name="Darreh";
+			name="TOAR6";
 			markerType="RECTANGLE";
 			type="";
 			a=374.09;
@@ -20903,7 +20911,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={4125.3872,43.407001,2807.9309};
-			name="TaherKamar";
+			name="TOAR7";
 			markerType="RECTANGLE";
 			type="";
 			a=374.09;

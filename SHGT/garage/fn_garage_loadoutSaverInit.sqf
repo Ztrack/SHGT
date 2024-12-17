@@ -109,14 +109,13 @@ publicVariable "SHGT_garageLoadouts";
 		[[_veh],_exportVehicleCode] remoteExec ["call",0,true];
 
 		// EH for deleting objects when vehicle destroyed
-		_veh addEventHandler ["Killed", {
+		_veh addEventHandler ["killed", {
 			params ["_entity"];
 			{ deleteVehicle _x } forEach attachedObjects _entity;
 		}];
 		// EH for deleting objects when veh deleted
 		_veh addEventHandler ["Deleted", {
 			params ["_entity"];
-			if !(local _entity) exitWith {};
 			{ deleteVehicle _x } forEach attachedObjects _entity;
 		}];
 

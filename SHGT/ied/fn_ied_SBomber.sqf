@@ -3,7 +3,7 @@
 
 params ["_unit"];
 //if (isNull _obj) then {private _grp = createGroup sideLogic; _obj = _grp createUnit ["UK3CB_TKC_O_CIV", [_pos select 0, _pos select 1,0], [], 10, "NONE"];};
-if (isNull _unit) exitWith {'No unit given'};
+if (isNull _unit) exitWith {systemChat 'No unit selected'};
 
 removeVest _unit;
 _unit addVest "V_TacVest_blk";

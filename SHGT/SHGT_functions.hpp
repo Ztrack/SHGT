@@ -1,4 +1,5 @@
-class SHGT {
+class CfgFunctions {
+	class SHGT {
 	class main {
 		file = "SHGT";
 		class main_settings {preInit = 1;};
@@ -116,4 +117,5 @@ class SHGT {
 		file = "SHGT\incognito";
 		class incognitoInit {postInit = 1};
 	};
+};
 };

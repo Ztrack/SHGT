@@ -33,13 +33,42 @@ SHGT_garage_status = true;
 SHGT_garage_vehicleStorage = [["Common","B_MRAP_01_F","20"],["Common","B_Truck_01_cargo_F","20"],["viking","B_Quadbike_01_F","20"]];
 SHGT_garage_interactObject = ["Land_RepairDepot_01_tan_F"];
 SHGT_garage_target = ["Land_HelipadEmpty_F","Land_JumpTarget_F","Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"];
-SHGT_garage_tags = ["common","reaper","misfit","gambler","viking","HQ"];
+SHGT_garage_tags = ["Common","Reaper","Misfit","Gambler","Viking","HQ"];
+
+// General IED settings
+SHGT_IEDs = true;
+SHGT_ied_ActivationSound = 'SHGT_nokia1'; // Any sound file set in the description.ext can work. Set to '' if you dont want it to play a sound. *IF YOU PUT A FILE IN THE MISSION FOLDER RESTART YOUR EDITOR SO IT CAN BE DETECTED*
+SHGT_ied_ActivationDelay = [2, 3, 5]; // Delay after a player triggers the ied that it will blow up. random # [min, middle, max], gaussian distribution centered on middle number, so its most likely to play the middle.
+SHGT_ied_ActivationDistance = [2, 3, 6]; // Same as activation delay, execept with distance to the ied
+SHGT_ied_iedList = ["IEDLandBig_F","IEDUrbanBig_F","IEDLandSmall_F","IEDUrbanSmall_F"]; // These IEDs or anything that inherits from these IEDs will active when players are nearby
+SHGT_ied_armingDistance = 10; // distance the player needs to be to start IED explosive checks
+SHGT_ied_vbedIed = ["IEDUrbanSmall_F"]; // Can be any type of explosive
+SHGT_ied_vbedChance = 100; // Chance an IED will be created in this vehicle
+SHGT_ied_radioActivationChance = 50;
+SHGT_ied_vbedVehicles = [
+	["UK3CB_TKC_C_Ikarus",[[0.968384,-2.12875,-1.49067],0],[[-1.06311,-3.48251,-1.49269],180]],
+	["UK3CB_TKC_C_Datsun_Civ_Closed",[[-0.617798,-1.09182,-0.701578],180],[[0.576538,-1.08843,-0.700819],270],[[0.676392,-0.191985,-1.02862],270]],
+	["UK3CB_TKC_C_Datsun_Civ_Open",[[0.578247,-1.05424,-0.655608],270],[[-0.587891,-1.25341,-0.65312],90]],
+	["UK3CB_TKC_C_Hatchback",[[0.501953,-0.742921,-0.767205],90],[[-0.659912,-0.82348,-0.760647],90],[[-0.0507813,-1.73746,-0.674392],0]],
+	["UK3CB_TKC_C_V3S_Closed",[[-0.482666,-2.55923,-1.08136],90],[[0.542603,0.747045,-1.18027],90],[[-0.449829,1.05857,-1.17781],90]],
+	["UK3CB_TKC_C_V3S_Refuel",[[-0.470215,0.596431,-1.05496],90],[[0.523926,0.268279,-1.05085],90],[[0.449585,-1.40538,-0.814045],90]],
+	["UK3CB_TKC_C_Lada",[[-0.560791,-0.362014,-1.17762],90],[[0.524658,-0.254109,-1.17901],90],[[0.0284424,1.74617,-1.14719],0]],
+	["UK3CB_TKC_C_Lada_Taxi",[[-0.560791,-0.362014,-1.17762],90],[[0.524658,-0.254109,-1.17901],90],[[0.0284424,1.74617,-1.14719],0]],
+	["UK3CB_TKC_C_LR_Open",[[0.713013,-1.05614,-0.756143],90],[[-0.689087,-1.08648,-0.684375],90],[[0.0506592,-1.62356,-1.20114],180]],
+	["UK3CB_TKC_C_S1203",[[-0.766724,-0.329753,-0.989581],0],[[0.777954,-1.29317,-0.985473],180],[[0.66333,-0.033069,-1.0162],90]],
+	["UK3CB_TKC_C_S1203_Amb",[[-0.766724,-0.329753,-0.989581],0],[[0.777954,-1.29317,-0.985473],180],[[0.66333,-0.033069,-1.0162],90]],
+	["UK3CB_TKC_C_Tractor_Old",[[0.173584,-0.217688,-0.701229],90],[[-0.610962,-0.526321,-0.665928],90],[[-0.155762,-0.0855422,-0.942806],0]],
+	["UK3CB_TKC_C_TT650",[[-0.165771,0.219547,-0.990426],0],[[-0.285278,-0.351278,-0.79853],270],[[-0.104858,-0.367388,-0.798436],270]],
+	["UK3CB_TKC_C_YAVA",[[-0.221069,0.227068,-1.00852],90],[[-0.00854492,0.0595554,-0.857423],90]],
+	["UK3CB_TKC_C_UAZ_Open",[[-0.679321,-0.153978,-0.678959],90],[[0.644897,-0.0890364,-0.678572],90],[[-0.115234,-1.48036,-0.599456],0]],
+	["UK3CB_TKC_C_Gaz24",[[-0.521729,-1.67738,-0.190179],0],[[-0.690063,-0.530409,-0.293328],90],[[-0.515747,-1.09803,-0.240185],270]]
+];
 
 // Civilian Interaction Module Settings
-SHGT_civInteraction_status = false; // If set to false, the module turns off
-SHGT_civInteraction_debug = false;
-SHGT_civInteract_TOAR = ['QazakoJumat','KarShek','Gerdan','TaherKamar','EsaKhan','Darreh','AnbarTappeh','MasjidAhmad','TappehKa','ShekKa','DharGhaffari','GhaffanKa','TalGozar','MasjidMuallem','MorSheykh','BabaRahim','JamaMasjid','NazarBay','OmarKhel','Naqel','MaghdootKhel','Mugdudkhila','LaghiMala','Chumchuqjar','ChaharDara','QaryaLaghi','LaghiAuliya']; // TOARs drawn on the editor map as markers of any type. Each marker is a town/area
-SHGT_civInteract_TOARActive = ['QazakoJumat','KarShek','Gerdan','TaherKamar','EsaKhan','Darreh','AnbarTappeh','MasjidAhmad','TappehKa','ShekKa','DharGhaffari','GhaffanKa','TalGozar','MasjidMuallem','MorSheykh','BabaRahim','JamaMasjid','NazarBay','OmarKhel','Naqel','MaghdootKhel','Mugdudkhila','LaghiMala','Chumchuqjar','ChaharDara','QaryaLaghi','LaghiAuliya']; // Only These towns will spawn ieds
+SHGT_civInteraction_status = true; // If set to false, the module turns off
+SHGT_civInteraction_debug = true;
+SHGT_civInteract_TOAR = ['TOAR1','TOAR2','TOAR3','TOAR4','TOAR5','TOAR6','TOAR7']; // TOARs drawn on the editor map as markers of any type. Each marker is a town/area
+SHGT_civInteract_TOARActive = ['TOAR1','TOAR2','TOAR3','TOAR4','TOAR5','TOAR6','TOAR7']; // Only These towns will spawn ieds
 SHGT_civInteract_responseSounds = ['SHGT_pash1','SHGT_pash2','SHGT_pash3','SHGT_pash4','SHGT_pash5','SHGT_pash6'];
 SHGT_civInteract_civrepSpread = 30; // Civ rep will be town rep +/- this number
 SHGT_civInteract_civrepaddedfromHumrat = 20;
@@ -49,26 +78,20 @@ SHGT_civInteract_TownrepAddedFromcivKilled = -20; // Triggers when civ is killed
 SHGT_civInteract_DefineCivHouses = ["Land_House_L_1_EP1","Land_House_C_3_EP1","Land_House_L_3_EP1","Land_House_L_3_dam_EP1","Land_House_L_3_H_EP1","Land_House_L_4_EP1","Land_House_L_4_dam_EP1","Land_House_L_6_EP1","Land_House_L_6_dam_EP1","Land_House_L_7_EP1","Land_House_L_7_dam_EP1","Land_House_L_8_EP1","Land_House_L_8_dam_EP1","Land_House_L_9_EP1","Land_House_K_1_EP1","Land_House_K_5_EP1","Land_House_K_5_dam_EP1","Land_House_K_8_EP1","Land_House_K_8_dam_EP1","Land_House_K_1_EP1","Land_House_K_5_EP1","Land_House_K_5_dam_EP1","Land_House_K_8_EP1","Land_House_K_8_dam_EP1","Land_House_K_6_EP1","Land_House_K_6_dam_EP1","Land_House_K_3_EP1","Land_House_K_3_dam_EP1","Land_House_K_3_EP1","Land_House_K_3_dam_EP1","Land_House_K_7_EP1","Land_House_K_7_dam_EP1","Land_House_K_2_basehide_EP1","Land_A_Minaret_EP1","Land_A_Minaret_dam_EP1","Land_A_Minaret_Porto_EP1","Land_A_Minaret_porto_dam_EP1","Land_A_Mosque_big_addon_EP1","Land_A_Mosque_big_hq_EP1","Land_A_Mosque_big_minaret_1_EP1","Land_A_Mosque_big_minaret_1_dam_EP1","Land_A_Mosque_big_minaret_2_EP1","Land_A_Mosque_big_minaret_2_dam_EP1","Land_A_Mosque_small_1_EP1","Land_A_Mosque_small_1_dam_EP1","Land_A_Mosque_small_2_dam_EP1","Land_A_Mosque_small_2_EP1","Land_House_C_12_EP1", "Land_House_C_12_dam_EP1", "Land_A_Stationhouse_ep1", "Land_Dum_istan4", "Land_Dum_istan4_big", "Land_Dum_istan2_01", "Land_Dum_istan2_02", "Land_Dum_istan2_04a", "Land_Dum_istan2_03", "Land_Dum_istan2_03a", "Land_Dum_istan4_detaily1", "Land_Dum_istan4_inverse", "Land_Dum_istan4_big_inverse", "Land_Dum_istan3_hromada", "Land_House_C_10_EP1", "Land_House_C_10_dam_EP1", "Land_House_C_11_EP1", "Land_House_C_11_dam_EP1", "Land_Dum_istan3_pumpa", "Land_House_C_5_EP1", "Land_House_C_5_dam_EP1", "Land_House_C_5_V1_EP1", "Land_House_C_5_V1_dam_EP1", "Land_House_C_5_V2_EP1", "Land_House_C_5_V2_dam_EP1", "Land_House_C_5_V3_EP1","Land_House_C_5_V3_dam_EP1", "Land_Dum_istan2", "Land_Dum_istan2b", "Land_Dum_mesto3_istan", "Land_Dum_istan3", "Land_Dum_istan3_hromada2", "Land_A_Villa_EP1", "Land_A_Villa_dam_EP1", "Land_House_C_4_EP1", "Land_House_C_4_dam_EP1", "Land_A_Office01_EP1","Land_House_C_9_EP1", "Land_House_C_9_dam_EP1", "Land_House_C_3_EP1", "Land_House_C_3_dam_EP1", "Land_House_C_2_EP1", "Land_House_C_2_DAM_EP1", "Land_House_C_1_EP1", "Land_House_C_1_dam_EP1", "Land_House_C_1_v2_EP1", "Land_House_C_1_v2_dam_EP1", "Land_Ind_PowerStation_EP1"];
 SHGT_civInteract_maxHumratRepGainPerDay = 100;
 
-// General IED settings
-SHGT_IEDs = true;
-SHGT_ied_ActivationSound = 'SHGT_nokia1'; // Any sound file set in the description.ext can work. Set to '' if you dont want it to play a sound. *IF YOU PUT A FILE IN THE MISSION FOLDER RESTART YOUR EDITOR SO IT CAN BE DETECTED*
-SHGT_ied_ActivationDelay = [2, 3, 5]; // Delay after a player triggers the ied that it will blow up. random # [min, middle, max], gaussian distribution centered on middle number, so its most likely to play the middle.
-SHGT_ied_ActivationDistance = [2, 3, 6]; // Same as activation delay, execept with distance to the ied
-
 // Civilian Reputation IED Spawner Settings
-SHGT_civInteraction_iedSpawning = false; // If set to false, the module turns off
+SHGT_civInteraction_iedSpawning = true; // If set to false, the module turns off
 SHGT_civInteract_maxIEDsDensity = 1; // Max density of IEDs per 100x100 meter area
 SHGT_civInteract_maxIEDsPerArea = 10; // Max ieds per large AO/town area
 SHGT_civInteract_SafeplayerProximity = 1000; // Check players are far enough before spawning a new IED
-SHGT_civInteract_IEDsUpdate = 60*4; // Time in minutes before a 'tick' is made to spawn more IEDs
-SHGT_civInteract_IEDSpawnRate = 1; // How many IEDs spawn per town area per tick.
+SHGT_civInteract_IEDsUpdate = .1; // Time in minutes before a 'tick' is made to spawn more IEDs
+SHGT_civInteract_IEDSpawnRate = 2; // How many IEDs spawn per town area per tick.
 SHGT_civInteract_IEDSpawnRoadChance = 50; // Chance an IED will spawn on a road vs near a building
 SHGT_civInteract_IEDminimumSpacing = 25; // minimum spacing between IED spawns
 SHGT_civInteract_highRepThreshold = 80; // At this reputation no more IEDS will spawn. Linear relationship between 0 and this number to determine max density and #
 SHGT_civInteraction_PauseIEDSpawningNearPlayers = true;
 SHGT_civInteract_iedDefusalTownRepAdd = 2;
-SHGT_civInteraction_RoadIEDList = ['IEDLandBig_F','IEDUrbanBig_F','IEDLandSmall_F','IEDUrbanSmall_F','SHGT_jbad_tires'];
-SHGT_civInteraction_BuildingIEDList = ['SHGT_jbad_bag','SHGT_IED_jbad_opx2_barrel_black','SHGT_jbad_opx2_barrel_blue','SHGT_jbad_opx2_barrel_green','SHGT_jbad_opx2_barrel_yellow','SHGT_Land_Canister_EP1','SHGT_jbad_opx2_garbagebags','SHGT_rhsusf_props_ScepterMWC_OD','SHGT_Land_Tyre_F','SHGT_Radio_Old','SHGT_Land_Reservoir_EP1','SHGT_Suitcase','SHGT_jbad_opx2_tires','SHGT_jbad_tires','SHGT_Land_BarrelTrash_F','SHGT_IED_LandSmall','SHGT_jbad_Tv_a','SHGT_Land_Tyre_F','SHGT_Land_Sack_EP1'];
+SHGT_civInteraction_RoadIEDList = ['IEDLandBig_F','IEDUrbanBig_F','IEDLandSmall_F','IEDUrbanSmall_F'];
+SHGT_civInteraction_BuildingIEDList = ['IEDLandBig_F','IEDUrbanBig_F','IEDLandSmall_F','IEDUrbanSmall_F'];
 
 // Box saver options
 SHGT_logistics_boxSaverStatus = true;
