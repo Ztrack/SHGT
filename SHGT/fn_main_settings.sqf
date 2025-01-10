@@ -29,7 +29,7 @@ SHGT_logistics_buildTimeMultiplier = 4; // Bigger number = will take longer. Dir
 SHGT_logistics_list = [["Land_Cargo10_military_green_F","20","CARGO"],["Land_HBarrier_1_F","1","FOB"],["Land_HBarrier_3_F","3","FOB"],["Land_HBarrier_5_F","5","FOB"],["Land_HBarrierWall_corridor_F","16","FOB"],["Land_HBarrierWall_corner_F","16","FOB"],["Land_HBarrierWall6_F","18","FOB"],["Land_HBarrierWall4_F","12","FOB"],["Land_HBarrierTower_F","50","FOB"],["Land_BagBunker_Small_F","10","FOB"],["Land_BagBunker_Large_F","50","FOB"],["Land_Razorwire_F","1","FOB"],["Land_CzechHedgehog_01_new_F","1","FOB"],["ACE_Wheel","1","FOB"],["ACE_Track","1","FOB"],["B_supplyCrate_F","0","FOB"],["Land_MedicalTent_01_NATO_generic_open_F","50","FOB"],["rhsusf_props_ScepterMFC_D","1","FOB"],["Land_BarGate_F","5","FOB"],["Land_Boxloader_Ramp_2m","2","FOB"],["land_boxloader_rampart_1m","2","FOB"],["Land_Boxloader_Ramp_1m","2","FOB"],["TFAR_Land_Communication_F","50","FOB"],["RHS_Stinger_AA_pod_D","100","FOB"],["RHS_M119_D","100","FOB"],["FIR_Baseplate","10","FOB"],["UK3CB_B_Searchlight_NATO_P","25","FOB"],["Land_Cargo40_military_green_F","0","HQ"],["Land_Boxloader_Fort_Helipad_Tarp_Mini","1","PB"],["Land_Boxloader_Fort_Helipad_Tarp_Mid","1","PB"],["PortableHelipadLight_01_white_F","1","PB"],["Land_CampingTable_F","1","PB"],["Land_CampingChair_V2_F","1","PB"],["Land_PortableLight_double_F","1","PB"],["Land_ConcreteWell_02_F","2","PB"],["Land_Sleeping_bag_F","1","PB"],["Campfire_burning_F","1","PB"],["CamoNet_BLUFOR_big_F","1","PB"],["Land_IntravenStand_01_empty_F","5","PB"],["Land_Boxloader_Crate_1","5","PB"],["Boxloader_VehicleAmmo_West","20","PB"],["Boxloader_BigPallet_Repair","20","PB"],["Boxloader_sixcon_fuel","20","PB"],["Land_Stretcher_01_sand_F","10","PB"],["ACE_envelope_small","-1","PB"],["ACE_envelope_big","-1","PB"],["CamoNet_BLUFOR_Curator_F","5","PB"],["CamoNet_BLUFOR_big_Curator_F","5","PB"],["Box_NATO_Ammo_F","1","PB"],["ACE_medicalSupplyCrate_advanced","1","PB"],["Land_BagFence_End_F","1","PERSONAL"],["Land_BagFence_Short_F","1","PERSONAL"],["Land_BagFence_Corner_F","2","PERSONAL"],["Land_BagFence_Round_F","2","PERSONAL"],["Land_BagFence_Long_F","2","PERSONAL"],["Land_SandbagBarricade_01_hole_F","5","PB"],["Land_SandbagBarricade_01_F","5","PB"],["Land_SandbagBarricade_01_half_F","3","PB"],["CUP_A2_Road_Bridge_wood_25","100","GLOBAL"],["Land_PortableCabinet_01_medical_F","20","FOB"],["UK3CB_B_Static_M240_Elcan_High_USMC_D","20","FOB"],["RHS_M2StaticMG_MiniTripod_USMC_D","20","FOB"],["RHS_TOW_TriPod_USMC_D","50","FOB"],["RHS_MK19_TriPod_USMC_D","20","FOB"]];
 
 // Garage module Settings
-SHGT_garage_status = true;
+SHGT_garage_status = false;
 SHGT_garage_vehicleStorage = [["Common","B_MRAP_01_F","20"],["Common","B_Truck_01_cargo_F","20"],["viking","B_Quadbike_01_F","20"]];
 SHGT_garage_interactObject = ["Land_RepairDepot_01_tan_F"];
 SHGT_garage_target = ["Land_HelipadEmpty_F","Land_JumpTarget_F","Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F"];
@@ -66,9 +66,9 @@ SHGT_ied_vbedVehicles = [
 
 // Civilian Interaction Module Settings
 SHGT_civInteraction_status = true; // If set to false, the module turns off
-SHGT_civInteraction_debug = true;
-SHGT_civInteract_TOAR = ['TOAR1','TOAR2','TOAR3','TOAR4','TOAR5','TOAR6','TOAR7']; // TOARs drawn on the editor map as markers of any type. Each marker is a town/area
-SHGT_civInteract_TOARActive = ['TOAR1','TOAR2','TOAR3','TOAR4','TOAR5','TOAR6','TOAR7']; // Only These towns will spawn ieds
+SHGT_civInteraction_debug = false;
+SHGT_civInteract_TOAR = ['TOAR1','TOAR2','TOAR3','TOAR4']; // TOARs drawn on the editor map as markers of any type. Each marker is a town/area
+SHGT_civInteract_TOARActive = ['TOAR1','TOAR2','TOAR3','TOAR4']; // Only These towns will spawn ieds
 SHGT_civInteract_responseSounds = ['SHGT_pash1','SHGT_pash2','SHGT_pash3','SHGT_pash4','SHGT_pash5','SHGT_pash6'];
 SHGT_civInteract_civrepSpread = 30; // Civ rep will be town rep +/- this number
 SHGT_civInteract_civrepaddedfromHumrat = 20;
@@ -94,7 +94,7 @@ SHGT_civInteraction_RoadIEDList = ['IEDLandBig_F','IEDUrbanBig_F','IEDLandSmall_
 SHGT_civInteraction_BuildingIEDList = ['IEDLandBig_F','IEDUrbanBig_F','IEDLandSmall_F','IEDUrbanSmall_F'];
 
 // Box saver options
-SHGT_logistics_boxSaverStatus = true;
+SHGT_logistics_boxSaverStatus = false;
 SHGT_logistics_boxSaverInterActionObjectClass = 'B_supplyCrate_F';
 SHGT_logistics_boxSaverAdminTags = ['HQ','leadership'];
 SHGT_logisticsBoxEmpty = ['ACE_medicalSupplyCrate','ACE_Box_82mm_Mo_HE','ACE_Box_Ammo'];

@@ -1,12 +1,8 @@
 
-if (isServer) then {publicVariable "SHGT_intelcarrierUnits"};
-//if (hasInterface) exitWith {};
-if !(isServer) exitWith {};
-//systemChat "script start";
-// Start class EH for each
 {
 	[_x, "init", {
 		_unit = (_this select 0);
+		if !(local _unit) exitWith {};
 		
 		private _hasItem = [_unit, "acex_intelitems_document"] call BIS_fnc_hasItem;
 		if (_hasItem) then { // Proceed if the item is found

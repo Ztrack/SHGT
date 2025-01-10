@@ -14,25 +14,30 @@ SHGT_persist_inidbi = ["new", _saveName] call OO_INIDBI;
 //"delete" call SHGT_persist_inidbi; // Delete the old save
 
 // Save Garage
-["write", ["Garage","array", SHGT_garage_vehicleStorage]] call SHGT_persist_inidbi; // Garage
+["Saving Garage..."] remoteExec ["systemChat"];
+["write", ["Garage","array", SHGT_garage_vehicleStorage]] call SHGT_persist_inidbi;
 
 // Save player data
+["Saving Player Data..."] remoteExec ["systemChat"];
 _playerArray = [];
 {
 	_playerArray pushBack [_x,_y];
 } forEach SHGT_logistics_playerData;
-["write", ["playerData","array", _playerArray]] call SHGT_persist_inidbi; // Garage
+["write", ["playerData","array", _playerArray]] call SHGT_persist_inidbi;
 
 // Save bases
+["Saving Logi builds..."] remoteExec ["systemChat"];
 ["base"] call SHGT_fnc_persist_saveBases;
 
 // Save objects associated with HQs that are set to persist
 ["obj"] call SHGT_fnc_persist_saveObjects;
 
 // Save vehicles on the map to list
+["Saving Vehicles..."] remoteExec ["systemChat"];
 ["veh"] call SHGT_fnc_persist_saveVehicles;
 
 // Save civ interaction/reputation system data
+["Saving Reputation..."] remoteExec ["systemChat"];
 if (SHGT_civInteraction_status isEqualTo true) then {[] call SHGT_fnc_persist_saveCivInteract; };
 
 // Save metadata
