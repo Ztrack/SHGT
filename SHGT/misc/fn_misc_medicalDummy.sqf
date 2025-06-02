@@ -25,68 +25,56 @@ SHGT_spawnDummy = {
 };
 
 SHGT_selectRndBodyPart = {
-	_part = round (random 5);
-	if (_part isEqualTo 0) then {_part = "Head"};
-	if (_part isEqualTo 1) then {_part = "Body"};
-	if (_part isEqualTo 2) then {_part = "LeftArm"};
-	if (_part isEqualTo 3) then {_part = "RightArm"};
-	if (_part isEqualTo 4) then {_part = "LeftLeg"};
-	if (_part isEqualTo 5) then {_part = "RightLeg"};
-	_part
+	selectRandom ["Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg"]
+};
+
+// Apply a set amount of wounds to a given unit over a given number of iterations.
+//
+// PARAMETERS:
+// _target (object) The unit to add damage to.
+// _iterations (integer): How many passes should be taken at the unit?
+// _minDamage (float, 0-1): What is the minumum severity of the damage to be added?
+// _maxDamage (float, 0-1): What is the maximum severity of the damage to be added?
+// _damageType (string): The type of damage to apply (bullet, explosive) 
+//
+// RETURNS: nil
+SHGT_applyWounds = {
+	params ["_target", "_iterations","_minDamage", "_maxDamage", "_damageType"];
+
+	// For each iteration...
+	for "_i" from 0 to _iterations do {
+
+		// Select a random body part
+		
+		// Select a random body part, compute the damage, and add it to the unit
+		// ace damage adding only works for [0,1)
+		_part = [] call SHGT_selectRndBodyPart;
+		_damage = random (_maxDamage - _minDamage) + _minDamage;
+		[_target, _damage, _part, _damageType] call ace_medical_fnc_addDamageToUnit;
+	};
 };
 
 SHGT_applyWoundsEasy = {
 	params ["_target"];
-	_unit = _target getVariable ["SHGT_patient",[]];
-	//systemChat str _unit;
-	_part = [] call SHGT_selectRndBodyPart;
-	_int = round ( random 6 + 4 );
-	[_unit, 6, _part, "bullet"] call ace_medical_fnc_addDamageToUnit;
-
-	_int = round ( random 6 + 4 );
-	_part = [] call SHGT_selectRndBodyPart;
-	[_unit, 6, _part, "bullet"] call ace_medical_fnc_addDamageToUnit;
-
+	[_target, 2, 0.1, 0.5, "bullet"] call SHGT_applyWounds;
 };
 
 SHGT_applyWoundsMedium = {
 	params ["_target"];
-	_unit = _target getVariable ["SHGT_patient",[]];
-	//systemChat str _unit;
-
-	for "_i" from 0 to 4 do {
-	_part = [] call SHGT_selectRndBodyPart;
-	_int = round ( random 4 + 4 );
-	[_unit, 6, _part, "bullet"] call ace_medical_fnc_addDamageToUnit;
-	};
-
+	[_target, 4, 0.3, 0.7, "bullet"] call SHGT_applyWounds;
 };
 
 SHGT_applyWoundsHard = {
-	params ["_target"];
-	_unit = _target getVariable ["SHGT_patient",[]];
-	//systemChat str _unit;
-
-	for "_i" from 0 to 7 do {
-	_part = [] call SHGT_selectRndBodyPart;
-	_int = round ( random 6 + 4 );
-	[_unit, 6, _part, "bullet"] call ace_medical_fnc_addDamageToUnit;
-	};
-
+	params ["_target"];	
+	[_target, 7, 0.3, 0.9, "bullet"] call SHGT_applyWounds;
 };
 
 SHGT_applyWoundsImpossible = {
 	params ["_target"];
-	_unit = _target getVariable ["SHGT_patient",[]];
-	//systemChat str _unit;
-
-	for "_i" from 0 to 12 do {
-	_part = [] call SHGT_selectRndBodyPart;
-	_int = round ( random 6 + 4 );
-	[_unit, 6, _part, "bullet"] call ace_medical_fnc_addDamageToUnit;
-	};
-
+	[_target, 12, 0.6, 1.0, "bullet"] call SHGT_applyWounds;
 };
+
+
 
 
 
