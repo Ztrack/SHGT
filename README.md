@@ -1,2 +1,0 @@
-# SHGT
- Spearhead Gaming Tools
