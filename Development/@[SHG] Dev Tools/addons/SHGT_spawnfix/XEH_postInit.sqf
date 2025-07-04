@@ -1,0 +1,1 @@
+["SHGT","spawnfix_init_key", "Spawn Fix - Unalive Self", {[] call SHGT_fnc_spawnfix_init}, "", [22, [false, true, true]]] call CBA_fnc_addKeybind;
