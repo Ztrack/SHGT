@@ -1,5 +1,6 @@
 SHGT_reporter_status = true;
-SHGT_zeus_log_UID_WhiteList = ["76561198025627975","76561197992886996","76561198044261733","76561198930843976"];
+SHGT_zeus_log_UID_WhiteList = ["76561198025627975","76561197992886996","76561198044261733"];
+// add "_SP_PLAYER_" for SP
 
 player addEventHandler ["HandleDamage", {
 	params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint", "_directHit", "_context"];
@@ -18,10 +19,8 @@ player addEventHandler ["HandleDamage", {
 	private _func = {
 		params ["_msg"];
 		if !(hasInterface) exitWith {};
-		if !(((getPlayerUID player) in ([SHGT_zeus_log_UID_WhiteList,"_SP_PLAYER_"] call BIS_fnc_arrayPush))) exitWith {};
-		player createDiaryRecord ['Diary', ["SHGT Zeus log",_msg]];
-	
-	}; 
+		if ((getPlayerUID player) in SHGT_zeus_log_UID_WhiteList) then {player createDiaryRecord ['Diary', ["SHGT Zeus log",_msg]];};
+	};
 	[[_msg],_func] remoteExec ["call", 0, true]; // send diary log to players
 	_unit setVariable ["SHGT_zeus_recentlyFiredOn",true]; // Make it so more EHs arent triggering this
 
