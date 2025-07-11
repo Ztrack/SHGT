@@ -11,7 +11,8 @@ _isCCP = (_logic getVariable ["SHGT_medicalDummy_isCCP",false]);
 	private _spawner = [_logic,SHGT_medicalDummy_spawner_object] call BIS_fnc_synchronizedObjects; // Get synchronized list creator modules
 	private _target = [_logic,SHGT_medicalDummy_target_object] call BIS_fnc_synchronizedObjects; // Get synchronized list creator modules
 
-	[_spawner select 0,_target select 0,_isCCP] call SHGT_medicalDummy_init; // Initialize spawner
+	//[_spawner select 0,_target select 0,_isCCP] call SHGT_medicalDummy_init; // Initialize spawner
+	[[_spawner select 0,_target select 0,_isCCP],SHGT_medicalDummy_init] remoteExec ["call", 0, true]; // Call function for JIP
 
 	deleteVehicle _logic; // Clean up logic
 };
