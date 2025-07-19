@@ -2600,19 +2600,19 @@ class CfgMagazineWells{
 };
 class Extended_PreStart_EventHandlers {
 	class M792 {
-		init = "call compile preProcessFileLineNumbers 'MSHORAD\XEH_preStart.sqf'";
+		init = "call compile preProcessFileLineNumbers 'SHG_MSHORAD\XEH_preStart.sqf'";
 	};
 	class XM1211 {
-		init = "call compile preProcessFileLineNumbers 'MSHORAD\XEH2_preStart.sqf'";
+		init = "call compile preProcessFileLineNumbers 'SHG_MSHORAD\XEH2_preStart.sqf'";
 	};
 };
 
 class Extended_PreInit_EventHandlers {
 	class M792 {
-		init = "call compile preProcessFileLineNumbers 'MSHORAD\XEH_preInit.sqf'";
+		init = "call compile preProcessFileLineNumbers 'SHG_MSHORAD\XEH_preInit.sqf'";
 	};
 	class XM1211 {
-		init = "call compile preProcessFileLineNumbers 'MSHORAD\XEH2_preInit.sqf'";
+		init = "call compile preProcessFileLineNumbers 'SHG_MSHORAD\XEH2_preInit.sqf'";
 	};
 };
 class CfgAmmo {
