@@ -28,7 +28,8 @@ class CfgPatches{
 			"rhs_ammo_M792_Prox",
 			"shg_ammo_XM1211_Prox",
 			"shg_ammo_XM1211",
-			"shg_ammo_XM1198"
+			"shg_ammo_XM1198",
+			"shg_ammo_XM1198_HEDP_penetrator"
         };
 		skipWhenMissingDependencies = 1;
         requiredVersion = 1.0;
@@ -2634,11 +2635,20 @@ class CfgAmmo {
 		caliber=3;
 	};
 	class shg_ammo_XM1198: RHS_ammo_M792_HEI{
+		ace_frag_charge = 250;
+		ace_frag_classes[] = {"ACE_frag_small","ACE_frag_medium_HD"};
+		ace_frag_gurney_c = 2750;
+		ace_frag_gurney_k = 0.6;
 		hit=100;
-		indirectHit=10;
-		indirectHitRange=2;
+		indirectHit=25;
+		indirectHitRange=5;
 		explosive = 1.5;
 		caliber=6;
+		submunitionAmmo = "shg_ammo_XM1198_HEDP_penetrator";
+		submunitionDirectionType = "SubmunitionModelDirection";
+		submunitionInitialOffset[] = {0,0,-0.1};
+		submunitionInitSpeed = 1053;
+		submunitionParentSpeedCoef = 0;
 	};
 	class shg_ammo_XM1211_Prox: RHS_ammo_M792_HEI{
 		hit=30;
@@ -2647,6 +2657,10 @@ class CfgAmmo {
 		explosive=0.95;	
 		simulation = "shotRocket";
 		timeToLive = 0;
+	};
+	class rhs_ammo_maaws_HEDP_penetrator;
+	class shg_ammo_XM1198_HEDP_penetrator: rhs_ammo_maaws_HEDP_penetrator{
+		caliber = 20;
 	};
 };
 class CfgMagazines{
